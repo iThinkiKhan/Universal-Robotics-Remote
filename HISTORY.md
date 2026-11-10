@@ -1,5 +1,8 @@
 # Engineering history
 
+## 2026-11-10 — Board model r003
+Agreed the datum (rear view, bottom-left, battery-connector end) and recorded caliper readings for holes B to F, hole A's Y, and A's X from photographs. Rectified two owner photographs onto a millimetre grid in that datum frame, using the caliper-measured holes as control points (residuals 0.04 to 0.33 mm), and traced the board contour at about ±0.4 mm with four hidden stretches bridged. Built r003 in FreeCAD with the contour and six holes and verified volume and hole count after reopening. A third-party flat scan of the OEM-style board matched the hole spacing to 0.1 mm but its edges differ by up to about 1 mm, so it served only as a private cross-check. Caliper spot-checks of the contour and connector/pad positions remain.
+
 ## 2026-11-10 — First live L-X input
 The owner selected a direct temporary GPIO5-to-L-X probe with common ground, omitting the proposed resistor and capacitor, and confirmed that the S3 display follows the joystick. The serial diagnostic showed progressing acquisition without ADC errors, a16.937 ms recorded maximum loop and no microphone errors. Sampling was stopped afterward. See measurements/bench/lx-01-direct-20261110.md; this records initial visible response, not a calibrated/full-interface acceptance test.
 
