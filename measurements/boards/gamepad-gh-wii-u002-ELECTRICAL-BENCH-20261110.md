@@ -33,7 +33,9 @@ Physical directions for each extreme were **not** recorded. Intermediate lineari
 ## Button observations
 
 - `L-3` and `R-3`: approximately 3 V released; approximately 0 V pressed.
-- Other buttons sampled by the owner: approximately 3 V **released**. Exact pads tested not named; **pressed states have not been verified**.
+- `L-2` shoulder pad, as named by owner: approximately 3 V released, 0 V pressed. Exact silkscreen spelling/position to reconcile with earlier `L2` notation and photo before harness naming.
+- One face-button pad (exact label not supplied): approximately 3 V released, 0 V pressed. Do not extrapolate to all face buttons.
+- Other sampled buttons: approximately 3 V **released**. Remaining pressed states not measured individually.
 - Do not assume that the entire button PCB has independent ground-switched inputs. Matrix scanning, resistor networks, intermittent line activity and attached original ICs remain possible.
 
 ## Suspected serial-bus pads
@@ -52,7 +54,7 @@ These readings are **consistent with**, but do **not prove**, idle I2C. They do 
 
 ## Next bench checks
 
-1. On battery power and with S3 disconnected, measure a named face-button signal released **and pressed**, and repeat for one D-pad and one shoulder/trigger signal. Record pad label and behavior. If signal is unstable, use a logic analyzer instead of drawing conclusions from DMM average voltage.
+1. On battery power and with S3 disconnected, record the exact face-button pad whose active-low state was just confirmed, and test a named D-pad signal and at least one additional shoulder/trigger signal released **and pressed**. Record pad label and behavior. If signal is unstable, use a logic analyzer instead of drawing conclusions from DMM average voltage.
 2. With USB disconnected, measure the resting `B+` voltage. Check `VCC` with LEDs active and after timeout; record gamepad on/off states.
 3. With all sources unplugged, use continuity only for targeted ground/pad confirmation as needed. Do not use resistance/continuity on a powered board.
 4. Reconcile power transition and off-state behavior before designing any common-ground/observer connection to the S3; **do not bridge the original VCC, B+ or +5V rail to S3 3V3**.
