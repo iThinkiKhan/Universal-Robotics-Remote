@@ -1,5 +1,8 @@
 # Engineering decisions
 
+## 2026-11-10 — One bounded observer experiment before a custom harness
+Use the LX-01 model and test plan for a single input-only L-X/ADC1 observer. The dedicated profile is disarmed at boot and starts only by command after the bench preparation gate. The complete gamepad and control link stay disabled. The resistor/capacitor circuit has no powered-off-input protection: use a removable signal break, signal-last connection while both boards are powered, and signal-first removal before power/reset changes. Qualify a permanent protective interface separately before any final harness. Keep actual readings and unmeasured mechanical dimensions explicit; software compilation does not complete the physical test.
+
 ## 2026-11-10 — Measured envelope before board outline
 W/H/T define a rectangular bounding envelope only. Hole A's diameter does not locate its center. Do not cut holes, infer the irregular contour from perspective photographs or claim enclosure fit before the missing measurements are recorded.
 

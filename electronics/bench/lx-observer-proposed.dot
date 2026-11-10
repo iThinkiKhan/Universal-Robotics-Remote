@@ -1,0 +1,21 @@
+digraph LX {
+  graph [rankdir=LR, bgcolor="white", pad=0.35, nodesep=0.55, ranksep=0.7,
+    label="LX-01 | SUPERVISED TEMPORARY TEST\nConnection model only: not a permanent harness or a dimensioned layout",
+    labelloc=t, fontsize=20, fontname="DejaVu Sans"];
+  node [shape=box, style="rounded,filled", fillcolor="#eef3f8", color="#526577", fontname="DejaVu Sans", fontsize=13, margin=0.18];
+  edge [fontname="DejaVu Sans", fontsize=11, color="#167e88", penwidth=2];
+  pad [label="GH-Wii U002\nOriginal battery only\nCharging USB disconnected\n\nL-X: reported ~0 / 1.5 / 3 V\nPCB and ribbons kept intact"];
+  disconnect [label="TEMPORARY SIGNAL BREAK\nConnect LAST, both powered\nDisconnect FIRST, before\nreset / upload / power change", fillcolor="#fff3d6", color="#a96700"];
+  resistor [label="R1: 10 kilohm\nSeries current limiting\nNOT power-off protection",fillcolor="#f6f0e7"];
+  adc [label="ESP32-S3 | GPIO5\nADC1 channel 4\nOwn USB supply\n\n100 Hz raw input\n10 Hz serial / filtered display\nBoot OFF; explicit axis start\n5 minute sampling timeout"];
+  capacitor [label="C1: 100 nF ceramic\nGPIO5 to common GND\nPlace close to S3 pin",fillcolor="#eaf5ec"];
+  ground [label="COMMON GROUND\nOnly shared supply reference\nInstall with both boards OFF\nRemove after signal is removed", fillcolor="#f0f0f0"];
+  limits [label="LEAVE DISCONNECTED\nB+ / VCC / +5V to S3\nOther axes and buttons\nSCL / SDA pads\nNo radio or actuators",fillcolor="#fff0ef",color="#b5554b"];
+  pad -> disconnect [label="L-X"];
+  disconnect -> resistor -> adc;
+  adc -> capacitor [dir=none,label="ADC node"];
+  capacitor -> ground [dir=none];
+  pad -> ground [dir=none,label="GND",color="#687784"];
+  ground -> adc [dir=none,label="GND",color="#687784"];
+  limits -> disconnect [style=dashed,arrowhead=none,color="#b5554b"];
+}

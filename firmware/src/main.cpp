@@ -5,14 +5,16 @@
 #include "Layout.h"
 #include "Microphone.h"
 #include "StripeCanvas.h"
+#include "AxisObserver.h"
 #include <esp_system.h>
 
 BenchConsole Console;
 Display display;
 Touch touch;
 Microphone microphone;
+AxisObserver axis;
 MicSnapshot mic;
-constexpr char version[]="0.1.1-bench";
+constexpr const char *version=URR_AXIS_OBSERVER ? "0.1.2-axis-bench" : "0.1.2-bench";
 constexpr uint16_t bg=0x0862,panelColor=0x10C4,muted=0x94B3,accent=0xFFE0,cyan=0x07FF;
 uint32_t readyAt=0,taps=0,paints=0,lastPaint=0,maxPaintUs=0,loopMaxUs=0;
 uint32_t touchEvents=0,lastTouchAt=0;
@@ -52,7 +54,7 @@ void drawScene() {
         snprintf(text,sizeof(text),"TOUCH    %s",touch.calibrated?"SAVED MAP LOADED":"CALIBRATION NEEDED");line(104,text);
         snprintf(text,sizeof(text),"MIC      %s",mic.initialized&&mic.nonzero?"STREAMING":"CHECK MIC PAGE");line(120,text);
         snprintf(text,sizeof(text),"UP %lus  HEAP %uK  PSRAM %uM",millis()/1000,ESP.getFreeHeap()/1024,(ESP.getPsramSize()+524288)/1048576);line(143,text,muted);
-        line(164,"GAMEPAD NOT CONNECTED",accent);line(179,"CONTROL LINK: DISABLED",muted);
+        line(164,axis.state.active ? "L-X OBSERVER / GPIO5" : "GAMEPAD CONTROL DISABLED",accent);line(179,"CONTROL LINK: DISABLED",muted);
     } else if(page==1) {
         line(61,"MICROPHONE",ILI9341_WHITE,2);
         snprintf(text,sizeof(text),"16kHz / LEFT / %s",mic.initialized?"I2S READY":"I2S ERROR");line(88,text,cyan);
@@ -70,13 +72,30 @@ void drawScene() {
         snprintf(text,sizeof(text),"RAW %d,%d  SCREEN %d,%d",lastRaw.x,lastRaw.y,lastPoint.x,lastPoint.y);line(111,text);
         line(132,"Tap targets and edges; watch coordinates.",muted);
         t.drawRect(14,153,292,33,accent);line(165,"TAP HERE TO RECALIBRATE",accent);
+    } else if(axis.available && axis.state.active) {
+        line(61,"L-X / INPUT OBSERVER",ILI9341_WHITE,2);
+        snprintf(text,sizeof(text),"GPIO5  RAW %u  FILTER %u",axis.state.raw,axis.state.filtered());line(91,text,cyan);
+        snprintf(text,sizeof(text),"ADC EST %lumV / COMPARE DMM",axis.state.millivolts);line(109,text);
+        t.drawRect(14,129,292,18,muted);
+        t.fillRect(15,130,int(axis.state.filtered())*290/4095,16,accent);
+        line(158,"REMOVE SIGNAL BEFORE POWER CHANGES",accent);
+        line(176,"OBSERVER ONLY / CONTROL DISABLED",muted);
     } else {
-        line(61,"NEXT: INPUT HARNESS",ILI9341_WHITE,2);
-        line(91,"1  Measure gamepad rails and axes");
-        line(109,"2  Verify buttons and power states");
-        line(127,"3  Fit removable signal harness");
-        line(150,"Axes / expander pins are uninitialized.",accent);
-        line(173,"No radio commands in bench firmware.",muted);
+        if(axis.available) {
+            line(61,"L-X TEST / DISARMED",ILI9341_WHITE,2);
+            line(91,"SERIAL: axis start / axis stop");
+            line(109,"First: S3-only ground reference");
+            line(127,"Sampling OFF after boot/timeout.");
+            line(150,"STOP DOES NOT ISOLATE THE WIRE",accent);
+            line(173,"Follow the LX-01 test sequence.",muted);
+        } else {
+            line(61,"NEXT: INPUT HARNESS",ILI9341_WHITE,2);
+            line(91,"1  Measure gamepad rails and axes");
+            line(109,"2  Verify buttons and power states");
+            line(127,"3  Fit removable signal harness");
+            line(150,"Axes / expander pins are uninitialized.",accent);
+            line(173,"No radio commands in bench firmware.",muted);
+        }
     }
 }
 void paint() {
@@ -107,6 +126,7 @@ void calibrationTarget() {
     t.drawCircle(p.x,p.y,10,cyan);t.drawFastHLine(p.x-16,p.y,33,accent);t.drawFastVLine(p.x,p.y-16,33,accent);
 }
 void startCalibration() {
+    if(axis.state.active) axis.stop("calibration");
     calibrating=true;patternMode=false;calStep=0;candidate=Calibration();calibrationTarget();
     Console.println("CALIBRATION hold 3 targets then center; existing NVS kept until verification; cancel to exit");
 }
@@ -124,6 +144,7 @@ void status() {
         touchEvents,lastRaw.x,lastRaw.y,lastPoint.x,lastPoint.y,taps,lastTouchAt);
     Console.printf("POLICY gamepad_enabled=%d radio_control=0 backlight_gpio=INPUT uart=43,44\n",Board::gamepadEnabled);
     reportMic();
+    axis.report(millis());
 }
 void selftest() {
     int passed=0,failed=0;
@@ -143,6 +164,7 @@ void selftest() {
     check(mic.initialized && mic.samples>16000 && mic.nonzero>0 && millis()-mic.at<1500,"mic_live_nonzero_samples");
     check(mic.errors==0,"mic_read_errors_zero");
     check(!Board::gamepadEnabled,"gamepad_disabled");
+    check(!axis.state.active,"axis_observer_disarmed_for_baseline");
     const RawPoint p=Layout::landscape(Layout::portrait({110,70}));
     check(p.x==110 && p.y==70,"touch_rotation_round_trip");
     Console.printf("SELFTEST passed=%d failed=%d\n",passed,failed);
@@ -152,17 +174,24 @@ void command(const char *s,bool usb) {
     else if(!strcmp(s,"mic")) reportMic();
     else if(!strcmp(s,"selftest")) { display.report();selftest(); }
     else if(!strcmp(s,"capture")) {
-        if(calibrating) Console.println("ERROR finish/cancel calibration before capture");
+        if(axis.state.active) Console.println("ERROR axis stop before binary capture");
+        else if(calibrating) Console.println("ERROR finish/cancel calibration before capture");
         else { rawLogging=false;if(!display.startCapture(usb)) Console.println("ERROR capture allocation failed"); }
     }
-    else if(!strcmp(s,"test")) { patternMode=true;display.pattern(); }
+    else if(!strcmp(s,"test")) { if(axis.state.active) axis.stop("display_test");patternMode=true;display.pattern(); }
     else if(!strcmp(s,"calibrate")) startCalibration();
     else if(!strcmp(s,"cancel")) { calibrating=patternMode=false;dirty=true; }
     else if(!strcmp(s,"raw on")) rawLogging=true;
     else if(!strcmp(s,"raw off")) rawLogging=false;
+    else if(!strcmp(s,"axis start")) {
+        if(calibrating || patternMode) Console.println("AXIS error=finish_calibration_or_test_first");
+        else if(axis.start(millis())) { page=3;dirty=true; }
+    }
+    else if(!strcmp(s,"axis stop")) { axis.stop();dirty=true; }
+    else if(!strcmp(s,"axis status")) axis.report(millis());
     else if(strlen(s)==6 && !strncmp(s,"page ",5) && s[5]>='0' && s[5]<='3') {
         page=s[5]-'0';calibrating=patternMode=false;dirty=true;
-    } else Console.println("Commands: status | selftest | mic | page 0..3 | raw on/off | test | capture | calibrate | cancel");
+    } else Console.println("Commands: status | selftest | mic | page 0..3 | raw on/off | test | capture | calibrate | cancel | axis start/stop/status");
 }
 struct Parser {
     char buffer[96]={};size_t used=0;bool overflow=false;
@@ -227,6 +256,9 @@ void setup() {
 }
 void loop() {
     uint32_t started=micros();
+    bool axisWasActive=axis.state.active;
+    axis.tick(millis());
+    if(axisWasActive!=axis.state.active) dirty=true;
     microphone.snapshot(mic);
     // Defer console commands during binary transfer, while touch/UI remain live.
     if(!display.capturing()) { uartParser.poll(Serial0,false);if(!display.capturing()) usbParser.poll(Serial,true); }

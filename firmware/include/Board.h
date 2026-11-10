@@ -29,5 +29,5 @@ constexpr int expanderSda = 18; // proposed
 constexpr int expanderScl = 21; // proposed
 constexpr uint32_t displayHz = 10000000;
 constexpr bool gamepadEnabled = false;
-constexpr const char *registryHash = "7ff4202bcb60";
+constexpr const char *registryHash = "d608b7c0d9ea";
 }

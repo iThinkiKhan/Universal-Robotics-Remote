@@ -1,4 +1,4 @@
-# GH-Wii U002 — logic analyzer observation (2026-11-10)
+# GH-Wii U002 â€” logic analyzer observation (2026-11-10)
 
 ## Owner-reported bench finding
 
@@ -11,15 +11,12 @@ The project owner constructed and operated a DIY logic analyzer. While monitorin
 - Do not repurpose the gamepad's `SCL`/`SDA` pads or use them as a connector/bus without a new, positive identification.
 - Further bus probing is deferred; the sampled inactivity does not block the first joystick observer test.
 - Original PCB, joystick boards, ribbons, and button contacts remain intact.
-- The measured joystick axes (~0–3 V, ~1.5 V center) and confirmed active-low button examples justify **planning**, not yet declaring installed, an observer harness.
+- The measured joystick axes (~0â€“3 V, ~1.5 V center) and confirmed active-low button examples justify **planning**, not yet declaring installed, an observer harness.
 
-## Next physical test — first joystick input (planning only)
+## Next physical test — LX-01 preparation and supervised observer
 
-1. Retain original gamepad battery power; unplug its USB charging lead. Keep original VCC / B+ / +5V entirely separate from the S3's 3V3 and USB supply.
-2. Before wiring, establish electrical readiness: original board's L-X rail reaches 0–3 V with movement and does not exceed S3 input limits in observed startup/shutdown; establish safe power sequencing and behavior when either system is off. If uncertain, stop rather than assuming a resistor is a voltage level shifter.
-3. With **both boards unpowered**, connect a common GND and a single observed signal: `L-X` pad through a **candidate 10 kΩ series resistor** to proposed S3 GPIO5 (confirm physical pin availability and firmware allocation before use). The resistor offers limited fault-current reduction, not guaranteed overvoltage protection; review ADC sampling/settling if readings are inaccurate. No other signals or power rails are connected.
-4. Power S3 from USB and gamepad from its battery. Firmware must configure the GPIO as high-impedance ADC input with **no pull-up, no drive/output**, log raw ADC and filtered samples, and leave radio/actuators disabled.
-5. Move only the left X axis through extremes and center. Compare ADC trend to the independent meter readings and note orientation, drift, supply voltage, startup state, and whether the gamepad rail changes under probe load. A 3 V input may not reach 4095 raw counts; use calibration, not assumed direct voltage proportionality.
-6. Power down both systems and verify the signal cannot backfeed the off board. Add one input group at a time only after the first channel's behavior is reviewed.
+The reviewed procedure is now [LX-01](../../docs/TEMP_INPUT_TEST.md), with its explicit connection model and staged result record. Start with the S3-only ground reference while the gamepad remains disconnected. Preserve the original battery arrangement and leave the charging USB, other signals and all power-rail joins disconnected.
 
-No connection has been physically installed or verified through these notes. J1's connector family, orientation, pin1, wiring dimensions and enclosure remain TBD. Follow `docs/MEASUREMENTS.md`, `hardware/signals.json`, `electronics/harnesses.json` and Git PR review before soldering a final harness.
+For the later single-axis step, install common ground with both boards off, leaving the L-X signal break open. Power and verify both devices independently, then attach L-X last through the proposed10 kΩ/100 nF input network. Remove the signal first before any reset, upload, shutdown or cable change. A series resistor and a software timeout do not provide power-off isolation; do not intentionally test a connected unpowered GPIO with this circuit. A permanent interface needs separate component-level power-state qualification.
+
+The dedicated bench firmware starts disarmed, reads only GPIO5/ADC1_CH4 after an explicit command and retains disabled control/radio functions. Native CAD remains a measured envelope; connector family, orientation, pin1, wiring dimensions and enclosure fit remain unresolved. No physical connection is declared installed or verified by these notes.

@@ -1,5 +1,7 @@
 # Staged project plan
 
+The next bounded experiment is [LX-01](TEMP_INPUT_TEST.md). Complete its S3-only reference and supervised single-axis gates before expanding inputs. Its temporary signal-break procedure is not the permanent power-off-safe interface design.
+
 ## 0. Recover and identify
 Record chip, flash, PSRAM, bridge identity, security state and the existing interface. Read all flash; verify against the device; hash the image. Retain a recovery procedure. Inspect original source without exposing its secrets.
 

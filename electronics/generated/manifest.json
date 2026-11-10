@@ -1,7 +1,7 @@
 {
   "tool": "WireViz 0.4.1 / Graphviz",
   "sha256": {
-    "hardware/signals.json": "7ff4202bcb600d0520df1c742b030e98bf1aae6eefd5dbf9a6a4c3875669690a",
+    "hardware/signals.json": "d608b7c0d9eaf2a43ff4d815941016b4439a368e948e8c2ea6007b2938b1f5d4",
     "electronics/harnesses.json": "167d848373c6abfd69c0c93abfbd0f4ac7f0ea416cb246fcdae172eebb2a4f0b",
     "electronics/harnesses/joystick-proposed.yml": "3c2cbc6b910a5ede0c657300d99f1335d8977f8adfcdf4ed435102d63a359247",
     "electronics/generated/joystick-proposed.png": "efcb0926f4ee00fd5ceb5206daf89ea9e6dc6cd162f785950f5eda8be8c3f151",

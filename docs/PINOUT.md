@@ -2,7 +2,7 @@
 
 Generated from hardware/signals.json. Proposed pins are not connection instructions.
 
-Registry SHA-256: `7ff4202bcb600d0520df1c742b030e98bf1aae6eefd5dbf9a6a4c3875669690a`
+Registry SHA-256: `d608b7c0d9eaf2a43ff4d815941016b4439a368e948e8c2ea6007b2938b1f5d4`
 
 | Signal | GPIO | Group | State |
 | --- | --- | --- | --- |

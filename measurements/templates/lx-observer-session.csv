@@ -1,0 +1,11 @@
+session,phase,position,physical_direction,gamepad_power,s3_power,firmware_commit,profile,resistor_ohm,capacitor_nf,dmm_point,dmm_v,adc_median,filtered_p95_minus_p5,raw_min,raw_max,mv_est,loop_max_us,mic_errors,touch_responsive,operator,date,evidence,result,notes
+,G1,ground,,,,,bench-axis-test,10000,100,GPIO5 to GND,,,,,,,,,,,,,,
+,G1,optional midpoint,,,,,bench-axis-test,10000,100,GPIO5 to GND,,,,,,,,,,,,,,
+,G2,low,,battery only; charger disconnected,disconnected,,,,,L-X to GND,,,,,,,,,,,,,,
+,G2,center,,battery only; charger disconnected,disconnected,,,,,L-X to GND,,,,,,,,,,,,,,
+,G2,high,,battery only; charger disconnected,disconnected,,,,,L-X to GND,,,,,,,,,,,,,,
+,G3,low,,battery only; charger disconnected,own USB,,bench-axis-test,10000,100,L-X to GND,,,,,,,,,,,,,,
+,G3,center return 1,,battery only; charger disconnected,own USB,,bench-axis-test,10000,100,L-X to GND,,,,,,,,,,,,,,
+,G3,high,,battery only; charger disconnected,own USB,,bench-axis-test,10000,100,L-X to GND,,,,,,,,,,,,,,
+,G3,center return 2,,battery only; charger disconnected,own USB,,bench-axis-test,10000,100,L-X to GND,,,,,,,,,,,,,,
+,G3,center return 3,,battery only; charger disconnected,own USB,,bench-axis-test,10000,100,L-X to GND,,,,,,,,,,,,,,
