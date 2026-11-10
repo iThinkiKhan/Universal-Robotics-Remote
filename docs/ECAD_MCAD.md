@@ -6,6 +6,18 @@ Native CAD lives under `cad/`; derived STEP files, drawings and review images li
 
 Open `cad/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r002.FCStd` in FreeCAD. It contains ten photo references and the measured W/H/T bounding envelope. The irregular contour and hole positions remain unknown. It is not an enclosure or a fabrication model.
 
+### Recording the outline, holes and datum
+
+The builder turns measured geometry into a native body, but only from entries marked `measured`. Nothing is defaulted, and an inconsistent record stops the build with a message rather than producing a plausible-looking model (`scripts/cad/survey_geometry.py`, covered by `tests/test_survey_geometry.py`).
+
+1. **Name the datum first.** Set `origin_description` in `measurements/boards/<board>.json`. A suggested default, still to be agreed by the project owner, is the lower-left corner of the bounding box in the reference view (photo 3081, USB at top, button-contact side up), X right, Y up, millimetres. Coordinates are rejected while the datum is blank.
+2. **Outline.** `outline.state` = `measured` and `outline.points_mm` = start point `[x, y]`, then `[x, y]` for each straight segment or `{"to": [x, y], "via": [x, y]}` for a circular arc through a measured mid-point. The contour closes back to the start. The traced span must agree with the measured W and H within 0.5 mm.
+3. **Holes.** Add to `mounting_holes`: `{"id": "A", "x_mm": ..., "y_mm": ..., "diameter_mm": ..., "state": "measured"}`. Slots add `slot_length_mm` (overall) and optional `angle_deg`. A hole `id` with no `diameter_mm` takes the measured reading of the same id (hole A). `measurements/photos/<board>/hole-map-3081.svg` labels the visible holes; it is an identification aid with no scale. A hole that breaks the outline edge belongs in the outline as a notch.
+4. **Connectors, pad groups, switches and modules** live in `measurements/boards/<board>-features.csv`. Rows stay `pending` with blank numbers until measured, with instrument and date.
+5. Increment the survey `revision`, run `build_board_survey.py` (checks volume, thickness and hole count after reopening the saved file), then `render_board_survey.py` for the axonometric and top review images.
+
+A traced or scanned outline is acceptable if the method, scale reference and uncertainty are recorded and a few points are spot-checked with calipers. Do not take scale from handheld or perspective photographs.
+
 Portable tools under `scripts/cad/` support other boards too:
 
 - `photo_archive.py`: import photographs and create a hash manifest/gallery. It preserves original bytes; remove identifying metadata from public copies before committing and update their hashes.

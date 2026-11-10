@@ -1,0 +1,25 @@
+id,feature,kind,photo,x_mm,y_mm,w_mm,l_mm,h_mm,orientation,instrument,uncertainty_mm,date,state,notes
+USB1,Mini-B USB receptacle,connector,3081 3089,,,,,,,,,,pending,Top edge on the PCB tongue. Need port centre on the datum; opening w x h; overhang past the board edge; height above PCB surface
+BATCN,Battery connector (white 2-position),connector,3089,,,,,,,,,,pending,Bottom-left in 3089 near B- B+ pads. Pin count and keying unverified; need centre; w x l x h; mating direction
+RIB-R,Right-stick ribbon termination on main PCB,pad-group,3089 3084,,,,,,,,,,pending,Labelled R-Y VCC R-X GND R-3 in 3089 (read from photo; confirm). Need position of pad row; pitch; first pad; ribbon exit direction; ribbon free length
+RIB-L,Left-stick ribbon termination on main PCB,pad-group,3086 3089,,,,,,,,,,pending,Photo 3086 shows the termination. Read pad labels from the board and confirm before recording; same measurements as RIB-R
+SW1,Left shoulder pad group,pad-group,3089,,,,,,,,,,pending,Silkscreen reads GND L2 L1 GND (photo-read). Ribbon to left shoulder board. Need position; pitch; ribbon length
+SW2,Right shoulder pad group,pad-group,3089,,,,,,,,,,pending,Silkscreen reads GND R2 R1 GND (photo-read). Ribbon to right shoulder board. Need position; pitch; ribbon length
+MOTOR,Rumble motor lead pads (MO),pad-group,3081 3089,,,,,,,,,,pending,Red and black motor leads soldered at the bottom-left. Motor not yet characterized. Need pad position and lead length
+HOME,HOME tact switch,switch,3081,,,,,,,,,,pending,Button side. Need centre and actuator height above PCB
+POWER,POWER tact switch,switch,3081,,,,,,,,,,pending,Button side. Need centre and actuator height above PCB
+SYNC,SYNC switch,switch,3089,,,,,,,,,,pending,Component side. Need centre; height
+RESET,RESET switch (REST on silkscreen),switch,3089,,,,,,,,,,pending,Component side. Need centre; height
+PAD-UP,D-pad UP contact,contact,3081,,,,,,,,,,pending,Round carbon contact. Need centre and diameter
+PAD-DOWN,D-pad DOWN contact,contact,3081,,,,,,,,,,pending,Need centre and diameter
+PAD-LEFT,D-pad LEFT contact,contact,3081,,,,,,,,,,pending,Need centre and diameter
+PAD-RIGHT,D-pad RIGHT contact,contact,3081,,,,,,,,,,pending,Need centre and diameter
+K-X,Face button X contact,contact,3081,,,,,,,,,,pending,Silkscreen K-X. Need centre and diameter
+K-Y,Face button Y contact,contact,3081,,,,,,,,,,pending,Silkscreen K-Y. Need centre and diameter
+K-A,Face button A contact,contact,3081,,,,,,,,,,pending,Silkscreen K-A. Need centre and diameter
+K-B,Face button B contact,contact,3081,,,,,,,,,,pending,Silkscreen K-B. Need centre and diameter
+LED-ROW,LED1 to LED4 row,led,3081,,,,,,,,,,pending,Bottom edge. Need centre of each LED and height. Needed only if the enclosure keeps the original indicator window
+LSTICK-BRD,Left joystick daughterboard,module,3082 3083 3085,,,,,,,,,,pending,Separate board on ribbon. Need outline envelope w x l x t; mounting-hole centres; stick shaft height above board; stick travel. Not locatable on the main PCB; see DIM04 in electrical.csv for housing spacing
+RSTICK-BRD,Right joystick daughterboard,module,3082 3083 3085,,,,,,,,,,pending,Same measurements as LSTICK-BRD
+LSHLDR-BRD,Left shoulder-button board,module,3080 3081,,,,,,,,,,pending,Separate board on ribbon. Need envelope; switch positions; actuator heights
+RSHLDR-BRD,Right shoulder-button board,module,3080 3081,,,,,,,,,,pending,Same measurements as LSHLDR-BRD

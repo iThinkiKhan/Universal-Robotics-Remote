@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1536 905" role="img" aria-label="Hole identification map on reference photo 3081">
+  <title>GH-Wii U002 hole identification map (photo 3081)</title>
+  <desc>Identification aid only. Positions on this image are photo pixels, not millimetres, and carry no dimensional information. Hole A is the one the project owner measured (diameter 4.83 mm). Letters B-G are working labels assigned for measurement bookkeeping.</desc>
+  <rect width="1536" height="905" fill="#ffffff"/>
+  <image href="originals/3081.jpg" xlink:href="originals/3081.jpg" x="0" y="0" width="1536" height="865"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" text-anchor="middle">
+    <g fill="none" stroke="#ffd400" stroke-width="5">
+      <circle cx="620" cy="325" r="34"/>
+      <circle cx="680" cy="765" r="40"/>
+      <circle cx="838" cy="688" r="26"/>
+      <circle cx="1028" cy="730" r="40"/>
+      <rect x="1318" y="615" width="92" height="44" rx="22"/>
+      <circle cx="1445" cy="622" r="22"/>
+      <circle cx="1493" cy="707" r="30" stroke-dasharray="9 7"/>
+    </g>
+    <g fill="#000" stroke="#ffd400" stroke-width="1">
+      <text x="620" y="268">A</text>
+      <text x="680" y="705">B</text>
+      <text x="838" y="640">C</text>
+      <text x="1028" y="672">D</text>
+      <text x="1364" y="600">E (slot)</text>
+      <text x="1445" y="578">F</text>
+      <text x="1493" y="762">G: solder terminal</text>
+    </g>
+  </g>
+  <rect x="0" y="865" width="1536" height="40" fill="#222"/>
+  <text x="768" y="892" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="middle">IDENTIFICATION AID ONLY - not a measurement, no scale. A = owner-measured 4.83 mm; B-F working labels; G is a soldered terminal, not a hole.</text>
+</svg>

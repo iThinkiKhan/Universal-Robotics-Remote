@@ -3,9 +3,13 @@ import hashlib
 import json
 import os
 import math
+import sys
 from pathlib import Path
 import FreeCAD as App
 import Part
+
+sys.path.insert(0,str(Path(os.environ.get("ECAD_SURVEY_SCRIPTS",Path(__file__).resolve().parent))))
+import survey_geometry
 
 project=Path(os.environ["ECAD_SURVEY_PROJECT"]).resolve()
 survey_path=project/os.environ["ECAD_SURVEY_RECORD"]
@@ -56,7 +60,39 @@ for index,module in enumerate(survey["separate_modules"],1):
     obj.Label=module["name"]
     obj.addProperty("App::PropertyString","Status");obj.Status=module["state"]
     modules.addObject(obj)
-if all(key in values for key in ("W","H","T")):
+geometry=survey_geometry.resolve(survey)      # raises on anything inconsistent; never defaults
+def _slot_or_round(hole,height,z):
+    p1,p2,r=hole["p1"],hole["p2"],hole["radius"]
+    shape=Part.makeCylinder(r,height,App.Vector(p1[0],p1[1],z))
+    length=math.dist(p1,p2)
+    if length>0:
+        box=Part.makeBox(length,2*r,height,App.Vector(0,-r,z))
+        box.rotate(App.Vector(0,0,0),App.Vector(0,0,1),math.degrees(math.atan2(p2[1]-p1[1],p2[0]-p1[0])))
+        box.translate(App.Vector(p1[0],p1[1],0))
+        shape=shape.fuse(box).fuse(Part.makeCylinder(r,height,App.Vector(p2[0],p2[1],z)))
+    return shape
+if geometry["outline"]:
+    if "T" not in values: raise ValueError("A measured outline needs a measured thickness T")
+    out=geometry["outline"]
+    edges=[];prev=out["start"]
+    for seg in out["segments"]:
+        if seg[0]=="line":
+            edges.append(Part.LineSegment(App.Vector(prev[0],prev[1],0),App.Vector(seg[1][0],seg[1][1],0)).toShape());prev=seg[1]
+        else:
+            edges.append(Part.Arc(App.Vector(prev[0],prev[1],0),App.Vector(seg[1][0],seg[1][1],0),App.Vector(seg[2][0],seg[2][1],0)).toShape());prev=seg[2]
+    if math.dist(prev,out["start"])>1e-9:
+        edges.append(Part.LineSegment(App.Vector(prev[0],prev[1],0),App.Vector(out["start"][0],out["start"][1],0)).toShape())
+    body=Part.Face(Part.Wire(edges)).extrude(App.Vector(0,0,-values["T"]))
+    for hole in geometry["holes"]:
+        body=body.cut(_slot_or_round(hole,values["T"]+2,-values["T"]-1))
+    board=doc.addObject("Part::Feature","MeasuredBoardBody")
+    board.Label="MEASURED OUTLINE AND HOLES — components and connectors unmodeled"
+    board.Shape=body
+    for name,value in {"Limitation":survey["model_policy"],"Datum":survey["origin_description"],
+                       "FrameNote":"Top surface Z=0, substrate below. X right, Y up from the named datum.",
+                       "HolesCut":", ".join(h["id"] for h in geometry["holes"]) or "none"}.items():
+        board.addProperty("App::PropertyString",name);setattr(board,name,value)
+elif all(key in values for key in ("W","H","T")):
     envelope=doc.addObject("Part::Feature","MeasuredBoundingEnvelope")
     envelope.Label="MEASURED ENVELOPE ONLY — irregular outline unmodeled"
     envelope.Shape=Part.makeBox(values["W"],values["H"],values["T"],App.Vector(0,0,-values["T"]))
@@ -69,7 +105,18 @@ report={"file":output.relative_to(project).as_posix(),"board_id":survey["board_i
         "state":survey["state"],"photo_references":len(manifest["photos"]),"solid_objects":shape_count,
         "expected_solid_objects":int(all(key in values for key in ("W","H","T"))),
         "native_reopened":True,"source_sha256":hashlib.sha256(survey_path.read_bytes()).hexdigest()}
-if shape_count:
+if geometry["outline"] and shape_count:
+    shape=check.getObject("MeasuredBoardBody").Shape
+    bounds=shape.BoundBox
+    expected=geometry["volume_mm3"]
+    report.update({"geometry":"measured_outline","datum":survey["origin_description"],
+                   "bounding_box_mm":[bounds.XLength,bounds.YLength,bounds.ZLength],
+                   "holes_cut":len(geometry["holes"]),"hole_ids":[h["id"] for h in geometry["holes"]],
+                   "body_volume_mm3":shape.Volume,"expected_volume_mm3":expected,"top_z_mm":bounds.ZMax})
+    if not shape.isValid() or len(shape.Solids)!=1: raise RuntimeError("Saved board body is not one valid solid")
+    if abs(shape.Volume-expected)>0.01*expected: raise RuntimeError("Saved body volume disagrees with the recorded measurements")
+    if abs(bounds.ZLength-values["T"])>1e-6: raise RuntimeError("Saved body thickness does not match T")
+elif shape_count:
     shape=check.getObject("MeasuredBoundingEnvelope").Shape
     bounds=shape.BoundBox
     report["envelope_dimensions_mm"]=[bounds.XLength,bounds.YLength,bounds.ZLength]
