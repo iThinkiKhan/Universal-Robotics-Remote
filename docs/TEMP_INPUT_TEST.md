@@ -1,5 +1,9 @@
 # LX-01: one predictable input before a custom harness
 
+## First live result
+
+The owner completed an initial [direct-probe L-X demonstration](../measurements/bench/lx-01-direct-20261110.md) without the resistor or capacitor and confirmed the display follows the joystick. Sampling was stopped afterward. This was an owner-selected quick powered-only variant; the RC circuit below remains a proposed interface, not the circuit used for that result. Formal position/DMM comparison, loading, held-center repeatability and powered-off protection remain unqualified.
+
 Start with **one L-X observer**, keeping the gamepad, daughterboards and ribbons intact. The goal is to see the physical joystick move on the S3 while screen, touch and microphone remain responsive. This is a supervised diagnostic connection, not the permanent power/interface design.
 
 The machine-readable test model is [lx-observer.json](../hardware/bench/lx-observer.json). The [connection diagram](../electronics/bench/lx-observer-proposed.svg) and its editable DOT source describe only this temporary circuit. The actual mechanical source is still the r002 **measured bounding envelope**, not an enclosure or exact PCB contour.

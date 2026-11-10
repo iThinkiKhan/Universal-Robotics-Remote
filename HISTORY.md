@@ -1,5 +1,8 @@
 # Engineering history
 
+## 2026-11-10 — First live L-X input
+The owner selected a direct temporary GPIO5-to-L-X probe with common ground, omitting the proposed resistor and capacitor, and confirmed that the S3 display follows the joystick. The serial diagnostic showed progressing acquisition without ADC errors, a16.937 ms recorded maximum loop and no microphone errors. Sampling was stopped afterward. See measurements/bench/lx-01-direct-20261110.md; this records initial visible response, not a calibrated/full-interface acceptance test.
+
 ## 2026-11-10 — Board survey
 Recorded W125.5/H62.5/T1.15/A4.83 mm and created native FreeCAD r002 as a measured bounding envelope. Reopened the document and verified geometry and a nonblank preview. Actual contour and hole positions remain pending. Ten hardware photos accompany the survey.
 

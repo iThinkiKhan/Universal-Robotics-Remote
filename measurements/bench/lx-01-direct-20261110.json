@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "test_id": "LX-01-DIRECT-20261110",
+  "date": "2026-11-10",
+  "classification": "Initial powered-only input demonstration; not full electrical qualification",
+  "firmware_commit": "96945880fc015f3cd0de4a1f647813cbf18ac8aa",
+  "profile": "bench-axis-test",
+  "firmware_version": "0.1.2-axis-bench",
+  "gpio": 5,
+  "signal": "L-X",
+  "setup": {
+    "common_ground": "Owner confirmed gamepad GND connected to S3 GND",
+    "probe": "Direct temporary GPIO5-to-L-X contact selected by owner",
+    "series_resistance_ohm": 0,
+    "shunt_capacitance_nf": 0,
+    "s3_power": "USB-powered and observed running",
+    "gamepad_power": "Battery-only with charging USB disconnected was specified; source/charger state not independently reconfirmed during capture",
+    "positions": "Movement was not marked against serial timestamps",
+    "raw_evidence": "Full serial logs retained privately; sanitized summary published here"
+  },
+  "ground_reference": {
+    "connection": "GPIO5 directly to S3 GND; owner confirmed; no gamepad signal attached",
+    "reported_duration_s": 5.801,
+    "reports": 58,
+    "raw_min": 0,
+    "raw_median": 0,
+    "raw_max": 68,
+    "mv_est_median": 0,
+    "result": "Ground-reference diagnostic passed; not a range calibration"
+  },
+  "observer_record": {
+    "reported_duration_s": 179.82,
+    "reports": 1756,
+    "acquisition_samples_at_stop": 15476,
+    "raw_min": 0,
+    "raw_max": 4095,
+    "selected_estimated_mv": [1492, 1538, 1413],
+    "adc_errors": 0,
+    "stale_sample_check": "passed",
+    "acquisition_progress_check": "passed",
+    "maximum_recorded_loop_us": 16937,
+    "microphone_errors_after": 0,
+    "observer_stopped_verified": true,
+    "gamepad_control_enabled": false,
+    "radio_control_enabled": false
+  },
+  "owner_confirmation": "Owner confirmed the Plan-page indication follows the joystick and is working",
+  "interpretation": "The original L-X signal can be acquired and displayed by the S3 in this temporary setup. The trace includes probe handling and unmarked movement; raw extrema are not calibrated stick endpoints, and whole-record spread is not held-center noise.",
+  "not_yet_qualified": [
+    "DMM-versus-ADC values at named physical positions",
+    "Repeated center return, held-position noise and input loading",
+    "Power-off/backfeed tolerance or permanent protective circuit",
+    "Other axes, button topology, harness or actuator control"
+  ]
+}
