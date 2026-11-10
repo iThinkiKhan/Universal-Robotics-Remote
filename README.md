@@ -14,7 +14,7 @@ The main PCB survey records **125.5 × 62.5 × 1.15 mm**, with hole A diameter *
 
 ## Getting started
 
-See [current status](STATUS.md), [project plan](docs/PROJECT_PLAN.md), [CAD workflow](docs/ECAD_MCAD.md), and [contribution guide](CONTRIBUTING.md).
+See [current status](STATUS.md), [project plan](docs/PROJECT_PLAN.md), [CAD workflow](docs/ECAD_MCAD.md), [harness package](docs/HARNESS_PLAN.md), and [contribution guide](CONTRIBUTING.md).
 
 The next input milestone is [LX-01: the temporary single-axis test](docs/TEMP_INPUT_TEST.md), with an explicit connection model, test record and release gates before a permanent harness. The optional `bench-axis-test` profile boots disarmed and does not enable the complete gamepad.
 

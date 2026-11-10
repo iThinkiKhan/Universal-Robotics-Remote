@@ -1,5 +1,8 @@
 # Engineering history
 
+## 2026-11-10 — Harness package (proposal)
+Assembled what a high-quality harness needs: a connection list tying each important connection to pad IDs from the pad table and to the J1 registry pins (3 plan-ready, 10 blocked, 3 held, 6 retained original assemblies), an ordering list split into 12 buy-now lines, 7 buy-after-decision lines and 3 hold lines, a continuity-test sheet, and a plan listing the owner decisions (D1 to D6) and measurements (M1 to M7) still needed. Connector part numbers and wire ranges for JST GH and Hirose DF13 were checked against distributor and manufacturer datasheets and flagged where unconfirmed. Consistency tests keep the proposal in step with the pad table and registry. No electrical connection was made or approved.
+
 ## 2026-11-10 — Test pads (survey r004)
 Located and recorded 67 pads on the rear surface in the datum frame: the large power and bus column (GND, B+, VSS, VCC, SDA, SCL, +5V, D+, D-), the right- and left-stick test pads and direction pads, both stick ribbon rows, the SW1 and SW2 shoulder pad groups, the motor pads, the battery connector footprint and other labelled test points. Pads were read off the rectified rear-view photograph and snapped to detected circle centres (about ±0.4 mm), each with a label-confidence flag. Ribbon-row pads are hidden by their ribbons and are placed from the visible pitch. Four round pads beside the left-stick ribbon have no legible label. Built r004 in FreeCAD with the pads as thin solids and verified each after reopening. A labelled pad map supports harness planning.
 

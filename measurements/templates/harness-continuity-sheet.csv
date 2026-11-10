@@ -1,0 +1,4 @@
+wire_id,harness,pin,signal,from_pad,to_contact,state,continuity_ohm,adjacent_short_check,insulation_ok,pull_test,tester,date,notes
+J1-W03,J1,3,R-X,TP11,S3 header via J1 pin 3 (per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the neighbouring pad (pads sit at 2 mm pitch).
+J1-W04,J1,4,R-Y,TP10,S3 header via J1 pin 4 (per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the neighbouring pad (pads sit at 2 mm pitch).
+J1-W06,J1,6,R-3,TP12,S3 header via J1 pin 6 (per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the neighbouring pad (pads sit at 2 mm pitch).
