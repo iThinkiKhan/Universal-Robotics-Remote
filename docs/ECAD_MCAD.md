@@ -16,7 +16,9 @@ The builder turns measured geometry into a native body, but only from entries ma
 4. **Connectors, pad groups, switches and modules** live in `measurements/boards/<board>-features.csv`. Rows stay `pending` with blank numbers until measured, with instrument and date.
 5. Increment the survey `revision`, run `build_board_survey.py` (checks volume, thickness and hole count after reopening the saved file), then `render_board_survey.py` for the axonometric and top review images.
 
-A traced or scanned outline is acceptable if the method, scale reference and uncertainty are recorded and a few points are spot-checked with calipers. Do not take scale from handheld or perspective photographs.
+A traced or scanned outline is acceptable if the method, scale reference and uncertainty are recorded and a few points are spot-checked with calipers. Scale must come from caliper-measured features in the image (control points such as holes), checked against the measured W and H, and never from the photograph's own perspective or an in-frame ruler.
+
+6. **Test pads** live in `measurements/boards/<board>-pads.csv`, referenced from the board record as `pads_file`. Each row gives the pad's centre and footprint in the datum frame (`round`: `diameter_mm`; `rect` and `oval`: `width_mm` along X and `length_mm` along Y), a `label_confidence` (`high`, `medium` or `low`) for the printed label, and, for photo-traced rows, a method and uncertainty. A label is recorded only when it can be tied to one pad; otherwise it stays empty and the note says why. The builder places each pad as a thin raised solid on the rear surface and, after reopening the saved file, checks that every pad is present, a valid solid and at its recorded position. `exports/boards/<board>/*-pad-map-REAR.png` is a labelled plan view for harness planning.
 
 Portable tools under `scripts/cad/` support other boards too:
 

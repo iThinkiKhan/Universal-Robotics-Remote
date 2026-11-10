@@ -33,6 +33,11 @@ try:
     envelope.ViewObject.LineColor=(0.05,0.15,0.20)
     envelope.ViewObject.Transparency=45
     envelope.ViewObject.Visibility=True
+    pad_objects=[o for o in doc.Objects if o.Name.startswith("Pad_")]
+    for o in pad_objects:                                   # test pads: copper-coloured, opaque, above the rear surface
+        o.ViewObject.ShapeColor=(0.85,0.62,0.10)
+        o.ViewObject.LineColor=(0.35,0.22,0.0)
+        o.ViewObject.Visibility=True
     doc.recompute()
     Gui.updateGui()
     Gui.activeDocument().activeView().viewAxonometric()
@@ -62,7 +67,7 @@ try:
     shape=check.getObject("MeasuredBoardBody" if measured_outline else "MeasuredBoundingEnvelope").Shape
     bounds=shape.BoundBox
     report.update({"passed":shape.isValid() and nonwhite>25,"image":image.relative_to(project).as_posix(),
-                   "nonwhite_preview_samples":nonwhite,
+                   "nonwhite_preview_samples":nonwhite,"pads_shown":len(pad_objects),
                    "envelope_dimensions_mm":[bounds.XLength,bounds.YLength,bounds.ZLength],
                    "limitation":(("Traced (photo-rectified) outline with its stated uncertainty, plus listed holes. Components, connectors and daughterboards remain unmodeled."
                                   if traced else

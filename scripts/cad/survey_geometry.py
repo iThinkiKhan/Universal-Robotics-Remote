@@ -259,3 +259,84 @@ def resolve(survey):
                              "net_area_mm2": area, "state": survey["outline"]["state"]}
     result["volume_mm3"] = area * thickness if thickness else None
     return result
+
+
+# ---------------------------------------------------------------------------------------------
+# Test pads: measurements/boards/<board>-pads.csv, referenced from the board record as "pads_file"
+# ---------------------------------------------------------------------------------------------
+PAD_SHAPES = {"round", "rect", "oval"}
+PAD_STATES = {"measured", "traced"}
+PAD_CONFIDENCE = {"high", "medium", "low"}
+PAD_HEIGHT_MM = 0.05          # modelled copper thickness, drawn above the rear (Z=0) surface
+
+
+def _csv_num(text, name, positive=False):
+    try:
+        value = float(str(text).strip())
+    except ValueError:
+        raise ValueError(f"{name} is not a number: {text!r}") from None
+    return _num(value, name, positive)
+
+
+def load_pads(path):
+    """Read and validate a pads CSV. Returns a list of dicts with centre (x, y) and footprint (w, l) in mm.
+
+    A round pad gives diameter_mm; rect and oval pads give width_mm (X) and length_mm (Y). A "traced"
+    row (read from a photograph) must carry a method and a positive uncertainty_mm, exactly like a
+    traced outline. label may be empty: an unlabeled pad is allowed and stays unlabeled.
+    """
+    import csv
+    with open(path, newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle, restkey="_extra"))
+    pads, seen = [], set()
+    for row in rows:
+        pid = (row.get("id") or "").strip()
+        if not pid or pid in seen:
+            raise ValueError(f"Pad id missing or duplicated: {pid!r}")
+        seen.add(pid)
+        if "_extra" in row or any(v is None for v in row.values()):
+            raise ValueError(f"Pad {pid}: wrong number of columns")
+        shape, state, conf = row["shape"], row["state"], row["label_confidence"]
+        if shape not in PAD_SHAPES:
+            raise ValueError(f"Pad {pid}: unknown shape {shape!r}")
+        if state not in PAD_STATES:
+            raise ValueError(f"Pad {pid}: state must be one of {sorted(PAD_STATES)}")
+        if conf not in PAD_CONFIDENCE:
+            raise ValueError(f"Pad {pid}: label_confidence must be one of {sorted(PAD_CONFIDENCE)}")
+        x, y = _csv_num(row["x_mm"], f"pad {pid} x_mm"), _csv_num(row["y_mm"], f"pad {pid} y_mm")
+        if shape == "round":
+            w = l = _csv_num(row["diameter_mm"], f"pad {pid} diameter_mm", positive=True)
+        else:
+            w = _csv_num(row["width_mm"], f"pad {pid} width_mm", positive=True)
+            l = _csv_num(row["length_mm"], f"pad {pid} length_mm", positive=True)
+        unc = None
+        if state == "traced":
+            if not row["method"].strip():
+                raise ValueError(f"Pad {pid}: a traced pad must record its method")
+            unc = _csv_num(row["uncertainty_mm"], f"pad {pid} uncertainty_mm", positive=True)
+        pads.append({"id": pid, "label": row["label"].strip(), "group": row["group"].strip(), "shape": shape,
+                     "x": x, "y": y, "w": w, "l": l, "state": state, "confidence": conf, "uncertainty_mm": unc})
+    return pads
+
+
+def validate_pads(pads, result):
+    """Check pads against a resolved board record: on the board, clear of its edge and holes."""
+    if not pads:
+        return
+    if not result.get("outline"):
+        raise ValueError("Pads need a measured or traced outline to be placed on")
+    polygon = result["outline"]["polygon"]
+    edges = [(polygon[i], polygon[(i + 1) % len(polygon)]) for i in range(len(polygon))]
+    for p in pads:
+        centre = (p["x"], p["y"])
+        if not _inside(polygon, centre):
+            raise ValueError(f"Pad {p['id']} ({p['label'] or 'unlabeled'}) lies outside the board outline")
+        if min(_pt_seg(centre, a, b) for a, b in edges) < min(p["w"], p["l"]) / 2 - 0.05:
+            raise ValueError(f"Pad {p['id']} ({p['label'] or 'unlabeled'}) runs over the board edge")
+        for h in result["holes"]:
+            if min(_pt_seg(centre, h["p1"], h["p2"]), math.dist(centre, h["center"])) < max(p["w"], p["l"]) / 2 + h["radius"] - 0.05:
+                raise ValueError(f"Pad {p['id']} overlaps hole {h['id']}")
+    for i, a in enumerate(pads):
+        for b in pads[i + 1:]:
+            if math.dist((a["x"], a["y"]), (b["x"], b["y"])) < 0.5:
+                raise ValueError(f"Pads {a['id']} and {b['id']} are less than 0.5 mm apart (duplicate?)")

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "revision": 3,
+  "revision": 4,
   "board_id": "gamepad-gh-wii-u002",
   "name": "GH-Wii U002 main gamepad PCB",
   "photo_folder": "measurements/photos/gamepad-gh-wii-u002",
   "reference_photo": "3089.jpg",
   "view_description": "Datum view: component (rear) side facing the viewer, USB at the top, as in reference photo 3089. The front, button-contact side seen in photo 3081 is the mirror image of this view. Photos are reference views, not measurements.",
   "origin_description": "Project-owner-selected datum, 2026-11-10: origin at the bottom-left corner of the board's bounding rectangle in the rear (component-side) view with USB at the top, i.e. the battery-connector end of the bottom edge. X runs right, Y runs up toward USB, Z toward the viewer: the rear surface is Z=0 and the substrate extends to Z=-T. Measure X from the left-most board edge and Y from the bottom-most board edge in that view; the origin is the bounding-rectangle corner and may lie off the physical board. The front view (photo 3081) sees this corner at its bottom-right; the motor-lead end of the bottom edge is the far end, near X=W.",
-  "state": "outline_traced_holes_measured_spot_checks_pending",
+  "state": "outline_traced_holes_measured_pads_traced_spot_checks_pending",
   "readings": [
     {
       "id": "W",
@@ -392,9 +392,10 @@
     "Datum assigned by the project owner on 2026-11-10 (rear view, bottom-left, battery-connector end). It was chosen over the front-view motor-lead corner, which is the opposite end of the same edge. Hole positions and outline are measured from this origin.",
     "Instrument for W/H/T/A: the owner states all mechanical measurements use the AOCORIC digital caliper, model 09-15473. Its uncertainty, zero check and resolution have not been recorded, so uncertainty_mm remains null.",
     "Photo cross-check, 2026-11-10 (the owner's two top-down caliper photos, rear side up; not yet archived in the repo): holes D, B and C were located in the images and a pixel-to-mm similarity transform fitted to the caliper readings. Residuals were 0.1 to 0.3 mm, the photo scale was 9.07 px/mm (photo 1) and 7.67 px/mm (photo 2), and the board's bottom edge fell at Y = 0 within 0.15 mm. The end edge at the battery-connector end fell 0.5 to 1.4 mm outside X = 0, but it is partly hidden by the connector and ribbon, so it is the least reliable edge. Holes E and F are hidden by the ribbon. This is a consistency check, not a measurement; the caliper readings remain the authority.",
-    "Revision 3 records the datum, the instrument, hole readings for B, C, D, E and F (plus A, whose X comes from the photos) and a traced outline. The outline is a photo trace with a stated +/-0.4 mm uncertainty, not a caliper measurement; four short stretches are bridged where a ribbon, the battery connector or the USB shell hides the edge (listed in outline.hidden_or_bridged).",
     "The board's far corner (rear view, USB at top, the end opposite the battery connector) has a straight diagonal cut about 12.5 mm along the bottom edge by 6.5 mm up the end edge. This is separate from the two large concave arcs (radius about 16 mm) cut for the thumbsticks.",
-    "Comparison with the OfflineRocket/Pro-Controller-X BitBuilt scan (viewed and compared privately, not copied): hole spacing matched the caliper readings to about 0.1 mm at 600 dpi, so the hole layout is the same design, but the scan's edges differ from this board by up to about 1 mm, so it was not used for the outline."
+    "Comparison with the OfflineRocket/Pro-Controller-X BitBuilt scan (viewed and compared privately, not copied): hole spacing matched the caliper readings to about 0.1 mm at 600 dpi, so the hole layout is the same design, but the scan's edges differ from this board by up to about 1 mm, so it was not used for the outline.",
+    "Revision 4 adds the test pads (pads_file): 67 pads read off the rectified rear-view photograph in the datum frame, snapped to detected circle centres where possible, each recorded as traced at about +/-0.4 mm with a label-confidence flag. The ribbon-row pads are hidden under their ribbons and are placed from the visible pitch. The four round pads beside the left-stick ribbon have no legible printed label and need the owner to read them from the board. Revision 3 (outline and holes, no pads) is kept as the previous model."
   ],
-  "model_policy": "Measured W/H/T can define a bounding envelope only. Do not call a rectangle the board outline. Hole diameter alone does not locate a hole; require datum coordinates. No inferred measurements from handheld photos."
+  "model_policy": "Measured W/H/T can define a bounding envelope only. Do not call a rectangle the board outline. Hole diameter alone does not locate a hole; require datum coordinates. No inferred measurements from handheld photos.",
+  "pads_file": "measurements/boards/gamepad-gh-wii-u002-pads.csv"
 }

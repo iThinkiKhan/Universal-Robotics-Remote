@@ -4,7 +4,7 @@ An ESP32-S3 handheld robotics controller combining an ILI9341 touchscreen, micro
 
 ## Current engineering state
 
-The main PCB survey records **125.5 × 62.5 × 1.15 mm**, with hole A diameter **5 mm** (restated by the owner; 4.83 mm was reported first). The native FreeCAD r003 document is the real board shape: a photo-traced contour (about ±0.4 mm) with holes A to F cut in. Components, connectors and daughterboards are not modeled yet. Ten metadata-stripped hardware photos and an HTML gallery are under `measurements/photos/gamepad-gh-wii-u002/`. No dimensions are inferred from perspective photos.
+The main PCB survey records **125.5 × 62.5 × 1.15 mm**, with hole A diameter **5 mm** (restated by the owner; 4.83 mm was reported first). The native FreeCAD r004 document is the real board shape: a photo-traced contour (about ±0.4 mm) with holes A to F and 67 traced test pads. Components, connectors and daughterboards are not modeled yet. Ten metadata-stripped hardware photos and an HTML gallery are under `measurements/photos/gamepad-gh-wii-u002/`. No dimensions are inferred from perspective photos.
 
 - `hardware/`: component and signal registries; `hardware/signals.json` owns GPIO assignments.
 - `firmware/`: pinned PlatformIO bench application.

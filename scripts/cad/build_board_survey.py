@@ -61,6 +61,8 @@ for index,module in enumerate(survey["separate_modules"],1):
     obj.addProperty("App::PropertyString","Status");obj.Status=module["state"]
     modules.addObject(obj)
 geometry=survey_geometry.resolve(survey)      # raises on anything inconsistent; never defaults
+pads=survey_geometry.load_pads(project/survey["pads_file"]) if survey.get("pads_file") else []
+survey_geometry.validate_pads(pads,geometry)   # on the board, clear of its edge and holes
 def _slot_or_round(hole,height,z):
     p1,p2,r=hole["p1"],hole["p2"],hole["radius"]
     shape=Part.makeCylinder(r,height,App.Vector(p1[0],p1[1],z))
@@ -108,12 +110,32 @@ elif all(key in values for key in ("W","H","T")):
     envelope.addProperty("App::PropertyString","FrameNote")
     envelope.FrameNote=("Envelope frame only: surface facing the datum view at Z=0, substrate below, X/Y at the rectangle corner. Irregular outline remains unmodeled. Datum: "
                         +(survey.get("origin_description") or "unassigned"))
+def _pad_solid(p):
+    h=survey_geometry.PAD_HEIGHT_MM                # raised above the rear surface (Z=0); never intersects the board body
+    if p["shape"]=="round":
+        return Part.makeCylinder(p["w"]/2,h,App.Vector(p["x"],p["y"],0))
+    if p["shape"]=="rect":
+        return Part.makeBox(p["w"],p["l"],h,App.Vector(p["x"]-p["w"]/2,p["y"]-p["l"]/2,0))
+    r=p["w"]/2; half=(p["l"]-p["w"])/2             # oval: a capsule running along Y
+    solid=Part.makeCylinder(r,h,App.Vector(p["x"],p["y"]-half,0)).fuse(Part.makeCylinder(r,h,App.Vector(p["x"],p["y"]+half,0)))
+    return solid.fuse(Part.makeBox(p["w"],2*half,h,App.Vector(p["x"]-r,p["y"]-half,0)))
+if pads:
+    pad_group=doc.addObject("App::DocumentObjectGroup","TestPads")
+    pad_group.Label=f"TEST PADS ({len(pads)}) — traced, see the pads file for method and confidence"
+    for p in pads:
+        obj=doc.addObject("Part::Feature","Pad_"+p["id"])
+        obj.Label=p["id"]+" "+(p["label"] or "(unlabeled)")
+        obj.Shape=_pad_solid(p)
+        for name,value in {"PadId":p["id"],"PadLabel":p["label"],"PadGroup":p["group"],"LabelConfidence":p["confidence"],
+                           "State":p["state"],"UncertaintyMM":str(p["uncertainty_mm"]),"PadsFile":survey["pads_file"]}.items():
+            obj.addProperty("App::PropertyString",name);setattr(obj,name,value)
+        pad_group.addObject(obj)
 doc.recompute();doc.saveAs(str(output));App.closeDocument(doc.Name)
 check=App.openDocument(str(output))
-shape_count=sum(1 for obj in check.Objects if hasattr(obj,"Shape") and not obj.Shape.isNull() and obj.Shape.Solids)
+shape_count=sum(1 for obj in check.Objects if obj.TypeId=="Part::Feature" and not obj.Shape.isNull() and obj.Shape.Solids)   # parts only: a group container reports its members' combined shape
 report={"file":output.relative_to(project).as_posix(),"board_id":survey["board_id"],"revision":survey["revision"],
         "state":survey["state"],"photo_references":len(manifest["photos"]),"solid_objects":shape_count,
-        "expected_solid_objects":int(all(key in values for key in ("W","H","T"))),
+        "expected_solid_objects":int(all(key in values for key in ("W","H","T")))+len(pads),"pads":len(pads),
         "native_reopened":True,"source_sha256":hashlib.sha256(survey_path.read_bytes()).hexdigest()}
 if geometry["outline"] and shape_count:
     shape=check.getObject("MeasuredBoardBody").Shape
@@ -142,6 +164,14 @@ elif shape_count:
             raise RuntimeError("Saved envelope-with-holes volume disagrees with the recorded measurements")
     if not shape.isValid() or any(abs(a-b)>1e-6 for a,b in zip(report["envelope_dimensions_mm"],[values["W"],values["H"],values["T"]])):
         raise RuntimeError("Saved envelope does not match recorded measurements")
+for p in pads:                                    # every pad must survive the save/reopen, be a valid solid, and sit where the table says
+    obj=check.getObject("Pad_"+p["id"])
+    if obj is None or obj.Shape.isNull() or not obj.Shape.isValid() or len(obj.Shape.Solids)!=1:
+        raise RuntimeError("Pad "+p["id"]+" did not survive saving as one valid solid")
+    c=obj.Shape.BoundBox
+    if abs((c.XMin+c.XMax)/2-p["x"])>1e-6 or abs((c.YMin+c.YMax)/2-p["y"])>1e-6 or abs(c.XLength-p["w"])>1e-6 or abs(c.YLength-p["l"])>1e-6:
+        raise RuntimeError("Pad "+p["id"]+" is not at the recorded position and size")
+if pads: report["pad_ids"]=[p["id"] for p in pads]
 App.closeDocument(check.Name)
 if shape_count!=report["expected_solid_objects"]: raise RuntimeError("Unexpected geometry in survey")
 (output.parent/(output.stem+"-validation.json")).write_text(json.dumps(report,indent=2)+"\n")
