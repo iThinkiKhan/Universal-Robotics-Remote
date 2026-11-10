@@ -8,7 +8,9 @@ Board record fields read here (measurements/boards/<board>.json):
 
   origin_description  non-empty text naming the datum; required before any
                       outline or hole is accepted. X right, Y up, millimetres.
-  outline             {"state": "measured", "points_mm": [...]}. The first
+  outline             {"state": "measured" | "traced", "points_mm": [...]}.
+                      "traced" (e.g. read from a rectified photo) also needs
+                      "method" and a positive "uncertainty_mm". The first
                       entry is the start point [x, y]. Each later entry is
                       either [x, y] (straight segment) or
                       {"to": [x, y], "via": [x, y]} (circular arc from the
@@ -19,6 +21,15 @@ Board record fields read here (measurements/boards/<board>.json):
                       (overall length) plus optional "angle_deg" (default 0).
                       If diameter_mm is absent, the measured reading with the
                       same id supplies it (hole "A" today).
+                      Instead of a centre, a hole may give the raw caliper
+                      readings "x_near_mm" and "y_near_mm": the distance from the
+                      datum edges to the hole's nearest (left / lower) wall. The
+                      centre is then near wall + half the hole's extent (a slot
+                      needs angle_deg 0 or 90). Giving both forms is an error.
+
+With no measured outline, measured holes are checked against and cut from the
+measured W x H envelope (needs W, H and T). That body is an envelope with holes,
+never the board contour, and callers must label it so.
 """
 import math
 
@@ -60,10 +71,19 @@ def _arc_through(p0, pv, p1, name):
 def parse_outline(outline):
     """Return (start, segments, polygon). segments are ('line', end) or ('arc', via, end)."""
     pts = outline.get("points_mm") or []
-    if outline.get("state") != "measured":
+    state = outline.get("state")
+    if state not in ("measured", "traced"):
         if pts:
-            raise ValueError("Outline points are present but outline.state is not 'measured'")
+            raise ValueError("Outline points are present but outline.state is not 'measured' or 'traced'")
         return None
+    if state == "traced":
+        # A traced contour (e.g. from a rectified photo) is not a caliper reading: it must say how
+        # it was made and how far to trust it.
+        if not (outline.get("method") or "").strip():
+            raise ValueError("A traced outline must record its method")
+        u = outline.get("uncertainty_mm")
+        if isinstance(u, bool) or not isinstance(u, (int, float)) or not math.isfinite(u) or u <= 0:
+            raise ValueError("A traced outline must record a positive uncertainty_mm")
     if len(pts) < 3:
         raise ValueError("A measured outline needs at least three points")
     start = _pt(pts[0], "outline start")
@@ -148,7 +168,6 @@ def parse_holes(survey):
         seen.add(hid)
         if raw.get("state") != "measured":
             continue                       # listed but not built
-        x, y = _num(raw.get("x_mm"), f"hole {hid} x_mm"), _num(raw.get("y_mm"), f"hole {hid} y_mm")
         dia = raw.get("diameter_mm")
         if dia is None:
             r = readings.get(hid)
@@ -157,13 +176,34 @@ def parse_holes(survey):
             dia = r["value_mm"]
         dia = _num(dia, f"hole {hid} diameter_mm", positive=True)
         length = raw.get("slot_length_mm")
-        if length is None:
-            p1 = p2 = (x, y)
-        else:
+        angle_deg = _num(raw.get("angle_deg", 0), f"hole {hid} angle_deg")
+        if length is not None:
             length = _num(length, f"hole {hid} slot_length_mm", positive=True)
             if length < dia:
                 raise ValueError(f"Hole {hid}: slot length is smaller than its width")
-            ang = math.radians(_num(raw.get("angle_deg", 0), f"hole {hid} angle_deg"))
+        centre_given = raw.get("x_mm") is not None or raw.get("y_mm") is not None
+        near_given = raw.get("x_near_mm") is not None or raw.get("y_near_mm") is not None
+        if centre_given and near_given:
+            raise ValueError(f"Hole {hid}: give the centre (x_mm, y_mm) or near-wall readings, not both")
+        if near_given:
+            # Caliper readings from the datum edges to the hole's nearest (left / lower) wall.
+            nx = _num(raw.get("x_near_mm"), f"hole {hid} x_near_mm")
+            ny = _num(raw.get("y_near_mm"), f"hole {hid} y_near_mm")
+            ex = ey = dia
+            if length is not None:
+                if angle_deg % 180 == 0:
+                    ex = length
+                elif angle_deg % 180 == 90:
+                    ey = length
+                else:
+                    raise ValueError(f"Hole {hid}: near-wall readings need a slot angle of 0 or 90 degrees")
+            x, y = nx + ex / 2, ny + ey / 2
+        else:
+            x, y = _num(raw.get("x_mm"), f"hole {hid} x_mm"), _num(raw.get("y_mm"), f"hole {hid} y_mm")
+        if length is None:
+            p1 = p2 = (x, y)
+        else:
+            ang = math.radians(angle_deg)
             h = (length - dia) / 2
             p1 = (x - h * math.cos(ang), y - h * math.sin(ang))
             p2 = (x + h * math.cos(ang), y + h * math.sin(ang))
@@ -177,19 +217,28 @@ def resolve(survey):
     holes = parse_holes(survey)
     if (parsed or holes) and not (survey.get("origin_description") or "").strip():
         raise ValueError("Outline/holes require origin_description: name the datum before recording coordinates")
-    result = {"outline": None, "holes": holes, "volume_mm3": None}
-    if holes and not parsed:
-        raise ValueError("Measured holes need a measured outline to be cut from")
-    if not parsed:
-        return result
-    start, segments, polygon = parsed
-    xs, ys = [p[0] for p in polygon], [p[1] for p in polygon]
-    bbox = (min(xs), min(ys), max(xs), max(ys))
+    result = {"outline": None, "holes": holes, "volume_mm3": None, "envelope_holes": False}
     values = {r["id"]: r["value_mm"] for r in survey.get("readings", []) if r.get("state") == "measured"}
-    for key, span in (("W", bbox[2] - bbox[0]), ("H", bbox[3] - bbox[1])):
-        if key in values and abs(span - values[key]) > BBOX_TOLERANCE_MM:
-            raise ValueError(f"Outline {key} span {span:.2f} mm disagrees with measured {key}={values[key]} mm "
-                             f"(tolerance {BBOX_TOLERANCE_MM} mm)")
+    if not parsed and not holes:
+        return result
+    if parsed:
+        start, segments, polygon = parsed
+        xs, ys = [p[0] for p in polygon], [p[1] for p in polygon]
+        bbox = (min(xs), min(ys), max(xs), max(ys))
+        for key, span in (("W", bbox[2] - bbox[0]), ("H", bbox[3] - bbox[1])):
+            if key in values and abs(span - values[key]) > BBOX_TOLERANCE_MM:
+                raise ValueError(f"Outline {key} span {span:.2f} mm disagrees with measured {key}={values[key]} mm "
+                                 f"(tolerance {BBOX_TOLERANCE_MM} mm)")
+    else:
+        # No measured contour yet: holes are checked against, and cut from, the measured bounding
+        # rectangle only. The caller must label that body as an envelope, never as the board outline.
+        if not all(k in values for k in ("W", "H", "T")):
+            raise ValueError("Measured holes need a measured outline, or measured W, H and T for an envelope")
+        start = None
+        segments = []
+        bbox = (0.0, 0.0, values["W"], values["H"])
+        polygon = [(0.0, 0.0), (values["W"], 0.0), (values["W"], values["H"]), (0.0, values["H"])]
+        result["envelope_holes"] = True
     for h in holes:
         for end in (h["p1"], h["p2"]):
             if not _inside(polygon, end):
@@ -204,7 +253,9 @@ def resolve(survey):
     thickness = values.get("T")
     area = abs(_area(polygon)) - sum(math.pi * h["radius"] ** 2 + 2 * h["radius"] * math.dist(h["p1"], h["p2"])
                                       for h in holes)
-    result["outline"] = {"start": start, "segments": segments, "polygon": polygon, "bbox": bbox,
-                         "net_area_mm2": area}
+    result["net_area_mm2"] = area
+    if parsed:
+        result["outline"] = {"start": start, "segments": segments, "polygon": polygon, "bbox": bbox,
+                             "net_area_mm2": area, "state": survey["outline"]["state"]}
     result["volume_mm3"] = area * thickness if thickness else None
     return result

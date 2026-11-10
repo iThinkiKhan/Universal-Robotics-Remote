@@ -86,18 +86,28 @@ if geometry["outline"]:
     for hole in geometry["holes"]:
         body=body.cut(_slot_or_round(hole,values["T"]+2,-values["T"]-1))
     board=doc.addObject("Part::Feature","MeasuredBoardBody")
-    board.Label="MEASURED OUTLINE AND HOLES — components and connectors unmodeled"
+    traced=out["state"]=="traced"
+    board.Label=(f"TRACED OUTLINE (photo-rectified, +/-{survey['outline']['uncertainty_mm']} mm) AND HOLES — components and connectors unmodeled"
+                 if traced else "MEASURED OUTLINE AND HOLES — components and connectors unmodeled")
     board.Shape=body
-    for name,value in {"Limitation":survey["model_policy"],"Datum":survey["origin_description"],
+    for name,value in {"Limitation":survey["model_policy"],"Datum":survey["origin_description"],"OutlineState":out["state"],
+                       "OutlineMethod":survey["outline"].get("method",""),
                        "FrameNote":"Top surface Z=0, substrate below. X right, Y up from the named datum.",
                        "HolesCut":", ".join(h["id"] for h in geometry["holes"]) or "none"}.items():
         board.addProperty("App::PropertyString",name);setattr(board,name,value)
 elif all(key in values for key in ("W","H","T")):
     envelope=doc.addObject("Part::Feature","MeasuredBoundingEnvelope")
-    envelope.Label="MEASURED ENVELOPE ONLY — irregular outline unmodeled"
-    envelope.Shape=Part.makeBox(values["W"],values["H"],values["T"],App.Vector(0,0,-values["T"]))
+    body=Part.makeBox(values["W"],values["H"],values["T"],App.Vector(0,0,-values["T"]))
+    for hole in geometry["holes"]:
+        body=body.cut(_slot_or_round(hole,values["T"]+2,-values["T"]-1))
+    envelope.Label=("MEASURED ENVELOPE WITH HOLES — rectangle only; board contour, chamfer and notches NOT modeled"
+                    if geometry["holes"] else "MEASURED ENVELOPE ONLY — irregular outline unmodeled")
+    envelope.Shape=body
+    envelope.addProperty("App::PropertyString","HolesCut");envelope.HolesCut=", ".join(h["id"] for h in geometry["holes"]) or "none"
     envelope.addProperty("App::PropertyString","Limitation");envelope.Limitation=survey["model_policy"]
-    envelope.addProperty("App::PropertyString","FrameNote");envelope.FrameNote="Envelope frame only: top Z=0, X/Y at rectangle corner. Physical board datum and irregular outline remain unassigned."
+    envelope.addProperty("App::PropertyString","FrameNote")
+    envelope.FrameNote=("Envelope frame only: surface facing the datum view at Z=0, substrate below, X/Y at the rectangle corner. Irregular outline remains unmodeled. Datum: "
+                        +(survey.get("origin_description") or "unassigned"))
 doc.recompute();doc.saveAs(str(output));App.closeDocument(doc.Name)
 check=App.openDocument(str(output))
 shape_count=sum(1 for obj in check.Objects if hasattr(obj,"Shape") and not obj.Shape.isNull() and obj.Shape.Solids)
@@ -109,7 +119,8 @@ if geometry["outline"] and shape_count:
     shape=check.getObject("MeasuredBoardBody").Shape
     bounds=shape.BoundBox
     expected=geometry["volume_mm3"]
-    report.update({"geometry":"measured_outline","datum":survey["origin_description"],
+    report.update({"geometry":"traced_outline" if out["state"]=="traced" else "measured_outline",
+                   "outline_uncertainty_mm":survey["outline"].get("uncertainty_mm"),"datum":survey["origin_description"],
                    "bounding_box_mm":[bounds.XLength,bounds.YLength,bounds.ZLength],
                    "holes_cut":len(geometry["holes"]),"hole_ids":[h["id"] for h in geometry["holes"]],
                    "body_volume_mm3":shape.Volume,"expected_volume_mm3":expected,"top_z_mm":bounds.ZMax})
@@ -122,7 +133,13 @@ elif shape_count:
     report["envelope_dimensions_mm"]=[bounds.XLength,bounds.YLength,bounds.ZLength]
     report["envelope_volume_mm3"]=shape.Volume
     report["top_z_mm"]=bounds.ZMax
-    report["holes_cut"]=0
+    report["holes_cut"]=len(geometry["holes"])
+    if geometry["holes"]:
+        report.update({"geometry":"envelope_with_holes","datum":survey["origin_description"],
+                       "hole_ids":[h["id"] for h in geometry["holes"]],
+                       "expected_volume_mm3":geometry["volume_mm3"]})
+        if abs(shape.Volume-geometry["volume_mm3"])>0.01*geometry["volume_mm3"] or len(shape.Solids)!=1:
+            raise RuntimeError("Saved envelope-with-holes volume disagrees with the recorded measurements")
     if not shape.isValid() or any(abs(a-b)>1e-6 for a,b in zip(report["envelope_dimensions_mm"],[values["W"],values["H"],values["T"]])):
         raise RuntimeError("Saved envelope does not match recorded measurements")
 App.closeDocument(check.Name)

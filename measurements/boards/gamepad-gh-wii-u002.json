@@ -1,60 +1,370 @@
 {
   "schema_version": 1,
-  "revision": 2,
+  "revision": 3,
   "board_id": "gamepad-gh-wii-u002",
   "name": "GH-Wii U002 main gamepad PCB",
   "photo_folder": "measurements/photos/gamepad-gh-wii-u002",
-  "reference_photo": "3081.jpg",
-  "view_description": "Reference photo 3081: button-contact side facing viewer; USB at the top. This is a reference view, not a measured CAD datum.",
-  "origin_description": null,
-  "state": "envelope_measured_outline_pending",
+  "reference_photo": "3089.jpg",
+  "view_description": "Datum view: component (rear) side facing the viewer, USB at the top, as in reference photo 3089. The front, button-contact side seen in photo 3081 is the mirror image of this view. Photos are reference views, not measurements.",
+  "origin_description": "Project-owner-selected datum, 2026-11-10: origin at the bottom-left corner of the board's bounding rectangle in the rear (component-side) view with USB at the top, i.e. the battery-connector end of the bottom edge. X runs right, Y runs up toward USB, Z toward the viewer: the rear surface is Z=0 and the substrate extends to Z=-T. Measure X from the left-most board edge and Y from the bottom-most board edge in that view; the origin is the bounding-rectangle corner and may lie off the physical board. The front view (photo 3081) sees this corner at its bottom-right; the motor-lead end of the bottom edge is the far end, near X=W.",
+  "state": "outline_traced_holes_measured_spot_checks_pending",
   "readings": [
     {
       "id": "W",
       "description": "Maximum bare main-PCB width; exclude detached modules",
       "value_mm": 125.5,
       "state": "measured",
-      "method": "Reported by the project owner; instrument not specified",
+      "method": "Reported by the project owner; measured with the AOCORIC digital caliper, model 09-15473",
       "date": "2026-11-10",
       "uncertainty_mm": null,
-      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10; owner stated 2026-11-10 that all mechanical measurements come from the AOCORIC digital caliper, model 09-15473, the only caliper available"
     },
     {
       "id": "H",
       "description": "Maximum main-PCB height; include PCB tabs, exclude connector overhang",
       "value_mm": 62.5,
       "state": "measured",
-      "method": "Reported by the project owner; instrument not specified",
+      "method": "Reported by the project owner; measured with the AOCORIC digital caliper, model 09-15473",
       "date": "2026-11-10",
       "uncertainty_mm": null,
-      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10; owner stated 2026-11-10 that all mechanical measurements come from the AOCORIC digital caliper, model 09-15473, the only caliper available"
     },
     {
       "id": "T",
       "description": "Bare substrate thickness; exclude solder and components",
       "value_mm": 1.15,
       "state": "measured",
-      "method": "Reported by the project owner; instrument not specified",
+      "method": "Reported by the project owner; measured with the AOCORIC digital caliper, model 09-15473",
       "date": "2026-11-10",
       "uncertainty_mm": null,
-      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10; owner stated 2026-11-10 that all mechanical measurements come from the AOCORIC digital caliper, model 09-15473, the only caliper available"
     },
     {
       "id": "A",
       "description": "Diameter of hole A: round through-hole immediately left of USB PCB tongue in photo 3081; mechanical function unverified",
-      "value_mm": 4.83,
+      "value_mm": 5.0,
       "state": "measured",
-      "method": "Reported by the project owner; instrument not specified",
+      "method": "Reported by the project owner; measured with the AOCORIC digital caliper, model 09-15473",
       "date": "2026-11-10",
       "uncertainty_mm": null,
-      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10; owner stated 2026-11-10 that all mechanical measurements come from the AOCORIC digital caliper, model 09-15473, the only caliper available; later on 2026-11-10 the owner restated that hole A is 5 mm, which supersedes the 4.83 mm first reported (4.83 remains in the Git history)"
     }
   ],
   "outline": {
-    "state": "unmeasured",
-    "points_mm": []
+    "state": "traced",
+    "method": "Read vertex by vertex from the owner's top-down photographs 3 and 4 (rear side up, 2026-11-10), rectified onto a millimetre grid in the datum frame with the owner's caliper-measured holes D, B, C, E, F as control points (photo 4 residuals 0.04 to 0.19 mm, photo 3 0.09 to 0.33 mm). Edges were read at the board's outer rim. The far-end diagonal comes from photo 3 because photo 4's ribbon covers it. Coordinates were then scaled so the extremes equal the caliper-measured W=125.5 and H=62.5 (the photo's own extents were 126.1 and 62.85 mm, about 0.5 percent larger, so the scale correction is small). Curves are polylines through the read points; sagitta error under 0.1 mm.",
+    "instrument": "Phone photographs plus AOCORIC digital caliper, model 09-15473 (for the control holes, W and H)",
+    "date": "2026-11-10",
+    "uncertainty_mm": 0.4,
+    "evidence": "Owner photographs 3.jpg and 4.jpg, 2026-11-10 (not yet archived in the repository). Overlay of this polygon on the rectified photo checked by eye over the whole contour.",
+    "hidden_or_bridged": [
+      "Bottom edge between X=2 and X=25 (battery connector and ribbon): taken as the straight Y=0 datum edge. Uncertainty about 0.3 mm.",
+      "Far-end diagonal (about 12.5 mm along the bottom edge by 6.5 mm up the end edge): hidden by the ribbon in photo 4, read from photo 3. Uncertainty about 0.5 mm.",
+      "Antenna-lobe right edge between Y=41 and Y=50.8 (ribbon): bridged by a straight line. Uncertainty about 1 mm.",
+      "USB tongue end between X=64 and X=72 (USB shell): corners visible on both sides at the same height, bridged straight. The tongue top is also the point that sets H. Uncertainty about 0.5 mm."
+    ],
+    "notes": "Caliper spot-checks of the far-end diagonal legs, the notch beside the SYNC switch and the lobe step at the battery end are still pending.",
+    "points_mm": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        113.0,
+        0.0
+      ],
+      [
+        125.5,
+        6.5
+      ],
+      [
+        125.5,
+        28.04
+      ],
+      [
+        112.96,
+        28.04
+      ],
+      [
+        110.47,
+        28.34
+      ],
+      [
+        107.98,
+        28.84
+      ],
+      [
+        105.5,
+        29.93
+      ],
+      [
+        103.01,
+        31.57
+      ],
+      [
+        101.76,
+        33.06
+      ],
+      [
+        100.52,
+        34.81
+      ],
+      [
+        99.52,
+        37.04
+      ],
+      [
+        98.78,
+        39.78
+      ],
+      [
+        98.63,
+        40.77
+      ],
+      [
+        99.33,
+        50.52
+      ],
+      [
+        100.52,
+        52.7
+      ],
+      [
+        101.22,
+        55.39
+      ],
+      [
+        101.22,
+        60.36
+      ],
+      [
+        100.82,
+        61.56
+      ],
+      [
+        99.82,
+        61.59
+      ],
+      [
+        81.91,
+        61.59
+      ],
+      [
+        80.91,
+        60.36
+      ],
+      [
+        80.32,
+        57.98
+      ],
+      [
+        78.62,
+        56.19
+      ],
+      [
+        77.43,
+        55.69
+      ],
+      [
+        73.15,
+        55.69
+      ],
+      [
+        73.05,
+        62.5
+      ],
+      [
+        61.51,
+        62.5
+      ],
+      [
+        61.41,
+        55.09
+      ],
+      [
+        51.55,
+        54.99
+      ],
+      [
+        51.25,
+        53.7
+      ],
+      [
+        51.45,
+        51.71
+      ],
+      [
+        51.25,
+        50.52
+      ],
+      [
+        50.56,
+        49.22
+      ],
+      [
+        49.46,
+        48.53
+      ],
+      [
+        47.77,
+        48.43
+      ],
+      [
+        46.08,
+        49.03
+      ],
+      [
+        44.79,
+        50.52
+      ],
+      [
+        36.03,
+        50.52
+      ],
+      [
+        36.13,
+        42.06
+      ],
+      [
+        35.63,
+        38.48
+      ],
+      [
+        34.53,
+        36.3
+      ],
+      [
+        32.84,
+        33.81
+      ],
+      [
+        29.86,
+        31.32
+      ],
+      [
+        26.57,
+        29.53
+      ],
+      [
+        23.19,
+        28.54
+      ],
+      [
+        19.9,
+        28.14
+      ],
+      [
+        8.16,
+        28.14
+      ],
+      [
+        7.86,
+        28.04
+      ],
+      [
+        7.86,
+        24.86
+      ],
+      [
+        7.76,
+        23.87
+      ],
+      [
+        6.97,
+        22.77
+      ],
+      [
+        6.17,
+        22.18
+      ],
+      [
+        0.0,
+        22.08
+      ]
+    ]
   },
-  "mounting_holes": [],
+  "mounting_holes": [
+    {
+      "id": "A",
+      "state": "measured",
+      "x_near_mm": 83.8,
+      "y_near_mm": 49.2,
+      "method": "Owner-reported caliper readings from the datum edges to the hole's nearest (left / lower) wall; centre = near wall + half the hole's extent",
+      "instrument": "AOCORIC digital caliper, model 09-15473",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner chat 2026-11-10 (X/Y readings per the REAR measurement guide); YA=49.2 mm, to the lower wall; diameter 5 mm restated by the owner 2026-11-10; X from the rectified photos (photo 4 gives a centre X of 86.57 mm, photo 3 gives 85.97 mm; mean 86.27 mm, near wall 83.77 mm, uncertainty about 0.4 mm); Y is the caliper reading",
+      "notes": "X is photo-derived (about +/-0.4 mm) because a caliper cannot reach X=0 from this hole; Y (49.2 mm to the lower wall) is a caliper reading. Diameter 5 mm per the owner (supersedes the 4.83 mm first reported).",
+      "diameter_mm": 5.0
+    },
+    {
+      "id": "B",
+      "state": "measured",
+      "x_near_mm": 82.3,
+      "y_near_mm": 2.3,
+      "diameter_mm": 5.0,
+      "method": "Owner-reported caliper readings from the datum edges to the hole's nearest (left / lower) wall; centre = near wall + half the hole's extent",
+      "instrument": "AOCORIC digital caliper, model 09-15473",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner chat 2026-11-10 (X/Y readings per the REAR measurement guide); XB=82.3, YB=2.3 and diameter 5 mm ('same as D')",
+      "notes": "XB=82.3 mm to the near (left) wall, as stated by the owner. The owner also measured 39 mm from the hole to the end of the straight bottom edge (the corner beyond is chamfered); that value is not used for placement and the X of the edge end is not recorded."
+    },
+    {
+      "id": "C",
+      "state": "measured",
+      "x_near_mm": 65.0,
+      "y_near_mm": 9.0,
+      "diameter_mm": 3.5,
+      "method": "Owner-reported caliper readings from the datum edges to the hole's nearest (left / lower) wall; centre = near wall + half the hole's extent",
+      "instrument": "AOCORIC digital caliper, model 09-15473",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner chat 2026-11-10 (X/Y readings per the REAR measurement guide); XC=65, YC=9, diameter 3.5 mm",
+      "notes": ""
+    },
+    {
+      "id": "D",
+      "state": "measured",
+      "x_near_mm": 46.43,
+      "y_near_mm": 2.3,
+      "diameter_mm": 5.0,
+      "method": "Owner-reported caliper readings from the datum edges to the hole's nearest (left / lower) wall; centre = near wall + half the hole's extent",
+      "instrument": "AOCORIC digital caliper, model 09-15473",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner chat 2026-11-10 (X/Y readings per the REAR measurement guide); XD=46.43, YD=2.3, diameter 5 mm",
+      "notes": "Only 2.3 mm of board between this hole and the bottom edge."
+    },
+    {
+      "id": "E",
+      "state": "measured",
+      "x_near_mm": 14.2,
+      "y_near_mm": 9.25,
+      "diameter_mm": 3.3,
+      "slot_length_mm": 5.4,
+      "angle_deg": 0,
+      "method": "Owner-reported caliper readings from the datum edges to the hole's nearest (left / lower) wall; centre = near wall + half the hole's extent",
+      "instrument": "AOCORIC digital caliper, model 09-15473",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner chat 2026-11-10 (X/Y readings per the REAR measurement guide); XE=14.2, YE=9.25, slot 5.4 long x 3.3 tall",
+      "notes": "Slot: 5.4 mm overall along X, 3.3 mm wide along Y. Orientation inferred from the owner's 'long' and 'tall'; confirm. XE was re-measured on 2026-11-10 at about 14.0 and 14.15 mm, consistent with the 14.2 mm recorded."
+    },
+    {
+      "id": "F",
+      "state": "measured",
+      "x_near_mm": 8.45,
+      "y_near_mm": 10.75,
+      "diameter_mm": 2.0,
+      "method": "Owner-reported caliper readings from the datum edges to the hole's nearest (left / lower) wall; centre = near wall + half the hole's extent",
+      "instrument": "AOCORIC digital caliper, model 09-15473",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner chat 2026-11-10 (X/Y readings per the REAR measurement guide); XF=8.45, YF=10.75 (bottom of hole), diameter 2 mm",
+      "notes": ""
+    }
+  ],
   "separate_modules": [
     {
       "name": "Left joystick daughterboard",
@@ -78,7 +388,13 @@
     "Handheld perspective photographs establish identity/layout, not dimensional scale.",
     "W/H/T/A are the first measurement batch. Exact outline, other hole centers, connector overhangs and component heights follow later.",
     "Do not measure joystick spacing from the loose board assembly: daughterboards move on ribbons. Use original housing if preserving its spacing, or explicitly design a new layout.",
-    "First four dimensions supplied by the project owner on 2026-11-10. Instrument and uncertainty not supplied. Hole A location and the exact irregular outline remain unmeasured."
+    "First four dimensions supplied by the project owner on 2026-11-10. Instrument and uncertainty not supplied. Hole A location and the exact irregular outline remain unmeasured.",
+    "Datum assigned by the project owner on 2026-11-10 (rear view, bottom-left, battery-connector end). It was chosen over the front-view motor-lead corner, which is the opposite end of the same edge. Hole positions and outline are measured from this origin.",
+    "Instrument for W/H/T/A: the owner states all mechanical measurements use the AOCORIC digital caliper, model 09-15473. Its uncertainty, zero check and resolution have not been recorded, so uncertainty_mm remains null.",
+    "Photo cross-check, 2026-11-10 (the owner's two top-down caliper photos, rear side up; not yet archived in the repo): holes D, B and C were located in the images and a pixel-to-mm similarity transform fitted to the caliper readings. Residuals were 0.1 to 0.3 mm, the photo scale was 9.07 px/mm (photo 1) and 7.67 px/mm (photo 2), and the board's bottom edge fell at Y = 0 within 0.15 mm. The end edge at the battery-connector end fell 0.5 to 1.4 mm outside X = 0, but it is partly hidden by the connector and ribbon, so it is the least reliable edge. Holes E and F are hidden by the ribbon. This is a consistency check, not a measurement; the caliper readings remain the authority.",
+    "Revision 3 records the datum, the instrument, hole readings for B, C, D, E and F (plus A, whose X comes from the photos) and a traced outline. The outline is a photo trace with a stated +/-0.4 mm uncertainty, not a caliper measurement; four short stretches are bridged where a ribbon, the battery connector or the USB shell hides the edge (listed in outline.hidden_or_bridged).",
+    "The board's far corner (rear view, USB at top, the end opposite the battery connector) has a straight diagonal cut about 12.5 mm along the bottom edge by 6.5 mm up the end edge. This is separate from the two large concave arcs (radius about 16 mm) cut for the thumbsticks.",
+    "Comparison with the OfflineRocket/Pro-Controller-X BitBuilt scan (viewed and compared privately, not copied): hole spacing matched the caliper readings to about 0.1 mm at 600 dpi, so the hole layout is the same design, but the scan's edges differ from this board by up to about 1 mm, so it was not used for the outline."
   ],
   "model_policy": "Measured W/H/T can define a bounding envelope only. Do not call a rectangle the board outline. Hole diameter alone does not locate a hole; require datum coordinates. No inferred measurements from handheld photos."
 }
