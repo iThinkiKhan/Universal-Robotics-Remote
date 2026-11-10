@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "board": "ESP32-S3 N16R8",
+  "signals": [
+    {"id":"tft_sck","symbol":"tftSck","gpio":12,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"tft_mosi","symbol":"tftMosi","gpio":11,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"tft_miso","symbol":"tftMiso","gpio":13,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"tft_cs","symbol":"tftCs","gpio":10,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"tft_dc","symbol":"tftDc","gpio":9,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"tft_reset","symbol":"tftReset","gpio":8,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"touch_sck","symbol":"touchSck","gpio":39,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"touch_mosi","symbol":"touchMosi","gpio":40,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"touch_miso","symbol":"touchMiso","gpio":41,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"touch_cs","symbol":"touchCs","gpio":42,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"touch_irq","symbol":"touchIrq","gpio":47,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
+    {"id":"mic_sck","symbol":"micSck","gpio":15,"group":"microphone","state":"installed","evidence":"the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"},
+    {"id":"mic_ws","symbol":"micWs","gpio":16,"group":"microphone","state":"installed","evidence":"the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"},
+    {"id":"mic_sd","symbol":"micSd","gpio":17,"group":"microphone","state":"installed","evidence":"the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"},
+    {"id":"backlight_reserved","symbol":"backlight","gpio":4,"group":"backlight","state":"reserved","evidence":"LED physically wired to 3V3; GPIO4 must remain INPUT"},
+    {"id":"uart_tx","symbol":"uartTx","gpio":43,"group":"console","state":"installed","evidence":"ROM output through CH343 COM15; UART0 default pins"},
+    {"id":"uart_rx","symbol":"uartRx","gpio":44,"group":"console","state":"installed","evidence":"UART0 default pins; receive path to be tested"},
+    {"id":"L-X","symbol":"leftX","gpio":5,"group":"gamepad","state":"proposed","evidence":"Planning only; no voltage measurements or harness installed"},
+    {"id":"L-Y","symbol":"leftY","gpio":6,"group":"gamepad","state":"proposed","evidence":"Planning only; no voltage measurements or harness installed"},
+    {"id":"R-X","symbol":"rightX","gpio":7,"group":"gamepad","state":"proposed","evidence":"Planning only; no voltage measurements or harness installed"},
+    {"id":"R-Y","symbol":"rightY","gpio":2,"group":"gamepad","state":"proposed","evidence":"Planning only; avoids GPIO3 strap"},
+    {"id":"L-3","symbol":"leftClick","gpio":null,"group":"gamepad","state":"proposed","evidence":"Digital interface pending button topology measurements"},
+    {"id":"R-3","symbol":"rightClick","gpio":null,"group":"gamepad","state":"proposed","evidence":"Digital interface pending button topology measurements"},
+    {"id":"expander_sda","symbol":"expanderSda","gpio":18,"group":"expansion","state":"proposed","evidence":"Candidate future I2C; no expander attached or initialized"},
+    {"id":"expander_scl","symbol":"expanderScl","gpio":21,"group":"expansion","state":"proposed","evidence":"Candidate future I2C; no expander attached or initialized"}
+  ],
+  "gamepad_enabled": false,
+  "power": {
+    "display_vcc":"S3 3V3 (existing wiring)",
+    "display_led":"S3 3V3 (existing wiring; current limiter unverified)",
+    "mic_vdd":"S3 3V3",
+    "mic_lr":"GND",
+    "gamepad_power":"Unconnected to S3; architecture not measured"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "components": [
+    {
+      "id": "MCU1",
+      "part": "ESP32-S3 N16R8 development board",
+      "state": "observed",
+      "notes": "Revision v0.2, 16MB quad flash, 8MB 3.3V octal PSRAM; exact development board manufacturer/revision unconfirmed",
+      "dimensions_mm": null
+    },
+    {
+      "id": "DISP1",
+      "part": "2.8 TFT SPI 240x320 V1.2 / ILI9341",
+      "state": "source-confirmed",
+      "notes": "ILI9341 electrically identified in original project; landscape 320x240",
+      "dimensions_mm": null
+    },
+    {
+      "id": "TOUCH1",
+      "part": "XPT2046 resistive touch",
+      "state": "source-confirmed",
+      "notes": "Separate SPI bus; saved affine calibration in desk-touch NVS namespace",
+      "dimensions_mm": null
+    },
+    {
+      "id": "MIC1",
+      "part": "INMP441",
+      "state": "user-reported",
+      "notes": "Left I2S channel; no audio retention or speech service in bench firmware",
+      "dimensions_mm": null
+    },
+    {
+      "id": "PAD1",
+      "part": "GH-Wii U002, silkscreen 20150523H",
+      "state": "photo-confirmed",
+      "notes": "Keep complete PCB, both joystick boards, shoulder boards and ribbons. U5 empty, U9 populated; unknown IC functions",
+      "dimensions_mm": null,
+      "mechanical_survey": "measurements/boards/gamepad-gh-wii-u002.json",
+      "photo_archive": "measurements/photos/gamepad-gh-wii-u002"
+    },
+    {
+      "id": "BAT1",
+      "part": "Original three-wire rechargeable gamepad battery",
+      "state": "reported",
+      "notes": "Cell chemistry, voltage, capacity, condition and third-wire function unverified",
+      "dimensions_mm": null
+    },
+    {
+      "id": "EXP1",
+      "part": "MCP23017 or equivalent",
+      "state": "candidate",
+      "notes": "Not selected or installed; depends on button electrical characterization",
+      "dimensions_mm": null
+    }
+  ]
+}

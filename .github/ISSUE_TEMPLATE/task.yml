@@ -1,0 +1,22 @@
+name: Engineering task
+description: Coordinate a bounded engineering task
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Problem and intended result
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Owner, branch and intended files
+      description: Read existing claims first. Do not include credentials or private paths.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Dependencies, evidence and acceptance checks
+    validations:
+      required: true

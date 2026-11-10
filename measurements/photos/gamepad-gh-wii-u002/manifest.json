@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "board_id": "gamepad-gh-wii-u002",
+  "source_reference": "Ten owner-provided hardware reference photographs, archived 2026-11-10",
+  "scale": "Unscaled reference photos; not dimensional measurements",
+  "photos": [
+    {
+      "filename": "3079.jpg",
+      "original_filename": "3079.jpg",
+      "sha256": "00dc25f346252fe002708331de166220a07cb3046252facee576300f014a04a8",
+      "bytes": 335055,
+      "description": "Original shell interior, main PCB, battery pack and joystick assemblies"
+    },
+    {
+      "filename": "3080.jpg",
+      "original_filename": "3080.jpg",
+      "sha256": "15365821db1b501c1abdd9653113f4485704510ae02ca99834376c59d4baa564",
+      "bytes": 305288,
+      "description": "Button-contact side overview with joystick and shoulder modules still on ribbons"
+    },
+    {
+      "filename": "3081.jpg",
+      "original_filename": "3081.jpg",
+      "sha256": "77c5706ac1be2e61ead12a43cbfc0c00bb14c2cf464fbd9aa04d0403587e1ffb",
+      "bytes": 339991,
+      "description": "Button-contact side close overview; reference orientation for first measurements: USB at top"
+    },
+    {
+      "filename": "3082.jpg",
+      "original_filename": "3082.jpg",
+      "sha256": "83d85cf41f25ea66813cadf6af972d1adfbedaf8892714f9499248c2aa1a08f0",
+      "bytes": 200361,
+      "description": "Joystick daughterboard solder side, ribbon and mounting-hole close-up"
+    },
+    {
+      "filename": "3083.jpg",
+      "original_filename": "3083.jpg",
+      "sha256": "fc6da316bf04f66e51c30f1c63a4ea6e1fe4bb98a4ec5e7a5bb392c1cf1bb124",
+      "bytes": 188828,
+      "description": "Joystick daughterboard alternate view with labeled ribbon connections"
+    },
+    {
+      "filename": "3084.jpg",
+      "original_filename": "3084.jpg",
+      "sha256": "f2757a31f9c2a6e7d91d421947420cf00b84a586ce4f93a50cd2119e18d53562",
+      "bytes": 323044,
+      "description": "Main PCB identity and right-stick labeled pad region; daughterboard close-up"
+    },
+    {
+      "filename": "3085.jpg",
+      "original_filename": "3085.jpg",
+      "sha256": "4950c9d146b5c5a6e4775cff43c979101a8e445ea102bd3de403c2ab7855ce2a",
+      "bytes": 222386,
+      "description": "Joystick daughterboard shape, holes and ribbon reach reference"
+    },
+    {
+      "filename": "3086.jpg",
+      "original_filename": "3086.jpg",
+      "sha256": "abe0628aa6dedf16a6c021c3ae47730638b89db54cfe25d239960a4d405ea76a",
+      "bytes": 221979,
+      "description": "Main-board left-stick ribbon termination, motor wires and board-edge detail"
+    },
+    {
+      "filename": "3087.jpg",
+      "original_filename": "3087.jpg",
+      "sha256": "1874e5d20f87ab2704367c790f919b61529cc72c4b681d2337579200bc638856",
+      "bytes": 220131,
+      "description": "Main PCB rear overview, rotated; daughterboards and ribbons visible"
+    },
+    {
+      "filename": "3089.jpg",
+      "original_filename": "3089.jpg",
+      "sha256": "cb22df77e7dd41e3219d6bcac66a6c866206d4ce4c560bb7470fe4f7e1f6e5fe",
+      "bytes": 307293,
+      "description": "Sharp main-PCB rear overview showing GH-Wii U002 identity and labeled test pads"
+    }
+  ],
+  "publication": "Ancillary JPEG metadata removed; compressed image data unchanged. Private originals retained separately."
+}

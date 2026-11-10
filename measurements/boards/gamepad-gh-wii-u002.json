@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "board_id": "gamepad-gh-wii-u002",
+  "name": "GH-Wii U002 main gamepad PCB",
+  "photo_folder": "measurements/photos/gamepad-gh-wii-u002",
+  "reference_photo": "3081.jpg",
+  "view_description": "Reference photo 3081: button-contact side facing viewer; USB at the top. This is a reference view, not a measured CAD datum.",
+  "origin_description": null,
+  "state": "envelope_measured_outline_pending",
+  "readings": [
+    {
+      "id": "W",
+      "description": "Maximum bare main-PCB width; exclude detached modules",
+      "value_mm": 125.5,
+      "state": "measured",
+      "method": "Reported by the project owner; instrument not specified",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+    },
+    {
+      "id": "H",
+      "description": "Maximum main-PCB height; include PCB tabs, exclude connector overhang",
+      "value_mm": 62.5,
+      "state": "measured",
+      "method": "Reported by the project owner; instrument not specified",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+    },
+    {
+      "id": "T",
+      "description": "Bare substrate thickness; exclude solder and components",
+      "value_mm": 1.15,
+      "state": "measured",
+      "method": "Reported by the project owner; instrument not specified",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+    },
+    {
+      "id": "A",
+      "description": "Diameter of hole A: round through-hole immediately left of USB PCB tongue in photo 3081; mechanical function unverified",
+      "value_mm": 4.83,
+      "state": "measured",
+      "method": "Reported by the project owner; instrument not specified",
+      "date": "2026-11-10",
+      "uncertainty_mm": null,
+      "evidence": "Owner supplied W=125.5 H=62.5 T=1.15 A=4.83 mm on 2026-11-10"
+    }
+  ],
+  "outline": {
+    "state": "unmeasured",
+    "points_mm": []
+  },
+  "mounting_holes": [],
+  "separate_modules": [
+    {
+      "name": "Left joystick daughterboard",
+      "state": "Ribbon-connected separate board; envelope and mounting location unmeasured"
+    },
+    {
+      "name": "Right joystick daughterboard",
+      "state": "Ribbon-connected separate board; envelope and mounting location unmeasured"
+    },
+    {
+      "name": "Left shoulder-button board",
+      "state": "Separate ribbon-connected module; envelope and mounting location unmeasured"
+    },
+    {
+      "name": "Right shoulder-button board",
+      "state": "Separate ribbon-connected module; envelope and mounting location unmeasured"
+    }
+  ],
+  "notes": [
+    "Ten owner-provided reference photographs are available. No 3088.jpg was supplied.",
+    "Handheld perspective photographs establish identity/layout, not dimensional scale.",
+    "W/H/T/A are the first measurement batch. Exact outline, other hole centers, connector overhangs and component heights follow later.",
+    "Do not measure joystick spacing from the loose board assembly: daughterboards move on ribbons. Use original housing if preserving its spacing, or explicitly design a new layout.",
+    "First four dimensions supplied by the project owner on 2026-11-10. Instrument and uncertainty not supplied. Hole A location and the exact irregular outline remain unmeasured."
+  ],
+  "model_policy": "Measured W/H/T can define a bounding envelope only. Do not call a rectangle the board outline. Hole diameter alone does not locate a hole; require datum coordinates. No inferred measurements from handheld photos."
+}

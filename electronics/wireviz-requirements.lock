@@ -1,0 +1,5 @@
+click==8.5.1
+graphviz==0.21
+pillow==13.0.0
+PyYAML==6.0.3
+wireviz==0.4.1

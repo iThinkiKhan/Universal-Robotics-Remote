@@ -1,0 +1,19 @@
+{
+  "file": "cad/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r002.FCStd",
+  "board_id": "gamepad-gh-wii-u002",
+  "revision": 2,
+  "state": "envelope_measured_outline_pending",
+  "photo_references": 10,
+  "solid_objects": 1,
+  "expected_solid_objects": 1,
+  "native_reopened": true,
+  "source_sha256": "d9573112b35f6ce54eff2f654173fd3a80e6d761ad7c3e75437ed8111b3600cb",
+  "envelope_dimensions_mm": [
+    125.5,
+    62.5,
+    1.15
+  ],
+  "envelope_volume_mm3": 9020.3125,
+  "top_z_mm": 0.0,
+  "holes_cut": 0
+}

@@ -1,0 +1,5 @@
+RIG version=0.1.1-bench registry=9002484377b3 uptime_ms=49291 ready_ms=979 reset=1 flash=16777216 psram=8386231 heap=336296 min_heap=331016
+DISPLAY identified=1 calibrated=1 page=0 paints=153 max_paint_us=15697 max_loop_us=26369
+TOUCH events=0 raw=0,0 screen=0,0 taps=0 last_ms=0
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=774144 window=4096 nonzero=4096 rms_pct=0.02550 peak_pct=0.09513 dc_pct=0.00199 clipped=0 errors=0 age_ms=85

@@ -1,0 +1,26 @@
+id,component,quantity,condition,reference,value,unit,uncertainty,instrument,date,evidence,status
+V01,PAD1,VCC,original battery gamepad on USB disconnected,GND,,V,,,,,pending
+V02,PAD1,VCC,original battery gamepad off USB disconnected,GND,,V,,,,,pending
+V03,PAD1,+5V,original battery only,GND,,V,,,,,pending
+V04,PAD1,+5V,original charging arrangement,GND,,V,,,,,pending
+V05,BAT1,B+,original battery charger disconnected,GND,,V,,,,,pending
+AX01,PAD1,L-X,minimum,GND,,V,,,,,pending
+AX02,PAD1,L-X,center,GND,,V,,,,,pending
+AX03,PAD1,L-X,maximum,GND,,V,,,,,pending
+AY01,PAD1,L-Y,minimum,GND,,V,,,,,pending
+AY02,PAD1,L-Y,center,GND,,V,,,,,pending
+AY03,PAD1,L-Y,maximum,GND,,V,,,,,pending
+RX01,PAD1,R-X,minimum,GND,,V,,,,,pending
+RX02,PAD1,R-X,center,GND,,V,,,,,pending
+RX03,PAD1,R-X,maximum,GND,,V,,,,,pending
+RY01,PAD1,R-Y,minimum,GND,,V,,,,,pending
+RY02,PAD1,R-Y,center,GND,,V,,,,,pending
+RY03,PAD1,R-Y,maximum,GND,,V,,,,,pending
+BTN01,PAD1,face button exact pad TBD,released,GND,,V,,,,,pending
+BTN02,PAD1,face button exact pad TBD,pressed,GND,,V,,,,,pending
+BTN03,PAD1,shoulder exact pad TBD,released,GND,,V,,,,,pending
+BTN04,PAD1,shoulder exact pad TBD,pressed,GND,,V,,,,,pending
+DIM04,PAD1,joystick center spacing,center to center,,,mm,,,,,pending
+DIM05,BAT1,width,pack external envelope,,,mm,,,,,pending
+DIM06,BAT1,height,pack external envelope,,,mm,,,,,pending
+DIM07,BAT1,depth,pack external envelope,,,mm,,,,,pending

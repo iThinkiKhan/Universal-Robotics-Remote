@@ -1,0 +1,2 @@
+# Available in the project owner's PlatformIO environment. Only needed with a separate Python.
+pyserial==3.5

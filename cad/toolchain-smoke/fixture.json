@@ -1,0 +1,28 @@
+{
+  "purpose": "Synthetic ECAD/MCAD software validation; NOT Universal Remote geometry or a fabrication design",
+  "kicad_version": "10.0.8",
+  "board_mm": [
+    50,
+    30,
+    1.6
+  ],
+  "mount_holes_mm": [
+    [
+      5,
+      5,
+      3.2
+    ],
+    [
+      45,
+      25,
+      3.2
+    ]
+  ],
+  "fixture_grid_and_aux_origin_mm": [
+    100,
+    100
+  ],
+  "mcad_transform": "Relative to grid origin, KiCad Y becomes MCAD -Y",
+  "connector": "Standard PinHeader_1x04_P2.54mm_Vertical",
+  "board_sha256": "44e3a79003fc67667aa43bc51142e7aee27203eb98fe7971cef907716d025ba6"
+}

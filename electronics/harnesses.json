@@ -1,0 +1,17 @@
+{
+  "schema_version":1,
+  "harnesses":[
+    {"id":"J1","purpose":"Joystick observer signals","state":"proposed","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"L-X","color":null},
+      {"pin":2,"signal":"L-Y","color":null},
+      {"pin":3,"signal":"R-X","color":null},
+      {"pin":4,"signal":"R-Y","color":null},
+      {"pin":5,"signal":"L-3","color":null},
+      {"pin":6,"signal":"R-3","color":null},
+      {"pin":7,"signal":"GND","color":null},
+      {"pin":8,"signal":"SPARE","color":null}
+    ],"notes":"Candidate numbering only. No power rail. Do not assemble until connector orientation and electrical compatibility are resolved."},
+    {"id":"J2","purpose":"Buttons and shoulders","state":"unresolved","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Inventory signals and determine direct switch vs scanned matrix first; connector count and size TBD."},
+    {"id":"J3","purpose":"Power","state":"unresolved","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Physically distinct keyed connector; no pinout until battery, regulation, charging and backfeed design are measured."}
+  ]
+}

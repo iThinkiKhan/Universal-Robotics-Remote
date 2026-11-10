@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "J1 PROPOSED observer harness \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-1"
+  },
+  "connectors": {
+    "PAD1": {
+      "type": "GH-Wii U002 test pads",
+      "pins": [
+        "L-X",
+        "L-Y",
+        "R-X",
+        "R-Y",
+        "L-3",
+        "R-3",
+        "GND"
+      ],
+      "notes": "PROPOSED / voltages and button topology unmeasured"
+    },
+    "J1": {
+      "type": "Candidate 8-position / family TBD",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "pinlabels": [
+        "L-X",
+        "L-Y",
+        "R-X",
+        "R-Y",
+        "L-3",
+        "R-3",
+        "GND",
+        "SPARE"
+      ],
+      "notes": "NOT FOR ASSEMBLY / pin 1 and mating view not finalized"
+    }
+  },
+  "cables": {
+    "W1": {
+      "type": "Unbuilt observer signal bundle",
+      "wirecount": 7,
+      "wirelabels": [
+        "L-X",
+        "L-Y",
+        "R-X",
+        "R-Y",
+        "L-3",
+        "R-3",
+        "GND"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PAD1": [
+          "L-X",
+          "L-Y",
+          "R-X",
+          "R-Y",
+          "L-3",
+          "R-3",
+          "GND"
+        ]
+      },
+      {
+        "W1": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "J1": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    ]
+  ]
+}

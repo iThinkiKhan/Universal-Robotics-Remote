@@ -1,0 +1,90 @@
+{
+  "purpose": "SYNTHETIC TOOLCHAIN VALIDATION ONLY \u2014 not controller geometry",
+  "passed": true,
+  "checks": {
+    "stepup_registered": true,
+    "stepup_active": true,
+    "board_dimensions_preserved": true,
+    "populated_model_loaded": true,
+    "all_imported_solids_valid": true,
+    "board_drills_present": true,
+    "kicad_step_populated_and_valid": true,
+    "reference_model_datum_transform_verified": true,
+    "step_roundtrip_valid": true,
+    "step_volume_preserved": true,
+    "clearance_case_detected": true,
+    "intentional_collision_detected": true,
+    "native_document_reopens": true,
+    "pcb_source_unchanged": true
+  },
+  "validated_at_utc": "2026-11-10T12:10:37.890735+00:00",
+  "kicad_version": "10.0.8",
+  "imported_shapes": [
+    {
+      "name": "Pcb_d7a",
+      "label": "Pcb_d7a",
+      "type": "Part::Feature",
+      "solids": 1,
+      "volume_mm3": 2369.2375247360483,
+      "bbox_mm": [
+        50.0,
+        30.0,
+        1.6
+      ],
+      "valid": true
+    },
+    {
+      "name": "Shape",
+      "label": "J_TEST_PinHeader_1x04_P254mm_Vertical_ba3a7649bfea",
+      "type": "Part::Feature",
+      "solids": 1,
+      "volume_mm3": 78.76443754666704,
+      "bbox_mm": [
+        2.540000000000001,
+        10.16,
+        11.54000000000044
+      ],
+      "valid": true
+    }
+  ],
+  "kicad_step_solids": 2,
+  "kicad_bbox_mm": [
+    0.0,
+    -30.0,
+    -1.40500000000022,
+    50.0,
+    0.0,
+    10.13500000000022
+  ],
+  "stepup_bbox_mm": [
+    0.0,
+    -30.0,
+    -3.00000000000022,
+    50.0,
+    0.0,
+    8.54000000000022
+  ],
+  "native_to_stepup_reference_transform_mm": [
+    0,
+    0,
+    -1.5949999999999998
+  ],
+  "native_board_core_thickness_mm": 1.51,
+  "datum_note": "Observed on this synthetic fixture only. StepUp top=Z0/full board envelope; KiCad STEP uses stackup/core/surface placement. Do not reuse this measured offset on another board.",
+  "step_solids": 2,
+  "step_volume_mm3": 2448.0019622827176,
+  "collision_test": {
+    "clearance_mm": 3.0,
+    "clear_overlap_mm3": 0.0,
+    "intentional_overlap_mm3": 15.999999999999996
+  },
+  "source_sha256": "44e3a79003fc67667aa43bc51142e7aee27203eb98fe7971cef907716d025ba6",
+  "freecad_version": [
+    "1",
+    "0",
+    "0",
+    "",
+    "https://code.launchpad.net/~vcs-imports/freecad/trunk",
+    "2026/08/25 11:49:11"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "model": "cad/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r002.FCStd",
+  "image": "exports/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r002-ENVELOPE_ONLY.png",
+  "nonwhite_preview_samples": 1354,
+  "envelope_dimensions_mm": [
+    125.5,
+    62.5,
+    1.15
+  ],
+  "limitation": "Bounding envelope only. Irregular outline, hole positions and component geometry remain unmodeled."
+}

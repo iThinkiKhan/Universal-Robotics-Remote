@@ -1,0 +1,255 @@
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=76414 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=89 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1208320 window=4096 nonzero=4095 rms_pct=0.03699 peak_pct=0.14029 dc_pct=-0.00062 clipped=0 errors=0 age_ms=106
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=81470 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=98 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1290240 window=4096 nonzero=4096 rms_pct=0.38810 peak_pct=10.23532 dc_pct=-0.00196 clipped=0 errors=0 age_ms=42
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=86531 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=106 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1368064 window=4096 nonzero=4096 rms_pct=0.02786 peak_pct=0.08749 dc_pct=-0.00143 clipped=0 errors=0 age_ms=240
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=91693 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=115 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1449984 window=4096 nonzero=4096 rms_pct=0.04244 peak_pct=0.16114 dc_pct=0.00196 clipped=0 errors=0 age_ms=282
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=96764 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=123 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1531904 window=4096 nonzero=4096 rms_pct=0.02625 peak_pct=0.10496 dc_pct=-0.00600 clipped=0 errors=0 age_ms=234
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=101829 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=131 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1613824 window=4096 nonzero=4096 rms_pct=0.02820 peak_pct=0.09954 dc_pct=0.00222 clipped=0 errors=0 age_ms=179
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=106894 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=140 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1695744 window=4096 nonzero=4094 rms_pct=0.02771 peak_pct=0.08508 dc_pct=-0.00369 clipped=0 errors=0 age_ms=125
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=111955 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=148 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1777664 window=4096 nonzero=4096 rms_pct=0.03677 peak_pct=0.12234 dc_pct=0.00239 clipped=0 errors=0 age_ms=66
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=117018 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=156 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1855488 window=4096 nonzero=4096 rms_pct=0.11716 peak_pct=0.39661 dc_pct=0.00011 clipped=0 errors=0 age_ms=265
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=122088 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=165 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=1937408 window=4096 nonzero=4096 rms_pct=0.03286 peak_pct=0.13849 dc_pct=0.00239 clipped=0 errors=0 age_ms=216
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=127147 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=0 paints=173 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=18 raw=696,3411 screen=53,208 taps=5 last_ms=28380
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2019328 window=4096 nonzero=4096 rms_pct=0.15625 peak_pct=0.96564 dc_pct=-0.00664 clipped=0 errors=0 age_ms=155
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=132455 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=2 paints=182 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=19 raw=697,1861 screen=179,209 taps=6 last_ms=132162
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2105344 window=4096 nonzero=4095 rms_pct=0.02443 peak_pct=0.08528 dc_pct=-0.01180 clipped=0 errors=0 age_ms=88
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=137315 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=190 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2183168 window=4096 nonzero=4095 rms_pct=0.02766 peak_pct=0.07685 dc_pct=-0.00323 clipped=0 errors=0 age_ms=85
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=142380 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=198 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2260992 window=4096 nonzero=4095 rms_pct=0.02716 peak_pct=0.08676 dc_pct=-0.00441 clipped=0 errors=0 age_ms=287
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=147441 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=206 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2342912 window=4096 nonzero=4096 rms_pct=0.02195 peak_pct=0.07511 dc_pct=0.00098 clipped=0 errors=0 age_ms=228
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=152539 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=215 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2424832 window=4096 nonzero=4096 rms_pct=0.10433 peak_pct=0.33852 dc_pct=0.00809 clipped=0 errors=0 age_ms=207
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=157606 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=223 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2506752 window=4096 nonzero=4095 rms_pct=0.01957 peak_pct=0.06869 dc_pct=-0.00356 clipped=0 errors=0 age_ms=154
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=162680 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=231 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2588672 window=4096 nonzero=4096 rms_pct=0.02656 peak_pct=0.08135 dc_pct=0.00521 clipped=0 errors=0 age_ms=109
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=167816 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=240 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2670592 window=4096 nonzero=4096 rms_pct=0.02334 peak_pct=0.08507 dc_pct=-0.00169 clipped=0 errors=0 age_ms=125
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=172891 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=248 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2752512 window=4096 nonzero=4093 rms_pct=0.04138 peak_pct=0.13095 dc_pct=-0.00191 clipped=0 errors=0 age_ms=81
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=177960 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=256 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2830336 window=4096 nonzero=4095 rms_pct=0.03782 peak_pct=0.14462 dc_pct=-0.00372 clipped=0 errors=0 age_ms=286
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=183092 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=265 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2916352 window=4096 nonzero=4096 rms_pct=0.02887 peak_pct=0.09165 dc_pct=-0.00204 clipped=0 errors=0 age_ms=43
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=188163 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=273 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=2994176 window=4096 nonzero=4095 rms_pct=0.02181 peak_pct=0.07347 dc_pct=-0.00325 clipped=0 errors=0 age_ms=250
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=193235 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=281 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3076096 window=4096 nonzero=4095 rms_pct=0.02190 peak_pct=0.07867 dc_pct=-0.00460 clipped=0 errors=0 age_ms=203
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=198369 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=290 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3158016 window=4096 nonzero=4096 rms_pct=0.05715 peak_pct=0.18386 dc_pct=0.00347 clipped=0 errors=0 age_ms=217
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=203428 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=298 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3239936 window=4096 nonzero=4096 rms_pct=0.02655 peak_pct=0.08905 dc_pct=-0.00252 clipped=0 errors=0 age_ms=157
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=208493 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=306 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3321856 window=4096 nonzero=4096 rms_pct=0.02196 peak_pct=0.06943 dc_pct=0.00539 clipped=0 errors=0 age_ms=102
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=213646 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=315 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3403776 window=4096 nonzero=4096 rms_pct=0.02828 peak_pct=0.11108 dc_pct=-0.00454 clipped=0 errors=0 age_ms=136
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=218713 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=323 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3485696 window=4096 nonzero=4094 rms_pct=0.03082 peak_pct=0.09780 dc_pct=0.00023 clipped=0 errors=0 age_ms=83
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=223772 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=331 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3563520 window=4096 nonzero=4095 rms_pct=0.03164 peak_pct=0.10544 dc_pct=-0.00305 clipped=0 errors=0 age_ms=279
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=228923 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=340 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3649536 window=4096 nonzero=4096 rms_pct=0.03417 peak_pct=0.10884 dc_pct=-0.00645 clipped=0 errors=0 age_ms=54
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=233996 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=348 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3727360 window=4096 nonzero=4096 rms_pct=0.03152 peak_pct=0.08857 dc_pct=-0.00203 clipped=0 errors=0 age_ms=263
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=239069 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=356 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3809280 window=4096 nonzero=4096 rms_pct=0.03074 peak_pct=0.09911 dc_pct=0.00045 clipped=0 errors=0 age_ms=217
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=244199 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=365 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3891200 window=4096 nonzero=4096 rms_pct=0.02321 peak_pct=0.07786 dc_pct=0.00164 clipped=0 errors=0 age_ms=227
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=249266 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=373 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=3973120 window=4096 nonzero=4093 rms_pct=0.02325 peak_pct=0.08041 dc_pct=-0.00188 clipped=0 errors=0 age_ms=175
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=254329 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=381 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4055040 window=4096 nonzero=4096 rms_pct=0.02269 peak_pct=0.08848 dc_pct=0.00620 clipped=0 errors=0 age_ms=118
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=259475 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=390 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4136960 window=4096 nonzero=4093 rms_pct=0.02516 peak_pct=0.08067 dc_pct=0.00138 clipped=0 errors=0 age_ms=145
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=264544 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=398 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4218880 window=4096 nonzero=4095 rms_pct=0.02380 peak_pct=0.09400 dc_pct=0.00299 clipped=0 errors=0 age_ms=94
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=269605 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=406 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4300800 window=4096 nonzero=4096 rms_pct=0.02420 peak_pct=0.10496 dc_pct=0.00079 clipped=0 errors=0 age_ms=36
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=274751 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=415 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4382720 window=4096 nonzero=4096 rms_pct=0.02537 peak_pct=0.09505 dc_pct=0.00027 clipped=0 errors=0 age_ms=62
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=279818 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=423 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4460544 window=4096 nonzero=4096 rms_pct=0.03043 peak_pct=0.09943 dc_pct=-0.00135 clipped=0 errors=0 age_ms=266
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=284890 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=431 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4542464 window=4096 nonzero=4092 rms_pct=0.02183 peak_pct=0.07694 dc_pct=0.00264 clipped=0 errors=0 age_ms=218
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=290028 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=440 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4624384 window=4096 nonzero=4096 rms_pct=0.02265 peak_pct=0.07913 dc_pct=0.00077 clipped=0 errors=0 age_ms=237
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=295093 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=448 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4706304 window=4096 nonzero=4096 rms_pct=0.02296 peak_pct=0.09493 dc_pct=-0.00335 clipped=0 errors=0 age_ms=182
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=300154 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=456 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4788224 window=4096 nonzero=4095 rms_pct=0.02252 peak_pct=0.07305 dc_pct=0.00020 clipped=0 errors=0 age_ms=124
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=305305 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=465 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4870144 window=4096 nonzero=4096 rms_pct=0.01957 peak_pct=0.06851 dc_pct=0.00026 clipped=0 errors=0 age_ms=155
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=310374 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=473 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=4952064 window=4096 nonzero=4092 rms_pct=0.02382 peak_pct=0.09588 dc_pct=-0.00279 clipped=0 errors=0 age_ms=105
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=315437 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=481 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=5033984 window=4096 nonzero=4096 rms_pct=0.02389 peak_pct=0.08446 dc_pct=0.00338 clipped=0 errors=0 age_ms=48
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=320581 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=490 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=5115904 window=4096 nonzero=4096 rms_pct=0.02891 peak_pct=0.10002 dc_pct=-0.00307 clipped=0 errors=0 age_ms=73
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=325648 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=498 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=5193728 window=4096 nonzero=4096 rms_pct=0.02771 peak_pct=0.10597 dc_pct=-0.00018 clipped=0 errors=0 age_ms=276
+RIG version=0.1.0-bench registry=9002484377b3 uptime_ms=330718 ready_ms=1100 reset=1 flash=16777216 psram=8386231 heap=354084 min_heap=348796
+DISPLAY identified=1 calibrated=1 page=3 paints=506 max_paint_us=279714 max_loop_us=22426250
+TOUCH events=21 raw=530,958 screen=252,220 taps=7 last_ms=136959
+POLICY gamepad_enabled=0 radio_control=0 backlight_gpio=INPUT uart=43,44
+MIC initialized=1 samples=5275648 window=4096 nonzero=4096 rms_pct=0.04026 peak_pct=0.14408 dc_pct=0.00129 clipped=0 errors=0 age_ms=227
