@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "title": "J2D PROPOSED D-pad harness to the WROOM-32U \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-3"
+  },
+  "connectors": {
+    "PADS": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2D",
+      "pins": [
+        "TP26",
+        "TP25",
+        "TP27",
+        "TP24",
+        "TP03"
+      ],
+      "pinlabels": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2D": {
+      "type": "JST XH housing",
+      "subtype": "5-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pinlabels": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "DEVKITC": {
+      "type": "ESP32-DevKitC V4 (WROOM-32U)",
+      "pins": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "pinlabels": [
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "GPIO13",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    }
+  },
+  "cables": {
+    "W-J2D": {
+      "type": "Solder tails",
+      "wirecount": 5,
+      "wirelabels": [
+        "J2D-W01",
+        "J2D-W02",
+        "J2D-W03",
+        "J2D-W04",
+        "J2D-W05"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2D": {
+      "type": "Board-side link",
+      "wirecount": 5,
+      "wirelabels": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PADS": [
+          "TP26",
+          "TP25",
+          "TP27",
+          "TP24",
+          "TP03"
+        ]
+      },
+      {
+        "W-J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    [
+      {
+        "J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "B-J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "DEVKITC": [
+          "L-UP",
+          "L-RIGHT",
+          "L-DOWN",
+          "L-LEFT",
+          "GND"
+        ]
+      }
+    ]
+  ]
+}

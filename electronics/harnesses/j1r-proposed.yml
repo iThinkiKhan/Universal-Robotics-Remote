@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "title": "J1R PROPOSED Right stick signals harness to the S3 \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-3"
+  },
+  "connectors": {
+    "PADS": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J1R",
+      "pins": [
+        "TP11",
+        "TP10",
+        "TP12",
+        "TP01"
+      ],
+      "pinlabels": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J1R": {
+      "type": "JST XH housing",
+      "subtype": "4-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "pinlabels": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "S3": {
+      "type": "ESP32-S3 N16R8 board",
+      "pins": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "pinlabels": [
+        "GPIO7",
+        "GPIO2",
+        "GPIO1",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    }
+  },
+  "cables": {
+    "W-J1R": {
+      "type": "Solder tails",
+      "wirecount": 4,
+      "wirelabels": [
+        "J1R-W01",
+        "J1R-W02",
+        "J1R-W03",
+        "J1R-W04"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J1R": {
+      "type": "Board-side link",
+      "wirecount": 4,
+      "wirelabels": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PADS": [
+          "TP11",
+          "TP10",
+          "TP12",
+          "TP01"
+        ]
+      },
+      {
+        "W-J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    [
+      {
+        "J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "B-J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "S3": [
+          "R-X",
+          "R-Y",
+          "R-3",
+          "GND"
+        ]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,879 @@
+{
+  "metadata": {
+    "title": "PROPOSED gamepad signal harness, all connectors \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-3"
+  },
+  "connectors": {
+    "PADS-J1L": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J1L",
+      "pins": [
+        "TP31",
+        "TP32",
+        "TP30",
+        "TP03"
+      ],
+      "pinlabels": [
+        "L-X",
+        "L-Y",
+        "L-3",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J1L": {
+      "type": "JST XH housing",
+      "subtype": "4-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "pinlabels": [
+        "L-X",
+        "L-Y",
+        "L-3",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "S3": {
+      "type": "ESP32-S3 N16R8 board",
+      "pins": [
+        "L-X",
+        "L-Y",
+        "L-3",
+        "J1L GND",
+        "R-X",
+        "R-Y",
+        "R-3",
+        "J1R GND",
+        "button_link_rx",
+        "LINK GND"
+      ],
+      "pinlabels": [
+        "GPIO5",
+        "GPIO6",
+        "GPIO21",
+        "GND",
+        "GPIO7",
+        "GPIO2",
+        "GPIO1",
+        "GND",
+        "GPIO18",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    },
+    "PADS-J1R": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J1R",
+      "pins": [
+        "TP11",
+        "TP10",
+        "TP12",
+        "TP01"
+      ],
+      "pinlabels": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J1R": {
+      "type": "JST XH housing",
+      "subtype": "4-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "pinlabels": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "PADS-J2F": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2F",
+      "pins": [
+        "TP19",
+        "TP20",
+        "TP22",
+        "TP21",
+        "TP01"
+      ],
+      "pinlabels": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2F": {
+      "type": "JST XH housing",
+      "subtype": "5-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pinlabels": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "DEVKITC": {
+      "type": "ESP32-DevKitC V4 (WROOM-32U)",
+      "pins": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "J2F GND",
+        "R-1",
+        "R-2",
+        "J2R GND",
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "J2D GND",
+        "L-1",
+        "L-2",
+        "J2L GND",
+        "K-+",
+        "K--",
+        "H",
+        "J2C GND",
+        "UART TX",
+        "LINK GND"
+      ],
+      "pinlabels": [
+        "GPIO36",
+        "GPIO39",
+        "GPIO34",
+        "GPIO35",
+        "GND",
+        "GPIO23",
+        "GPIO22",
+        "GND",
+        "GPIO25",
+        "GPIO26",
+        "GPIO27",
+        "GPIO13",
+        "GND",
+        "GPIO32",
+        "GPIO33",
+        "GND",
+        "GPIO21",
+        "GPIO19",
+        "GPIO18",
+        "GND",
+        "GPIO17",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    },
+    "PADS-J2R": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2R",
+      "pins": [
+        "TP58",
+        "TP59",
+        "TP01"
+      ],
+      "pinlabels": [
+        "R-1",
+        "R-2",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2R": {
+      "type": "JST XH housing",
+      "subtype": "3-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3
+      ],
+      "pinlabels": [
+        "R-1",
+        "R-2",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "PADS-J2D": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2D",
+      "pins": [
+        "TP26",
+        "TP25",
+        "TP27",
+        "TP24",
+        "TP03"
+      ],
+      "pinlabels": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2D": {
+      "type": "JST XH housing",
+      "subtype": "5-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pinlabels": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "PADS-J2L": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2L",
+      "pins": [
+        "TP72",
+        "TP71",
+        "TP03"
+      ],
+      "pinlabels": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2L": {
+      "type": "JST XH housing",
+      "subtype": "3-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3
+      ],
+      "pinlabels": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "PADS-J2C": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2C",
+      "pins": [
+        "TP73",
+        "TP69 or TP70",
+        "TP68",
+        "TP03"
+      ],
+      "pinlabels": [
+        "K-+",
+        "K--",
+        "H",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen / K-- pad not settled (TP69 or TP70)"
+    },
+    "J2C": {
+      "type": "JST XH housing",
+      "subtype": "5-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pinlabels": [
+        "K-+",
+        "K--",
+        "H",
+        "GND",
+        "K_POW (hold, not wired)"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    }
+  },
+  "cables": {
+    "W-J1L": {
+      "type": "Solder tails",
+      "wirecount": 4,
+      "wirelabels": [
+        "J1L-W01",
+        "J1L-W02",
+        "J1L-W03",
+        "J1L-W04"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J1L": {
+      "type": "Board-side link",
+      "wirecount": 4,
+      "wirelabels": [
+        "L-X",
+        "L-Y",
+        "L-3",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "W-J1R": {
+      "type": "Solder tails",
+      "wirecount": 4,
+      "wirelabels": [
+        "J1R-W01",
+        "J1R-W02",
+        "J1R-W03",
+        "J1R-W04"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J1R": {
+      "type": "Board-side link",
+      "wirecount": 4,
+      "wirelabels": [
+        "R-X",
+        "R-Y",
+        "R-3",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "W-J2F": {
+      "type": "Solder tails",
+      "wirecount": 5,
+      "wirelabels": [
+        "J2F-W01",
+        "J2F-W02",
+        "J2F-W03",
+        "J2F-W04",
+        "J2F-W05"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2F": {
+      "type": "Board-side link",
+      "wirecount": 5,
+      "wirelabels": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "W-J2R": {
+      "type": "Solder tails",
+      "wirecount": 3,
+      "wirelabels": [
+        "J2R-W01",
+        "J2R-W02",
+        "J2R-W03"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2R": {
+      "type": "Board-side link",
+      "wirecount": 3,
+      "wirelabels": [
+        "R-1",
+        "R-2",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "W-J2D": {
+      "type": "Solder tails",
+      "wirecount": 5,
+      "wirelabels": [
+        "J2D-W01",
+        "J2D-W02",
+        "J2D-W03",
+        "J2D-W04",
+        "J2D-W05"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2D": {
+      "type": "Board-side link",
+      "wirecount": 5,
+      "wirelabels": [
+        "L-UP",
+        "L-RIGHT",
+        "L-DOWN",
+        "L-LEFT",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "W-J2L": {
+      "type": "Solder tails",
+      "wirecount": 3,
+      "wirelabels": [
+        "J2L-W01",
+        "J2L-W02",
+        "J2L-W03"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2L": {
+      "type": "Board-side link",
+      "wirecount": 3,
+      "wirelabels": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "W-J2C": {
+      "type": "Solder tails",
+      "wirecount": 4,
+      "wirelabels": [
+        "J2C-W01",
+        "J2C-W02",
+        "J2C-W03",
+        "J2C-W04"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2C": {
+      "type": "Board-side link",
+      "wirecount": 4,
+      "wirelabels": [
+        "K-+",
+        "K--",
+        "H",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    },
+    "LINK": {
+      "type": "Button link (UART)",
+      "wirecount": 2,
+      "wirelabels": [
+        "button state",
+        "GND"
+      ],
+      "notes": "PROPOSED / connector, packet format and direction undecided / not a registered harness"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PADS-J1L": [
+          "TP31",
+          "TP32",
+          "TP30",
+          "TP03"
+        ]
+      },
+      {
+        "W-J1L": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "J1L": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    [
+      {
+        "J1L": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "B-J1L": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "S3": [
+          "L-X",
+          "L-Y",
+          "L-3",
+          "J1L GND"
+        ]
+      }
+    ],
+    [
+      {
+        "PADS-J1R": [
+          "TP11",
+          "TP10",
+          "TP12",
+          "TP01"
+        ]
+      },
+      {
+        "W-J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    [
+      {
+        "J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "B-J1R": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "S3": [
+          "R-X",
+          "R-Y",
+          "R-3",
+          "J1R GND"
+        ]
+      }
+    ],
+    [
+      {
+        "PADS-J2F": [
+          "TP19",
+          "TP20",
+          "TP22",
+          "TP21",
+          "TP01"
+        ]
+      },
+      {
+        "W-J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    [
+      {
+        "J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "B-J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "DEVKITC": [
+          "R-UP",
+          "R-RIGHT",
+          "R-DOWN",
+          "R-LEFT",
+          "J2F GND"
+        ]
+      }
+    ],
+    [
+      {
+        "PADS-J2R": [
+          "TP58",
+          "TP59",
+          "TP01"
+        ]
+      },
+      {
+        "W-J2R": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "J2R": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    [
+      {
+        "J2R": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "B-J2R": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "DEVKITC": [
+          "R-1",
+          "R-2",
+          "J2R GND"
+        ]
+      }
+    ],
+    [
+      {
+        "PADS-J2D": [
+          "TP26",
+          "TP25",
+          "TP27",
+          "TP24",
+          "TP03"
+        ]
+      },
+      {
+        "W-J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    [
+      {
+        "J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "B-J2D": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "DEVKITC": [
+          "L-UP",
+          "L-RIGHT",
+          "L-DOWN",
+          "L-LEFT",
+          "J2D GND"
+        ]
+      }
+    ],
+    [
+      {
+        "PADS-J2L": [
+          "TP72",
+          "TP71",
+          "TP03"
+        ]
+      },
+      {
+        "W-J2L": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "J2L": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    [
+      {
+        "J2L": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "B-J2L": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "DEVKITC": [
+          "L-1",
+          "L-2",
+          "J2L GND"
+        ]
+      }
+    ],
+    [
+      {
+        "PADS-J2C": [
+          "TP73",
+          "TP69 or TP70",
+          "TP68",
+          "TP03"
+        ]
+      },
+      {
+        "W-J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    [
+      {
+        "J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "B-J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "DEVKITC": [
+          "K-+",
+          "K--",
+          "H",
+          "J2C GND"
+        ]
+      }
+    ],
+    [
+      {
+        "DEVKITC": [
+          "UART TX",
+          "LINK GND"
+        ]
+      },
+      {
+        "LINK": [
+          1,
+          2
+        ]
+      },
+      {
+        "S3": [
+          "button_link_rx",
+          "LINK GND"
+        ]
+      }
+    ]
+  ]
+}

@@ -2,7 +2,7 @@
 
 Generated from hardware/signals.json. Proposed pins are not connection instructions.
 
-Registry SHA-256: `d608b7c0d9eaf2a43ff4d815941016b4439a368e948e8c2ea6007b2938b1f5d4`
+Registry SHA-256: `f1e11738eeff4e49f3c3aeb7c7fa9b629263dadb913995b0ee8bd777456e54da`
 
 | Signal | GPIO | Group | State |
 | --- | --- | --- | --- |
@@ -27,35 +27,119 @@ Registry SHA-256: `d608b7c0d9eaf2a43ff4d815941016b4439a368e948e8c2ea6007b2938b1f
 | L-Y | 6 | gamepad | proposed |
 | R-X | 7 | gamepad | proposed |
 | R-Y | 2 | gamepad | proposed |
-| L-3 | TBD | gamepad | proposed |
-| R-3 | TBD | gamepad | proposed |
-| expander_sda | 18 | expansion | proposed |
-| expander_scl | 21 | expansion | proposed |
+| L-3 | 21 | gamepad | proposed |
+| R-3 | 1 | gamepad | proposed |
+| button_link_rx | 18 | button_link | proposed |
 
-GPIO4 stays INPUT. Gamepad and expander pins are never initialized in the bench profile.
-GPIO1/14/38/48 remain unallocated pending exact development-board inspection; unallocated does not prove exposed or free.
+GPIO4 stays INPUT. Gamepad and button-link pins are never initialized in the bench profile.
+GPIO14/38/48 remain unallocated; unallocated does not prove exposed or free. GPIO38 and 48 may carry an on-board RGB LED, so they are not used for wired inputs.
+
+## Button processor: ESP32-DevKitC V4 carrying an ESP32-WROOM-32U (owner-reported 2026-11-11) (proposed)
+
+Proposed pins, movable for wiring convenience. Owner adopted the button processor on 2026-11-11 and delegated the pin choice (movable for wiring convenience). Chosen from the module's standard pinout and the DevKitC V4 header order recalled from memory, not yet checked against the datasheet. No strap pin (0, 2, 5, 12, 15), no flash pin (6 to 11), no console pin (1, 3). GPIO14 is left spare because it pulses at boot. GPIO16 is left spare as the UART2 receive pin for an optional return link. GPIO34, 35, 36 and 39 are input-only with no internal pull-up, so they carry buttons that the gamepad pulls up itself; if the button check (M4) shows a line floating when released, move it to a pin with an internal pull-up. Internal pull-ups stay off until then.
+
+UART TX to the S3 `button_link_rx` (GPIO18): WROOM GPIO17. Common ground required.
+
+| WROOM GPIO | Signal | Connector | Note |
+| --- | --- | --- | --- |
+| 4 | K_POW | J2C | POWER key, held: its voltage is unmeasured and may be battery voltage (M8). Nothing is wired to this pin until M8 clears it. |
+| 13 | L-LEFT | J2D |  |
+| 14 | spare |  | pulses at boot; avoid for a wired line |
+| 16 | spare |  | UART2 RX, for an optional return link from the S3 |
+| 18 | H | J2C |  |
+| 19 | K-- | J2C |  |
+| 21 | K-+ | J2C |  |
+| 22 | R-2 | J2R |  |
+| 23 | R-1 | J2R |  |
+| 25 | L-UP | J2D |  |
+| 26 | L-RIGHT | J2D |  |
+| 27 | L-DOWN | J2D |  |
+| 32 | L-1 | J2L |  |
+| 33 | L-2 | J2L |  |
+| 34 | R-DOWN | J2F | input-only, no internal pull-up |
+| 35 | R-LEFT | J2F | input-only, no internal pull-up |
+| 36 | R-UP | J2F | input-only, no internal pull-up |
+| 39 | R-RIGHT | J2F | input-only, no internal pull-up |
 
 ## Candidate harnesses
 
-### J1 — Joystick observer signals (proposed)
+### J1L — Left stick signals (proposed, goes to S3)
 
 Candidate numbering only. No power rail. Do not assemble until connector orientation and electrical compatibility are resolved.
 
-| Candidate position | Signal | GPIO |
+| Candidate position | Signal | S3 GPIO |
 | --- | --- | --- |
 | 1 | L-X | 5 |
 | 2 | L-Y | 6 |
-| 3 | R-X | 7 |
-| 4 | R-Y | 2 |
-| 5 | L-3 | TBD / not a GPIO |
-| 6 | R-3 | TBD / not a GPIO |
-| 7 | GND | TBD / not a GPIO |
-| 8 | SPARE | TBD / not a GPIO |
+| 3 | L-3 | 21 |
+| 4 | GND | TBD / not a GPIO |
 
-### J2 — Buttons and shoulders (unresolved)
+### J1R — Right stick signals (proposed, goes to S3)
 
-Inventory signals and determine direct switch vs scanned matrix first; connector count and size TBD.
+Candidate numbering only. No power rail. Do not assemble until connector orientation and electrical compatibility are resolved.
+
+| Candidate position | Signal | S3 GPIO |
+| --- | --- | --- |
+| 1 | R-X | 7 |
+| 2 | R-Y | 2 |
+| 3 | R-3 | 1 |
+| 4 | GND | TBD / not a GPIO |
+
+### J2F — Face buttons (proposed, goes to WROOM-32U)
+
+Candidate numbering only. Button functions are inferred from silkscreen until the button check (M4). WROOM input pins are not assigned.
+
+| Candidate position | Signal | S3 GPIO |
+| --- | --- | --- |
+| 1 | R-UP | WROOM input, not assigned |
+| 2 | R-RIGHT | WROOM input, not assigned |
+| 3 | R-DOWN | WROOM input, not assigned |
+| 4 | R-LEFT | WROOM input, not assigned |
+| 5 | GND | TBD / not a GPIO |
+
+### J2R — Right shoulder buttons (proposed, goes to WROOM-32U)
+
+Candidate numbering only. Taps free round test pads, not the shoulder ribbon joints. WROOM input pins are not assigned.
+
+| Candidate position | Signal | S3 GPIO |
+| --- | --- | --- |
+| 1 | R-1 | WROOM input, not assigned |
+| 2 | R-2 | WROOM input, not assigned |
+| 3 | GND | TBD / not a GPIO |
+
+### J2D — D-pad (proposed, goes to WROOM-32U)
+
+Candidate numbering only. Button functions are inferred from silkscreen until the button check (M4). WROOM input pins are not assigned.
+
+| Candidate position | Signal | S3 GPIO |
+| --- | --- | --- |
+| 1 | L-UP | WROOM input, not assigned |
+| 2 | L-RIGHT | WROOM input, not assigned |
+| 3 | L-DOWN | WROOM input, not assigned |
+| 4 | L-LEFT | WROOM input, not assigned |
+| 5 | GND | TBD / not a GPIO |
+
+### J2L — Left shoulder buttons (proposed, goes to WROOM-32U)
+
+Candidate numbering only. Taps free round test pads, not the shoulder ribbon joints. WROOM input pins are not assigned.
+
+| Candidate position | Signal | S3 GPIO |
+| --- | --- | --- |
+| 1 | L-1 | WROOM input, not assigned |
+| 2 | L-2 | WROOM input, not assigned |
+| 3 | GND | TBD / not a GPIO |
+
+### J2C — Centre buttons (proposed, goes to WROOM-32U)
+
+Candidate numbering only. A fifth position is reserved in the connection list for POWER (K_POW); it is not in this registry until its voltage is measured (M8). K-- pad is unsettled between TP69 and TP70.
+
+| Candidate position | Signal | S3 GPIO |
+| --- | --- | --- |
+| 1 | K-+ | WROOM input, not assigned |
+| 2 | K-- | WROOM input, not assigned |
+| 3 | H | WROOM input, not assigned |
+| 4 | GND | TBD / not a GPIO |
 
 ### J3 — Power (unresolved)
 
-Physically distinct keyed connector; no pinout until battery, regulation, charging and backfeed design are measured.
+Physically distinct keyed connector; no pinout until the power circuit is decided and measured.

@@ -1,17 +1,51 @@
 {
-  "schema_version":1,
+  "schema_version":2,
+  "connector_family":"JST XH, 2.5 mm pitch, 2 to 6 positions (owner stock, reported 2026-11-11); housing and contact part numbers TBD",
+  "button_processor":"ESP32-DevKitC V4 carrying an ESP32-WROOM-32U (owner-reported 2026-11-11); programmed over its on-board USB; power source undecided",
+  "wroom_inputs":["R-UP","R-RIGHT","R-DOWN","R-LEFT","R-1","R-2","L-UP","L-RIGHT","L-DOWN","L-LEFT","L-1","L-2","K-+","K--","H"],
   "harnesses":[
-    {"id":"J1","purpose":"Joystick observer signals","state":"proposed","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+    {"id":"J1L","purpose":"Left stick signals","state":"proposed","goes_to":"S3","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
       {"pin":1,"signal":"L-X","color":null},
       {"pin":2,"signal":"L-Y","color":null},
-      {"pin":3,"signal":"R-X","color":null},
-      {"pin":4,"signal":"R-Y","color":null},
-      {"pin":5,"signal":"L-3","color":null},
-      {"pin":6,"signal":"R-3","color":null},
-      {"pin":7,"signal":"GND","color":null},
-      {"pin":8,"signal":"SPARE","color":null}
+      {"pin":3,"signal":"L-3","color":null},
+      {"pin":4,"signal":"GND","color":null}
     ],"notes":"Candidate numbering only. No power rail. Do not assemble until connector orientation and electrical compatibility are resolved."},
-    {"id":"J2","purpose":"Buttons and shoulders","state":"unresolved","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Inventory signals and determine direct switch vs scanned matrix first; connector count and size TBD."},
-    {"id":"J3","purpose":"Power","state":"unresolved","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Physically distinct keyed connector; no pinout until battery, regulation, charging and backfeed design are measured."}
+    {"id":"J1R","purpose":"Right stick signals","state":"proposed","goes_to":"S3","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"R-X","color":null},
+      {"pin":2,"signal":"R-Y","color":null},
+      {"pin":3,"signal":"R-3","color":null},
+      {"pin":4,"signal":"GND","color":null}
+    ],"notes":"Candidate numbering only. No power rail. Do not assemble until connector orientation and electrical compatibility are resolved."},
+    {"id":"J2F","purpose":"Face buttons","state":"proposed","goes_to":"WROOM-32U","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"R-UP","color":null},
+      {"pin":2,"signal":"R-RIGHT","color":null},
+      {"pin":3,"signal":"R-DOWN","color":null},
+      {"pin":4,"signal":"R-LEFT","color":null},
+      {"pin":5,"signal":"GND","color":null}
+    ],"notes":"Candidate numbering only. Button functions are inferred from silkscreen until the button check (M4). WROOM input pins are not assigned."},
+    {"id":"J2R","purpose":"Right shoulder buttons","state":"proposed","goes_to":"WROOM-32U","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"R-1","color":null},
+      {"pin":2,"signal":"R-2","color":null},
+      {"pin":3,"signal":"GND","color":null}
+    ],"notes":"Candidate numbering only. Taps free round test pads, not the shoulder ribbon joints. WROOM input pins are not assigned."},
+    {"id":"J2D","purpose":"D-pad","state":"proposed","goes_to":"WROOM-32U","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"L-UP","color":null},
+      {"pin":2,"signal":"L-RIGHT","color":null},
+      {"pin":3,"signal":"L-DOWN","color":null},
+      {"pin":4,"signal":"L-LEFT","color":null},
+      {"pin":5,"signal":"GND","color":null}
+    ],"notes":"Candidate numbering only. Button functions are inferred from silkscreen until the button check (M4). WROOM input pins are not assigned."},
+    {"id":"J2L","purpose":"Left shoulder buttons","state":"proposed","goes_to":"WROOM-32U","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"L-1","color":null},
+      {"pin":2,"signal":"L-2","color":null},
+      {"pin":3,"signal":"GND","color":null}
+    ],"notes":"Candidate numbering only. Taps free round test pads, not the shoulder ribbon joints. WROOM input pins are not assigned."},
+    {"id":"J2C","purpose":"Centre buttons","state":"proposed","goes_to":"WROOM-32U","connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[
+      {"pin":1,"signal":"K-+","color":null},
+      {"pin":2,"signal":"K--","color":null},
+      {"pin":3,"signal":"H","color":null},
+      {"pin":4,"signal":"GND","color":null}
+    ],"notes":"Candidate numbering only. A fifth position is reserved in the connection list for POWER (K_POW); it is not in this registry until its voltage is measured (M8). K-- pad is unsettled between TP69 and TP70."},
+    {"id":"J3","purpose":"Power","state":"unresolved","goes_to":null,"connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Physically distinct keyed connector; no pinout until the power circuit is decided and measured."}
   ]
 }

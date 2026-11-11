@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "title": "J2C PROPOSED Centre buttons harness to the WROOM-32U \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-3"
+  },
+  "connectors": {
+    "PADS": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2C",
+      "pins": [
+        "TP73",
+        "TP69 or TP70",
+        "TP68",
+        "TP03"
+      ],
+      "pinlabels": [
+        "K-+",
+        "K--",
+        "H",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen / K-- pad not settled (TP69 or TP70)"
+    },
+    "J2C": {
+      "type": "JST XH housing",
+      "subtype": "5-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pinlabels": [
+        "K-+",
+        "K--",
+        "H",
+        "GND",
+        "K_POW (hold, not wired)"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "DEVKITC": {
+      "type": "ESP32-DevKitC V4 (WROOM-32U)",
+      "pins": [
+        "K-+",
+        "K--",
+        "H",
+        "GND"
+      ],
+      "pinlabels": [
+        "GPIO21",
+        "GPIO19",
+        "GPIO18",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    }
+  },
+  "cables": {
+    "W-J2C": {
+      "type": "Solder tails",
+      "wirecount": 4,
+      "wirelabels": [
+        "J2C-W01",
+        "J2C-W02",
+        "J2C-W03",
+        "J2C-W04"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2C": {
+      "type": "Board-side link",
+      "wirecount": 4,
+      "wirelabels": [
+        "K-+",
+        "K--",
+        "H",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PADS": [
+          "TP73",
+          "TP69 or TP70",
+          "TP68",
+          "TP03"
+        ]
+      },
+      {
+        "W-J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    [
+      {
+        "J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "B-J2C": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "DEVKITC": [
+          "K-+",
+          "K--",
+          "H",
+          "GND"
+        ]
+      }
+    ]
+  ]
+}

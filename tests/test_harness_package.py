@@ -12,6 +12,7 @@ PROCURE = ROOT / 'electronics/harness-procurement-proposed.csv'
 SHEET = ROOT / 'measurements/templates/harness-continuity-sheet.csv'
 PLAN = (ROOT / 'docs/HARNESS_PLAN.md').read_text(encoding='utf-8')
 STATUSES = {'plan-ready', 'blocked', 'hold', 'retained'}
+SIGNAL_CONNECTORS = ('J1L', 'J1R', 'J2F', 'J2R', 'J2D', 'J2L', 'J2C')
 
 
 def rows(path):
@@ -59,11 +60,20 @@ class ConnectionList(unittest.TestCase):
             if r['status'] in ('blocked', 'hold'):
                 self.assertTrue(r['notes'].strip(), r['signal'])
 
-    def test_j1_matches_the_harness_registry(self):
+    def test_every_signal_connector_matches_the_harness_registry(self):
         registry = json.loads((ROOT / 'electronics/harnesses.json').read_text(encoding='utf-8'))
-        j1 = {p['signal']: str(p['pin']) for p in next(h for h in registry['harnesses'] if h['id'] == 'J1')['pins']}
-        ours = {r['signal']: r['pin'] for r in self.rows if r['harness'] == 'J1'}
-        self.assertEqual(ours, j1)
+        for harness in registry['harnesses']:
+            if not harness['pins']:
+                continue
+            theirs = {str(p['pin']): p['signal'] for p in harness['pins']}
+            # GND rows carry a per-connector name in the list; held rows (POWER) are not in the registry yet
+            ours = {r['pin']: ('GND' if r['signal'].startswith('GND') else r['signal'])
+                    for r in self.rows if r['harness'] == harness['id'] and r['status'] != 'hold'}
+            self.assertEqual(ours, theirs, harness['id'])
+
+    def test_every_connector_fits_a_six_position_xh_housing(self):
+        for harness in {r['harness'] for r in self.rows if r['harness'] in SIGNAL_CONNECTORS}:
+            self.assertLessEqual(len([r for r in self.rows if r['harness'] == harness]), 6, harness)
 
     def test_power_and_bus_are_never_marked_ready(self):
         for r in self.rows:
@@ -71,8 +81,20 @@ class ConnectionList(unittest.TestCase):
                 self.assertEqual(r['status'], 'hold', r['signal'])
 
     def test_no_pad_is_claimed_by_two_plan_ready_signals(self):
-        used = [r['source_pads'] for r in self.rows if r['status'] == 'plan-ready']
+        # ground returns of neighbouring connectors deliberately share one large ground pad
+        used = [r['source_pads'] for r in self.rows if r['status'] == 'plan-ready' and not r['signal'].startswith('GND')]
         self.assertEqual(len(used), len(set(used)))
+
+    def test_ground_returns_use_large_ground_pads_only(self):
+        grounds = [r for r in self.rows if r['signal'].startswith('GND (')]
+        self.assertEqual(len(grounds), 7)
+        for r in grounds:
+            pad = self.pads[r['source_pads']]
+            self.assertIn(pad['label'], ('GND', 'VSS'), r['signal'])
+            self.assertGreaterEqual(float(pad['diameter_mm']), 2.5, f"{r['signal']} lands on a pad too small for several wires")
+        ledger = rows(ROOT / 'measurements/electrical.csv')
+        if any(self.pads[r['source_pads']]['label'] == 'VSS' for r in grounds):
+            self.assertTrue(any(e['id'] == 'GND01' and e['value'] == 'ground' for e in ledger), 'VSS is used as ground without a record')
 
     def test_gates_that_name_a_decision_or_measurement_exist_in_the_plan(self):
         for r in self.rows:
@@ -81,34 +103,36 @@ class ConnectionList(unittest.TestCase):
 
 
 class ButtonHarness(unittest.TestCase):
-    """J2A and J2B: every useful button on a free test pad, and a check sheet that covers each one."""
+    """The seven signal connectors: every useful button on a free test pad, and a check sheet that covers each one."""
     def setUp(self):
         self.rows = rows(SOURCES)
         self.pads = {r['id']: r for r in rows(ROOT / 'measurements/boards/gamepad-gh-wii-u002-pads.csv')}
         self.sheet = rows(ROOT / 'measurements/templates/button-check-sheet.csv')
 
     def test_connector_positions_are_complete_and_unique(self):
-        for harness, size in (('J1', 8), ('J2A', 8), ('J2B', 10)):
+        sizes = {'J1L': 4, 'J1R': 4, 'J2F': 5, 'J2R': 3, 'J2D': 5, 'J2L': 3, 'J2C': 5}
+        for harness, size in sizes.items():
             pins = [int(r['pin']) for r in self.rows if r['harness'] == harness]
             self.assertEqual(sorted(pins), list(range(1, size + 1)), harness)
 
     def test_no_signal_wire_lands_on_a_ribbon_power_or_bus_pad(self):
         forbidden = {'right-stick-ribbon', 'left-stick-ribbon', 'SW1', 'SW2', 'battery-footprint', 'motor'}
         for r in self.rows:
-            if r['harness'] in ('J1', 'J2A', 'J2B'):
+            if r['harness'] in SIGNAL_CONNECTORS:
                 for pid in filter(None, r['source_pads'].split('|')):
                     pad = self.pads[pid]
                     self.assertNotIn(pad['group'], forbidden, f"{r['signal']} taps {pid}")
                     if pad['group'] == 'power-bus':
-                        self.assertEqual(pad['label'], 'GND', f"{r['signal']} taps {pid}")
+                        self.assertTrue(r['signal'].startswith('GND'), f"{r['signal']} taps power pad {pid}")
+                        self.assertIn(pad['label'], ('GND', 'VSS'), f"{r['signal']} taps {pid}")
 
     def test_signal_name_is_the_printed_pad_label(self):
         for r in self.rows:
-            if r['harness'] in ('J2A', 'J2B') and r['status'] == 'plan-ready':
+            if r['harness'] in SIGNAL_CONNECTORS[2:] and r['status'] == 'plan-ready' and not r['signal'].startswith('GND'):
                 self.assertEqual(r['signal'], self.pads[r['source_pads']]['label'])
 
     def test_every_button_and_click_has_a_blank_check_row_for_each_candidate_pad(self):
-        wanted = {(r['signal'], pid) for r in self.rows if r['harness'] in ('J1', 'J2A', 'J2B')
+        wanted = {(r['signal'], pid) for r in self.rows if r['harness'] in SIGNAL_CONNECTORS and r['status'] != 'hold'
                   and r['function'] and 'analog' not in r['function'] and 'reference' not in r['function']
                   for pid in r['source_pads'].split('|')}
         self.assertEqual({(r['signal'], r['expected_pad']) for r in self.sheet}, wanted)

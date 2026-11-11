@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "title": "J2F PROPOSED Face buttons harness to the WROOM-32U \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-3"
+  },
+  "connectors": {
+    "PADS": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2F",
+      "pins": [
+        "TP19",
+        "TP20",
+        "TP22",
+        "TP21",
+        "TP01"
+      ],
+      "pinlabels": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2F": {
+      "type": "JST XH housing",
+      "subtype": "5-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "pinlabels": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "DEVKITC": {
+      "type": "ESP32-DevKitC V4 (WROOM-32U)",
+      "pins": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "pinlabels": [
+        "GPIO36",
+        "GPIO39",
+        "GPIO34",
+        "GPIO35",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    }
+  },
+  "cables": {
+    "W-J2F": {
+      "type": "Solder tails",
+      "wirecount": 5,
+      "wirelabels": [
+        "J2F-W01",
+        "J2F-W02",
+        "J2F-W03",
+        "J2F-W04",
+        "J2F-W05"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2F": {
+      "type": "Board-side link",
+      "wirecount": 5,
+      "wirelabels": [
+        "R-UP",
+        "R-RIGHT",
+        "R-DOWN",
+        "R-LEFT",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PADS": [
+          "TP19",
+          "TP20",
+          "TP22",
+          "TP21",
+          "TP01"
+        ]
+      },
+      {
+        "W-J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    [
+      {
+        "J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "B-J2F": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "DEVKITC": [
+          "R-UP",
+          "R-RIGHT",
+          "R-DOWN",
+          "R-LEFT",
+          "GND"
+        ]
+      }
+    ]
+  ]
+}

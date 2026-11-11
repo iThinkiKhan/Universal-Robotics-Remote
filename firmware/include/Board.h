@@ -23,11 +23,10 @@ constexpr int leftX = 5; // proposed
 constexpr int leftY = 6; // proposed
 constexpr int rightX = 7; // proposed
 constexpr int rightY = 2; // proposed
-constexpr int leftClick = -1; // proposed
-constexpr int rightClick = -1; // proposed
-constexpr int expanderSda = 18; // proposed
-constexpr int expanderScl = 21; // proposed
+constexpr int leftClick = 21; // proposed
+constexpr int rightClick = 1; // proposed
+constexpr int buttonLinkRx = 18; // proposed
 constexpr uint32_t displayHz = 10000000;
 constexpr bool gamepadEnabled = false;
-constexpr const char *registryHash = "d608b7c0d9ea";
+constexpr const char *registryHash = "f1e11738eeff";
 }
