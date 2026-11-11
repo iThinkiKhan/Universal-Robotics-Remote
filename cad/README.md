@@ -2,4 +2,6 @@
 
 Place measured native CAD source here once board outlines, hole centers, joystick heights/travel, ribbon reach, battery dimensions and connector orientation are available. Use measurements/electrical.csv and reference photos as evidence. Derived STEP and review images belong under exports/.
 
+`harness/` holds the 3D harness model. Revision 1 (`scripts/cad/build_harness_model.py`, rendered by `render_harness_model.py`) copies the surveyed board and puts a marker on every pad the proposed harness lands on, with the wire IDs as properties. Markers are not wire geometry and their colours identify the connector, not the wire. Wires, housings and the other modules are added once those modules are measured and placed.
+
 Do not use estimated photo dimensions to claim a fit. No enclosure or printable model has been created in this initial electrical/firmware preparation pass.

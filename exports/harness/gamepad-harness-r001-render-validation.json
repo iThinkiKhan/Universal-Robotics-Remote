@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "model": "cad/harness/gamepad-harness-r001.FCStd",
+  "images": [
+    "exports/harness/gamepad-harness-r001-TAPS-AXO.png",
+    "exports/harness/gamepad-harness-r001-TAPS-TOP.png"
+  ],
+  "nonwhite_preview_samples": 1649,
+  "tap_markers_shown": 24,
+  "limitation": "Tap markers on the traced board only. Marker colours identify the connector, not the wire. No wires, housings or other modules are modelled."
+}
