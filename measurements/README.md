@@ -6,4 +6,6 @@ The main gamepad record is boards/gamepad-gh-wii-u002.json; its first four readi
 
 `boards/gamepad-gh-wii-u002-pads.csv` holds the traced test pads (centre, footprint, printed label and how confident that label is) and is referenced from the board record. `boards/gamepad-gh-wii-u002-features.csv` lists the connectors, pad groups, switches, contacts and separate modules still to be located, all pending until measured; hole positions go in the board JSON instead. The recording format is in ../docs/ECAD_MCAD.md.
 
+`templates/module-readings.csv` and the three sheets in `templates/modules/` (S3 board, display module, microphone breakout) list the caliper readings needed to model those parts. Each part has its own datum (bottom-left of its PCB rectangle in a stated view); values stay blank until measured, and published sizes for these generic modules vary by vendor, so none are assumed. Tier 1 readings place a module in an assembly; tier 2 route the harness.
+
 For MCAD, add measured board outlines, hole centers, thickness, component heights, joystick travel and cable reach here before using them in native CAD. Synthetic toolchain fixtures under cad/toolchain-smoke are not hardware measurements.

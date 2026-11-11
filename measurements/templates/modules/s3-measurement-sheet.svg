@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" width="1100" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>ESP32-S3 development board - measurement sheet</title>
+<rect width="1100" height="760" fill="#ffffff"/>
+<text x="24" y="34" font-size="22" font-weight="bold">ESP32-S3 development board - what to measure</text>
+<text x="24" y="58" font-size="13">View: Component side up (the side with the metal-can module and headers). USB connectors at the TOP.</text>
+<text x="24" y="76" font-size="13">Datum: Bottom-left corner of the PCB rectangle in that view (the end away from USB). X to the right, Y up. Caliper, millimetres. NOT TO SCALE: the sketch only shows where to measure.</text>
+<rect x="40" y="110" width="300" height="520" fill="#e8f1e4" stroke="#222" stroke-width="2"/>
+<circle cx="40" cy="630" r="7" fill="#d32f2f"/>
+<text x="36" y="654" font-size="13" fill="#d32f2f" font-weight="bold">DATUM (0,0)</text>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z" fill="#1565c0"/></marker></defs>
+<line x1="40" y1="680" x2="340" y2="680" stroke="#1565c0" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="194.0" y="675.0" font-size="13" fill="#1565c0" font-weight="bold">S3-W</text>
+<line x1="18" y1="630" x2="18" y2="110" stroke="#1565c0" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="22.0" y="365.0" font-size="13" fill="#1565c0" font-weight="bold">S3-L</text>
+<rect x="135" y="96" width="42" height="22" fill="#bbb" stroke="#222"/><text x="135" y="92" font-size="12">USB 1</text>
+<rect x="203" y="96" width="42" height="22" fill="#bbb" stroke="#222"/><text x="203" y="92" font-size="12">USB 2</text>
+<rect x="110" y="160" width="160" height="150" fill="#9aa" stroke="#222"/><text x="120" y="240" font-size="13">radio module can</text>
+<circle cx="58" cy="610" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="576" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="542" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="508" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="474" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="440" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="406" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="372" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="338" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="304" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="270" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="236" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="202" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="58" cy="168" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="610" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="576" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="542" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="508" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="474" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="440" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="406" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="372" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="338" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="304" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="270" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="236" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="202" r="4" fill="#c9a227" stroke="#222"/>
+<circle cx="322" cy="168" r="4" fill="#c9a227" stroke="#222"/>
+<text x="64" y="626" font-size="11">left header row</text><text x="190" y="626" font-size="11">right header row</text>
+<text x="410" y="102" font-size="14" font-weight="bold">Side view (heights)</text>
+<rect x="410" y="170" width="220" height="10" fill="#e8f1e4" stroke="#222"/><text x="640" y="180" font-size="12">PCB = S3-T</text>
+<rect x="440" y="130" width="60" height="40" fill="#9aa" stroke="#222"/><text x="505" y="152" font-size="12">tallest part above top</text>
+<rect x="540" y="180" width="50" height="22" fill="#bbb" stroke="#222"/><text x="595" y="202" font-size="12">part / pin below</text>
+<text x="410" y="252" font-size="14" font-weight="bold">Readings (tier 1 first; value goes in module-readings.csv)</text>
+<text x="410" y="274" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-W</tspan><tspan> [T1] PCB width (X extent), side to side</tspan></text>
+<text x="410" y="289.2" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-L</tspan><tspan> [T1] PCB length (Y extent), datum end to USB end</tspan></text>
+<text x="410" y="304.4" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-T</tspan><tspan> [T1] PCB thickness</tspan></text>
+<text x="410" y="319.59999999999997" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-TALL</tspan><tspan> [T1] Height of the tallest part above the PCB top</tspan></text>
+<text x="410" y="334.79999999999995" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-LX</tspan><tspan> [T1] Left header row: X of the pin centres</tspan></text>
+<text x="410" y="349.99999999999994" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-RX</tspan><tspan> [T1] Right header row: X of the pin centres</tspan></text>
+<text x="410" y="365.19999999999993" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-P</tspan><tspan> [T1] Pin pitch along the row</tspan></text>
+<text x="410" y="380.3999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-N</tspan><tspan> [T1] Pins per row (a count, not mm)</tspan></text>
+<text x="410" y="395.5999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-Y1</tspan><tspan> [T1] Y of the first pin centre in a row</tspan></text>
+<text x="410" y="410.7999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-H</tspan><tspan> [T2] Header body height above the PCB top</tspan></text>
+<text x="410" y="425.9999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-HDR-PIN</tspan><tspan> [T2] Pin length sticking out below the PCB</tspan></text>
+<text x="410" y="441.1999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-USB1-X</tspan><tspan> [T1] USB connector 1: datum edge to its near (left) side</tspan></text>
+<text x="410" y="456.39999999999986" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-USB1-W</tspan><tspan> [T1] USB connector 1: shell width</tspan></text>
+<text x="410" y="471.59999999999985" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-USB1-H</tspan><tspan> [T2] USB connector 1: shell height above the PCB top</tspan></text>
+<text x="410" y="486.79999999999984" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-USB1-OVR</tspan><tspan> [T2] USB connector 1: how far the shell sticks out past the PCB end (negative if inside)</tspan></text>
+<text x="410" y="501.99999999999983" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-USB2-X</tspan><tspan> [T1] USB connector 2: datum edge to its near (left) side</tspan></text>
+<text x="410" y="517.1999999999998" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-USB2-W</tspan><tspan> [T1] USB connector 2: shell width</tspan></text>
+<text x="410" y="532.3999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-MOD-X</tspan><tspan> [T2] Radio module can: datum edge to its left side</tspan></text>
+<text x="410" y="547.5999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-MOD-Y</tspan><tspan> [T2] Radio module can: datum bottom edge to its lower side</tspan></text>
+<text x="410" y="562.8" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-MOD-W</tspan><tspan> [T2] Radio module can: width (X)</tspan></text>
+<text x="410" y="578.0" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-MOD-L</tspan><tspan> [T2] Radio module can: length (Y)</tspan></text>
+<text x="410" y="593.2" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-MOD-H</tspan><tspan> [T2] Radio module can: height above the PCB top</tspan></text>
+<text x="410" y="608.4000000000001" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">S3-BTN-H</tspan><tspan> [T3] Boot and reset buttons: height above the PCB top</tspan></text>
+</svg>

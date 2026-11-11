@@ -23,3 +23,6 @@ Display, touch and microphone checks passed. Incremental rendering/capture resol
 
 ## 2026-11-10 — Passive bus probe and next input milestone
 The project owner constructed a DIY logic analyzer, reporting no communication on the large `SCL`/`SDA` pads during startup and unsuccessful pairing within the observed window. Capture parameters and raw traces were not supplied; no bus identity or absence can be established. Prior owner voltage sweeps established four ~0–3 V joystick axes and active-low behavior for the sampled button types. Agreed to defer the bus and plan a single-channel S3 joystick observer test after checking off-state backfeed/power sequencing.
+
+## 2026-11-10 — Module measurement sheets
+Added a reading template and a guide sheet each for the S3 board, display module and microphone breakout. No dimensions were assumed; the models follow once the readings are taken. The battery and enclosure are not yet defined.

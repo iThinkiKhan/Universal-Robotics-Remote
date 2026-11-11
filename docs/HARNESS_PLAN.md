@@ -69,7 +69,7 @@ Sources: [JST GH datasheets via Farnell](https://www.farnell.com/datasheets/4803
 - **M2. Ground identity,** with every source disconnected: continuity between TP01, TP54, the ribbon GND pads (TP17, TP36), the shoulder GND pads and the battery negative pad (TP48).
 - **M3. Spot-checks** with the caliper of three pad centres and the far-end diagonal, to tighten the traced positions.
 - **M4. Button behaviour:** released and pressed voltage for L1, L2, R1, R2 and each face and D-pad contact, and whether they are direct switches or a matrix.
-- **M5. Heights and envelopes:** component heights near the pads, ribbon free lengths and exit directions, joystick travel, the S3, display and battery envelopes, USB access.
+- **M5. Heights and envelopes:** component heights near the pads, ribbon free lengths and exit directions, joystick travel, the S3, display and battery envelopes, USB access. The S3, display and microphone readings are listed in [module-readings.csv](../measurements/templates/module-readings.csv) with a [sheet](../measurements/templates/modules/) for each; the battery is not yet purchased and stays open.
 - **M6. Battery pack:** dimensions (DIM05 to DIM07), connector pin count and wire colours, the third wire's function.
 - **M7. S3 end:** which header positions are used and whether the connector is socketed or soldered.
 
