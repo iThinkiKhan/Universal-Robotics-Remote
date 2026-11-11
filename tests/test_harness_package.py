@@ -114,9 +114,24 @@ class ButtonHarness(unittest.TestCase):
         self.assertEqual({(r['signal'], r['expected_pad']) for r in self.sheet}, wanted)
         self.assertEqual(len(wanted), 18)
         for r in self.sheet:
-            self.assertEqual(r['state'], 'pending')
-            for column in ('pad_to_contact_continuity', 'released_v', 'pressed_v', 'instrument', 'date'):
-                self.assertEqual(r[column], '', f"{r['id']} has a reading recorded before it was taken")
+            self.assertIn(r['state'], {'pending', 'owner-reported'})
+            if r['state'] == 'pending':
+                for column in ('pad_to_contact_continuity', 'released_v', 'pressed_v', 'instrument', 'date'):
+                    self.assertEqual(r[column], '', f"{r['id']} has a reading recorded before it was taken")
+
+    def test_prefilled_rows_only_restate_readings_in_the_electrical_ledger(self):
+        ledger = rows(ROOT / 'measurements/electrical.csv')
+        for r in self.sheet:
+            if r['state'] != 'owner-reported':
+                continue
+            cited = set(re.findall(r'BTN\d+', r['notes']))
+            self.assertEqual(len(cited), 2, r['id'])
+            found = {e['id']: e for e in ledger if e['id'] in cited}
+            self.assertEqual(set(found), cited, r['id'])
+            self.assertEqual({float(e['value']) for e in found.values()}, {float(r['released_v']), float(r['pressed_v'])})
+            for e in found.values():
+                self.assertTrue(e['quantity'].startswith(r['signal']), f"{r['id']} cites {e['id']} ({e['quantity']})")
+                self.assertEqual((e['instrument'], e['date']), (r['instrument'], r['date']))
 
 
 class OrderingList(unittest.TestCase):
