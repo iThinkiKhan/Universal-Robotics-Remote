@@ -1,5 +1,8 @@
 # Engineering history
 
+## 2026-11-11 — Pad table completed and button harness proposed (survey r005)
+Added 16 pads to the rear-side table (83 in total): the round button test pads H, K-+, a K-- candidate pair, L-1 and L-2, the T, SYNCO, WP and POW_DET test points, four unlabeled ringed pads and the round M+ and M- motor pads. Re-read labels from zoomed crops of photos 3089 and 3086: the round pads beside the left-stick ribbon are L-3, L-X and L-Y, and the P_EN, MSDA and MSCL attributions beside U3 were revised (still low confidence). Built and rendered FreeCAD r005 (84 solids). Extended the harness proposal with J2A and J2B so that both sticks, their clicks and 15 buttons each land on a free round test pad; added a tap map and a button check sheet. Button functions are inferred from printed labels and are not yet measured; no registry, firmware or wiring change.
+
 ## 2026-11-10 — Harness package (proposal)
 Assembled what a high-quality harness needs: a connection list tying each important connection to pad IDs from the pad table and to the J1 registry pins (3 plan-ready, 10 blocked, 3 held, 6 retained original assemblies), an ordering list split into 12 buy-now lines, 7 buy-after-decision lines and 3 hold lines, a continuity-test sheet, and a plan listing the owner decisions (D1 to D6) and measurements (M1 to M7) still needed. Connector part numbers and wire ranges for JST GH and Hirose DF13 were checked against distributor and manufacturer datasheets and flagged where unconfirmed. Consistency tests keep the proposal in step with the pad table and registry. No electrical connection was made or approved.
 

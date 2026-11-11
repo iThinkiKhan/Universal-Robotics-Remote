@@ -1,4 +1,21 @@
 wire_id,harness,pin,signal,from_pad,to_contact,state,continuity_ohm,adjacent_short_check,insulation_ok,pull_test,tester,date,notes
-J1-W03,J1,3,R-X,TP11,S3 header via J1 pin 3 (per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the neighbouring pad (pads sit at 2 mm pitch).
-J1-W04,J1,4,R-Y,TP10,S3 header via J1 pin 4 (per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the neighbouring pad (pads sit at 2 mm pitch).
-J1-W06,J1,6,R-3,TP12,S3 header via J1 pin 6 (per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the neighbouring pad (pads sit at 2 mm pitch).
+J1-W01,J1,1,L-X,TP31,J1 pin 1 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1-W02,J1,2,L-Y,TP32,J1 pin 2 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1-W03,J1,3,R-X,TP11,J1 pin 3 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1-W04,J1,4,R-Y,TP10,J1 pin 4 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1-W05,J1,5,L-3,TP30,J1 pin 5 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1-W06,J1,6,R-3,TP12,J1 pin 6 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2A-W01,J2A,1,R-UP,TP19,J2A pin 1 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2A-W02,J2A,2,R-RIGHT,TP20,J2A pin 2 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2A-W03,J2A,3,R-DOWN,TP22,J2A pin 3 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2A-W04,J2A,4,R-LEFT,TP21,J2A pin 4 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2A-W05,J2A,5,R-1,TP58,J2A pin 5 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2A-W06,J2A,6,R-2,TP59,J2A pin 6 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W01,J2B,1,L-UP,TP26,J2B pin 1 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W02,J2B,2,L-RIGHT,TP25,J2B pin 2 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W03,J2B,3,L-DOWN,TP27,J2B pin 3 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W04,J2B,4,L-LEFT,TP24,J2B pin 4 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W05,J2B,5,L-1,TP72,J2B pin 5 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W06,J2B,6,L-2,TP71,J2B pin 6 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W07,J2B,7,K-+,TP73,J2B pin 7 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2B-W09,J2B,9,H,TP68,J2B pin 9 (S3 side per D2),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.

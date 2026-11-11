@@ -80,6 +80,45 @@ class ConnectionList(unittest.TestCase):
                 self.assertIn(f'**{ref}.', PLAN, f"{ref} is cited but not defined in HARNESS_PLAN.md")
 
 
+class ButtonHarness(unittest.TestCase):
+    """J2A and J2B: every useful button on a free test pad, and a check sheet that covers each one."""
+    def setUp(self):
+        self.rows = rows(SOURCES)
+        self.pads = {r['id']: r for r in rows(ROOT / 'measurements/boards/gamepad-gh-wii-u002-pads.csv')}
+        self.sheet = rows(ROOT / 'measurements/templates/button-check-sheet.csv')
+
+    def test_connector_positions_are_complete_and_unique(self):
+        for harness, size in (('J1', 8), ('J2A', 8), ('J2B', 10)):
+            pins = [int(r['pin']) for r in self.rows if r['harness'] == harness]
+            self.assertEqual(sorted(pins), list(range(1, size + 1)), harness)
+
+    def test_no_signal_wire_lands_on_a_ribbon_power_or_bus_pad(self):
+        forbidden = {'right-stick-ribbon', 'left-stick-ribbon', 'SW1', 'SW2', 'battery-footprint', 'motor'}
+        for r in self.rows:
+            if r['harness'] in ('J1', 'J2A', 'J2B'):
+                for pid in filter(None, r['source_pads'].split('|')):
+                    pad = self.pads[pid]
+                    self.assertNotIn(pad['group'], forbidden, f"{r['signal']} taps {pid}")
+                    if pad['group'] == 'power-bus':
+                        self.assertEqual(pad['label'], 'GND', f"{r['signal']} taps {pid}")
+
+    def test_signal_name_is_the_printed_pad_label(self):
+        for r in self.rows:
+            if r['harness'] in ('J2A', 'J2B') and r['status'] == 'plan-ready':
+                self.assertEqual(r['signal'], self.pads[r['source_pads']]['label'])
+
+    def test_every_button_and_click_has_a_blank_check_row_for_each_candidate_pad(self):
+        wanted = {(r['signal'], pid) for r in self.rows if r['harness'] in ('J1', 'J2A', 'J2B')
+                  and r['function'] and 'analog' not in r['function'] and 'reference' not in r['function']
+                  for pid in r['source_pads'].split('|')}
+        self.assertEqual({(r['signal'], r['expected_pad']) for r in self.sheet}, wanted)
+        self.assertEqual(len(wanted), 18)
+        for r in self.sheet:
+            self.assertEqual(r['state'], 'pending')
+            for column in ('pad_to_contact_continuity', 'released_v', 'pressed_v', 'instrument', 'date'):
+                self.assertEqual(r[column], '', f"{r['id']} has a reading recorded before it was taken")
+
+
 class OrderingList(unittest.TestCase):
     def setUp(self):
         self.rows = rows(PROCURE)
