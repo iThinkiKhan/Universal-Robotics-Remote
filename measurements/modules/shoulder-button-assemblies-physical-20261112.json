@@ -63,9 +63,8 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Confirm whether 37 x 29 x 15 mm dimensions apply to both left and right paired switch assemblies; currently documented for photographed assembly only.",
+    "Locate mounting/retention features and plastic tabs on representative shoulder assembly (mirrored variant should be checked for handed fastening features).",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
-    "Determine mount/retainer method (tabs, clips, screws) and compare opposite shoulder assembly.",
     "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
     "Determine how to secure replacement wire tails to plastic housing or a support so solder joints are not load-bearing."
   ],
@@ -117,5 +116,10 @@
     "report": "Existing shoulder-button ribbon wires are already breaking off; their lengths are not relevant as design constraints.",
     "engineering_implication": "Do not use present ribbon length or physical routing as a requirement for final layout. Design replacement/reterminated connections at the switch/PCB tabs with deliberate strain relief and route new wires to the harness. Keep the actual electrical signal/pad mapping as a separate design responsibility.",
     "scope": "Shoulder assemblies specifically (current measurement context); do not infer joystick ribbons have failed unless owner confirms."
+  },
+  "comparison": {
+    "owner_report": "Left and right shoulder assemblies share the measured 37 x 29 x 15 mm external envelope and are mirrored versions of one another.",
+    "state": "owner_confirmed_visually",
+    "design_use": "Use one parametric base assembly model mirrored for the other side; the 18.5 mm actuator spacing and 9.2 mm left offset, 7.5 mm top offset and ~2 mm protrusion apply in local mirrored assembly frames; exact switch tab orientation and retention geometry still to be localized."
   }
 }
