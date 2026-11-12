@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1084" height="730" font-family="sans-serif" font-size="11">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="22" font-size="14" font-weight="bold">DevKitC V4 placement study r001 (rotation limited to 90 degree steps)</text>
+<polygon fill="#d8eef2" stroke="#245" stroke-width="1.5" points="40.0,540.0 944.0,540.0 1044.0,488.0 1044.0,315.7 943.7,315.7 923.8,313.3 903.8,309.3 884.0,300.6 864.1,287.4 854.1,275.5 844.2,261.5 836.2,243.7 830.2,221.8 829.0,213.8 834.6,135.8 844.2,118.4 849.8,96.9 849.8,57.1 846.6,47.5 838.6,47.3 695.3,47.3 687.3,57.1 682.6,76.2 669.0,90.5 659.4,94.5 625.2,94.5 624.4,40.0 532.1,40.0 531.3,99.3 452.4,100.1 450.0,110.4 451.6,126.3 450.0,135.8 444.5,146.2 435.7,151.8 422.2,152.6 408.6,147.8 398.3,135.8 328.2,135.8 329.0,203.5 325.0,232.2 316.2,249.6 302.7,269.5 278.9,289.4 252.6,303.8 225.5,311.7 199.2,314.9 105.3,314.9 102.9,315.7 102.9,341.1 102.1,349.0 95.8,357.8 89.4,362.6 40.0,363.4"/>
+<circle cx="90.0" cy="394.0" r="2" fill="#999"/>
+<circle cx="173.2" cy="394.0" r="2" fill="#999"/>
+<circle cx="779.6" cy="266.8" r="2" fill="#999"/>
+<circle cx="778.8" cy="308.4" r="2" fill="#999"/>
+<circle cx="776.0" cy="362.0" r="2" fill="#999"/>
+<circle cx="776.0" cy="410.0" r="2" fill="#999"/>
+<circle cx="433.2" cy="249.2" r="2" fill="#999"/>
+<circle cx="412.4" cy="167.6" r="2" fill="#999"/>
+<circle cx="428.4" cy="190.0" r="2" fill="#999"/>
+<circle cx="262.8" cy="431.6" r="2" fill="#999"/>
+<circle cx="262.8" cy="454.0" r="2" fill="#999"/>
+<circle cx="238.8" cy="461.2" r="2" fill="#999"/>
+<circle cx="307.6" cy="480.4" r="2" fill="#999"/>
+<circle cx="165.2" cy="502.8" r="2" fill="#999"/>
+<circle cx="181.4" cy="502.8" r="2" fill="#999"/>
+<circle cx="197.7" cy="502.8" r="2" fill="#999"/>
+<circle cx="213.9" cy="502.8" r="2" fill="#999"/>
+<circle cx="230.2" cy="502.8" r="2" fill="#999"/>
+<circle cx="363.6" cy="348.4" r="2" fill="#999"/>
+<circle cx="362.0" cy="398.0" r="2" fill="#999"/>
+<circle cx="390.8" cy="422.0" r="2" fill="#999"/>
+<circle cx="390.8" cy="452.4" r="2" fill="#999"/>
+<circle cx="424.4" cy="387.6" r="2" fill="#999"/>
+<circle cx="865.2" cy="412.4" r="2" fill="#999"/>
+<circle cx="734.0" cy="414.0" r="2" fill="#999"/>
+<circle cx="816.0" cy="412.0" r="2" fill="#999"/>
+<circle cx="769.2" cy="458.8" r="2" fill="#999"/>
+<circle cx="856.0" cy="371.2" r="2" fill="#999"/>
+<circle cx="853.6" cy="432.8" r="2" fill="#999"/>
+<circle cx="884.8" cy="432.8" r="2" fill="#999"/>
+<circle cx="906.4" cy="432.8" r="2" fill="#999"/>
+<circle cx="928.8" cy="432.8" r="2" fill="#999"/>
+<circle cx="952.0" cy="408.0" r="2" fill="#999"/>
+<circle cx="968.4" cy="408.0" r="2" fill="#999"/>
+<circle cx="984.8" cy="408.0" r="2" fill="#999"/>
+<circle cx="1001.2" cy="408.0" r="2" fill="#999"/>
+<circle cx="1017.6" cy="408.0" r="2" fill="#999"/>
+<circle cx="340.8" cy="202.0" r="2" fill="#999"/>
+<circle cx="357.2" cy="202.0" r="2" fill="#999"/>
+<circle cx="373.6" cy="202.0" r="2" fill="#999"/>
+<circle cx="390.0" cy="202.0" r="2" fill="#999"/>
+<circle cx="755.2" cy="228.8" r="2" fill="#999"/>
+<circle cx="772.0" cy="228.8" r="2" fill="#999"/>
+<circle cx="788.8" cy="228.8" r="2" fill="#999"/>
+<circle cx="805.6" cy="228.8" r="2" fill="#999"/>
+<circle cx="936.8" cy="447.2" r="2" fill="#999"/>
+<circle cx="940.0" cy="480.8" r="2" fill="#999"/>
+<circle cx="68.0" cy="480.8" r="2" fill="#999"/>
+<circle cx="84.0" cy="480.8" r="2" fill="#999"/>
+<circle cx="100.0" cy="480.8" r="2" fill="#999"/>
+<circle cx="116.0" cy="480.8" r="2" fill="#999"/>
+<circle cx="84.4" cy="460.4" r="2" fill="#999"/>
+<circle cx="100.0" cy="460.8" r="2" fill="#999"/>
+<circle cx="574.8" cy="416.4" r="2" fill="#999"/>
+<circle cx="612.8" cy="476.0" r="2" fill="#999"/>
+<circle cx="722.0" cy="163.6" r="2" fill="#999"/>
+<circle cx="624.4" cy="234.8" r="2" fill="#999"/>
+<circle cx="373.2" cy="230.8" r="2" fill="#999"/>
+<circle cx="357.2" cy="238.0" r="2" fill="#999"/>
+<circle cx="357.2" cy="278.0" r="2" fill="#999"/>
+<circle cx="607.2" cy="396.8" r="2" fill="#999"/>
+<circle cx="623.2" cy="384.8" r="2" fill="#999"/>
+<circle cx="576.0" cy="384.8" r="2" fill="#999"/>
+<circle cx="515.2" cy="374.0" r="2" fill="#999"/>
+<circle cx="555.2" cy="374.0" r="2" fill="#999"/>
+<circle cx="526.0" cy="388.8" r="2" fill="#999"/>
+<circle cx="561.2" cy="389.2" r="2" fill="#999"/>
+<circle cx="704.4" cy="252.4" r="2" fill="#999"/>
+<circle cx="732.4" cy="248.4" r="2" fill="#999"/>
+<circle cx="724.0" cy="276.0" r="2" fill="#999"/>
+<circle cx="746.8" cy="253.2" r="2" fill="#999"/>
+<circle cx="759.6" cy="282.0" r="2" fill="#999"/>
+<circle cx="649.6" cy="355.2" r="2" fill="#999"/>
+<circle cx="624.0" cy="358.2" r="2" fill="#999"/>
+<circle cx="634.8" cy="279.6" r="2" fill="#999"/>
+<circle cx="656.4" cy="270.8" r="2" fill="#999"/>
+<circle cx="644.4" cy="290.0" r="2" fill="#999"/>
+<circle cx="751.4" cy="389.8" r="2" fill="#999"/>
+<circle cx="778.0" cy="479.6" r="2" fill="#999"/>
+<circle cx="495.4" cy="489.4" r="2" fill="#999"/>
+<circle cx="786.8" cy="125.2" r="2" fill="#999"/>
+<circle cx="1007.2" cy="468.0" r="2" fill="#999"/>
+<circle cx="977.6" cy="490.4" r="2" fill="#999"/>
+<polygon fill="#f6d9a8" fill-opacity="0.55" stroke="#a60" stroke-width="1.5" points="913.0,451.8 913.0,228.2 527.0,228.2 527.0,451.8"/>
+<circle cx="537.1" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="557.4" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="577.8" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="598.1" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="618.4" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="638.7" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="659.0" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="679.4" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="699.7" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="720.0" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="740.3" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="760.6" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="781.0" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="801.3" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="821.6" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="841.9" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="862.2" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="882.6" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="902.9" cy="441.6" r="2.2" fill="#a60"/>
+<circle cx="537.1" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="557.4" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="577.8" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="598.1" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="618.4" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="638.7" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="659.0" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="679.4" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="699.7" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="720.0" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="740.3" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="760.6" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="781.0" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="801.3" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="821.6" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="841.9" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="862.2" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="882.6" cy="238.4" r="2.2" fill="#a60"/>
+<circle cx="902.9" cy="238.4" r="2.2" fill="#a60"/>
+<line x1="363.6" y1="348.4" x2="577.8" y2="441.6" stroke="#d9301a" stroke-width="1.2"/>
+<line x1="362.0" y1="398.0" x2="598.1" y2="441.6" stroke="#d9301a" stroke-width="1.2"/>
+<line x1="390.8" y1="452.4" x2="618.4" y2="441.6" stroke="#d9301a" stroke-width="1.2"/>
+<line x1="390.8" y1="422.0" x2="638.7" y2="441.6" stroke="#d9301a" stroke-width="1.2"/>
+<line x1="90.0" y1="394.0" x2="537.1" y2="238.4" stroke="#d9301a" stroke-width="1.2"/>
+<line x1="373.2" y1="230.8" x2="557.4" y2="238.4" stroke="#f28c1a" stroke-width="1.2"/>
+<line x1="357.2" y1="238.0" x2="577.8" y2="238.4" stroke="#f28c1a" stroke-width="1.2"/>
+<line x1="90.0" y1="394.0" x2="537.1" y2="238.4" stroke="#f28c1a" stroke-width="1.2"/>
+<line x1="816.0" y1="412.0" x2="699.7" y2="441.6" stroke="#1a9940" stroke-width="1.2"/>
+<line x1="734.0" y1="414.0" x2="720.0" y2="441.6" stroke="#1a9940" stroke-width="1.2"/>
+<line x1="769.2" y1="458.8" x2="740.3" y2="441.6" stroke="#1a9940" stroke-width="1.2"/>
+<line x1="865.2" y1="412.4" x2="821.6" y2="441.6" stroke="#1a9940" stroke-width="1.2"/>
+<line x1="779.6" y1="266.8" x2="659.0" y2="238.4" stroke="#1a9940" stroke-width="1.2"/>
+<line x1="759.6" y1="282.0" x2="659.0" y2="441.6" stroke="#8cbf1a" stroke-width="1.2"/>
+<line x1="746.8" y1="253.2" x2="679.4" y2="441.6" stroke="#8cbf1a" stroke-width="1.2"/>
+<line x1="779.6" y1="266.8" x2="659.0" y2="238.4" stroke="#8cbf1a" stroke-width="1.2"/>
+<line x1="649.6" y1="355.2" x2="638.7" y2="238.4" stroke="#a633bf" stroke-width="1.2"/>
+<line x1="732.4" y1="248.4" x2="679.4" y2="238.4" stroke="#a633bf" stroke-width="1.2" stroke-dasharray="3,2"/>
+<line x1="724.0" y1="276.0" x2="679.4" y2="238.4" stroke="#a633bf" stroke-width="1.2" stroke-dasharray="3,2"/>
+<line x1="704.4" y1="252.4" x2="699.7" y2="238.4" stroke="#a633bf" stroke-width="1.2"/>
+<line x1="779.6" y1="266.8" x2="659.0" y2="238.4" stroke="#a633bf" stroke-width="1.2"/>
+<text x="40" y="594">Pose: centre (85.0, 25.0) mm, rotation 90 deg, component side up. 20 wires, straight XY total 436 mm, longest 59 mm.</text>
+<text x="40" y="612">XY lower bounds only: heights, housings, routing and service loops are not included. PROPOSED / NOT FOR ASSEMBLY.</text>
+<text x="40" y="630">Tan: DevKitC V4 outline (27.94 x 48.26 mm, Espressif drawing) with its header pins; grey dots: gamepad test pads; dashed: unsettled pad (longer candidate used).</text>
+<line x1="40" y1="650" x2="62" y2="650" stroke="#d9301a" stroke-width="3"/><text x="66" y="654">J2F</text>
+<line x1="110" y1="650" x2="132" y2="650" stroke="#f28c1a" stroke-width="3"/><text x="136" y="654">J2R</text>
+<line x1="180" y1="650" x2="202" y2="650" stroke="#1a9940" stroke-width="3"/><text x="206" y="654">J2D</text>
+<line x1="250" y1="650" x2="272" y2="650" stroke="#8cbf1a" stroke-width="3"/><text x="276" y="654">J2L</text>
+<line x1="320" y1="650" x2="342" y2="650" stroke="#a633bf" stroke-width="3"/><text x="346" y="654">J2C</text>
+<text x="40" y="676">Stick connectors (J1L, J1R) go to the S3, which is not placed yet (its size and header positions are not recorded).</text>
+</svg>

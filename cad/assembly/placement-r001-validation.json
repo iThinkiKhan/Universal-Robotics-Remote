@@ -1,0 +1,33 @@
+{
+  "file": "cad/assembly/placement-r001.FCStd",
+  "revision": 1,
+  "state": "proposed_xy_study",
+  "native_reopened": true,
+  "pose": {
+    "cx": 85.0,
+    "cy": 25.0,
+    "rot_deg": 90.0,
+    "flip": false
+  },
+  "devkitc_pins": 38,
+  "wires": 20,
+  "wire_objects": 21,
+  "total_length_xy_mm": 436.23,
+  "longest_xy_mm": 59.18,
+  "by_connector_xy_mm": {
+    "J2F": 177.96,
+    "J2R": 109.8,
+    "J2D": 45.11,
+    "J2L": 64.07,
+    "J2C": 39.29
+  },
+  "devkitc_area_mm2": 1348.384,
+  "not_modelled": [
+    "heights and Z placement",
+    "WROOM-32U module and DevKitC components",
+    "connector housings",
+    "routing and service loops",
+    "S3, display, microphone, battery, enclosure"
+  ],
+  "lengths_are": "straight-line XY lower bounds, not cut lengths"
+}

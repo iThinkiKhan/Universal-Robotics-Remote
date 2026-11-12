@@ -2,7 +2,7 @@
 
 Generated from hardware/signals.json. Proposed pins are not connection instructions.
 
-Registry SHA-256: `f1e11738eeff4e49f3c3aeb7c7fa9b629263dadb913995b0ee8bd777456e54da`
+Registry SHA-256: `00b717d0bf03229471ff0018831e78b9eabca1b10f108171174f4f4946f82484`
 
 | Signal | GPIO | Group | State |
 | --- | --- | --- | --- |
@@ -36,7 +36,7 @@ GPIO14/38/48 remain unallocated; unallocated does not prove exposed or free. GPI
 
 ## Button processor: ESP32-DevKitC V4 carrying an ESP32-WROOM-32U (owner-reported 2026-11-11) (proposed)
 
-Proposed pins, movable for wiring convenience. Owner adopted the button processor on 2026-11-11 and delegated the pin choice (movable for wiring convenience). Chosen from the module's standard pinout and the DevKitC V4 header order recalled from memory, not yet checked against the datasheet. No strap pin (0, 2, 5, 12, 15), no flash pin (6 to 11), no console pin (1, 3). GPIO14 is left spare because it pulses at boot. GPIO16 is left spare as the UART2 receive pin for an optional return link. GPIO34, 35, 36 and 39 are input-only with no internal pull-up, so they carry buttons that the gamepad pulls up itself; if the button check (M4) shows a line floating when released, move it to a pin with an internal pull-up. Internal pull-ups stay off until then.
+Proposed pins, movable for wiring convenience. Owner adopted the button processor on 2026-11-11 and delegated the pin choice (movable for wiring convenience). Checked on 2026-11-11 against Espressif's DevKitC V4 header tables and the WROOM-32U datasheet v2.8 (hardware/devkitc-v4-header.json): all pins used are on the headers, none is a strapping pin (GPIO0, 2, 5, 12, 15), a flash pin (6 to 11) or a console pin (1, 3), and GPIO16 and 17 are free on this module. GPIO14 is left spare because a pulse at boot is community-reported (not confirmed by Espressif). GPIO16 is left spare as the UART2 receive pin for an optional return link. GPIO34, 35, 36 and 39 are input-only with no internal pull-up, so they carry buttons that the gamepad pulls up itself (about 3.0 V released, above the 0.75 x VDD = 2.5 V input-high level); if the button check (M4) shows a line floating when released, move it to a pin with an internal pull-up. Internal pull-ups stay off until then.
 
 UART TX to the S3 `button_link_rx` (GPIO18): WROOM GPIO17. Common ground required.
 

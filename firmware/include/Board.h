@@ -28,5 +28,5 @@ constexpr int rightClick = 1; // proposed
 constexpr int buttonLinkRx = 18; // proposed
 constexpr uint32_t displayHz = 10000000;
 constexpr bool gamepadEnabled = false;
-constexpr const char *registryHash = "f1e11738eeff";
+constexpr const char *registryHash = "00b717d0bf03";
 }

@@ -48,9 +48,31 @@
     {
       "id": "EXP1",
       "part": "MCP23017 or equivalent",
-      "state": "candidate",
-      "notes": "Not selected or installed; depends on button electrical characterization",
+      "state": "superseded",
+      "notes": "Superseded 2026-11-11: the owner adopted an ESP32-WROOM-32U button processor (WRM1) instead of an I2C expander. Kept as a record.",
       "dimensions_mm": null
+    },
+    {
+      "id": "WRM1",
+      "part": "ESP32-DevKitC V4 carrying an ESP32-WROOM-32U",
+      "state": "owner-reported",
+      "notes": "Button processor adopted 2026-11-11; reads 15 buttons and sends their state to the S3 over UART. Board size and header positions from Espressif's dimensions drawing (hardware/devkitc-v4-header.json), not measured on the owner's board. Thickness and heights not given.",
+      "dimensions_mm": [
+        27.94,
+        48.26,
+        null
+      ]
+    },
+    {
+      "id": "BAT2",
+      "part": "MakerFocus 103665 battery pack",
+      "state": "owner-reported",
+      "notes": "Owner confirmed 2026-11-12 that this is the controller's battery and that its size is recorded in another of his enclosure projects: 65 x 36 x 10 mm, recorded there as a plain box (nominal, not measured from a pack in hand). Connector, capacity and wire details not recorded. Separate from BAT1, the gamepad's original pack.",
+      "dimensions_mm": [
+        65,
+        36,
+        10
+      ]
     }
   ]
 }

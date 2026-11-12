@@ -157,5 +157,41 @@ class ButtonLink(unittest.TestCase):
             self.assertEqual(s["pressed"], set(), f"phantom press at {t} ms")
 
 
+class DevKitCDatasheet(unittest.TestCase):
+    """The proposed WROOM pins against the Espressif header tables and module datasheet recorded in hardware/devkitc-v4-header.json."""
+    def setUp(self):
+        self.board = json.loads((ROOT / "hardware/devkitc-v4-header.json").read_text(encoding="utf-8"))
+        self.exposed = {e["gpio"] for side in ("j2_left", "j3_right") for e in self.board[side] if "gpio" in e}
+        self.module = self.board["module"]
+        self.wroom = REGISTRY["wroom"]
+
+    def test_headers_have_19_positions_each(self):
+        for side in ("j2_left", "j3_right"):
+            self.assertEqual([e["pos"] for e in self.board[side]], list(range(1, 20)))
+
+    def test_every_mapped_pin_is_on_the_header(self):
+        for e in self.wroom["inputs"] + self.wroom["reserved"] + self.wroom["spare"]:
+            self.assertIn(e["gpio"], self.exposed, e)
+        self.assertIn(self.wroom["uart_tx_gpio"], self.exposed)
+
+    def test_no_mapped_pin_is_a_strap_flash_or_console_pin(self):
+        bad = set(self.module["strapping_gpios"]) | set(self.module["flash_gpios"]) | {1, 3}
+        for e in self.wroom["inputs"] + self.wroom["reserved"] + self.wroom["spare"]:
+            self.assertNotIn(e["gpio"], bad, e)
+
+    def test_input_only_list_matches_the_datasheet(self):
+        self.assertEqual(set(self.wroom["input_only"]), set(self.module["input_only_gpios"]))
+
+    def test_candidates_are_exactly_the_free_header_gpios(self):
+        free = self.exposed - set(self.module["strapping_gpios"]) - set(self.module["flash_gpios"]) - {1, 3, self.wroom["uart_tx_gpio"]}
+        self.assertEqual(set(self.wroom["candidates"]), free)
+
+    def test_gamepad_released_level_clears_the_input_high_threshold_and_power_is_not_wired(self):
+        vdd = 3.3
+        self.assertGreater(3.0, self.module["vih_min_fraction_of_vdd"] * vdd)  # about 3.0 V released, owner-reported
+        # K_POW may be at battery voltage; the input limit is VDD + 0.3 V, so it stays reserved, not wired
+        self.assertEqual([e["signal"] for e in self.wroom["reserved"]], ["K_POW"])
+
+
 if __name__ == "__main__":
     unittest.main()
