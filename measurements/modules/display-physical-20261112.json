@@ -48,9 +48,9 @@
       "notes": "Total uncovered PCB length across both ends; distribution along Y not measured."
     },
     "glass_offset_from_board_end_mm": {
-      "value": null,
-      "state": "requires_orientation_confirmation",
-      "notes": "Rear-view X transform remains unassigned: front-left may mirror back-left, and the stated 'from left' and 'from header side' could refer to same physical end if viewed identically across a flip. Do not force 6.5 to rear X without confirmation."
+      "value": 6.5,
+      "state": "owner_measured_confirmed",
+      "reference": "Physical non-header end = rear-view X=0"
     },
     "visible_active_area_mm": {
       "value": null,
@@ -82,7 +82,42 @@
       "calculation": "6.5 + 10.4 - (86 - 69.25)",
       "notes": "Discrepancy 0.15mm is acceptable for approximate margins; no measurement overwritten"
     },
-    "rear_view_cad_position_status": "pending physical-end correspondence; do not invert automatically until clarified"
+    "rear_view_cad_position_status": "ready for preliminary CAD placement; confirmed physical end-to-margin mapping; note approx 0.15 mm difference from measured opposite-end gap",
+    "physical_end_correspondence": {
+      "state": "owner_confirmed",
+      "date": "2026-11-12",
+      "non_header_end_margin_mm": 6.5,
+      "header_end_margin_mm": 10.4,
+      "header_end_margin_state": "owner_approximate",
+      "notes": "Owner confirmed 6.5 mm screen margin physically at non-header end and approximately 10.4 mm margin at header end, regardless of whether viewing front or rear. Do not horizontally mirror by view labels."
+    },
+    "rear_view_bounds_mm": {
+      "x_min": {
+        "value": 6.5,
+        "state": "owner_measured_confirmed"
+      },
+      "x_max": {
+        "value": 75.75,
+        "state": "derived",
+        "calculation": "6.5 + 69.25"
+      },
+      "y_min": {
+        "value": 0,
+        "state": "owner_reported",
+        "notes": "Glass reportedly flush with 50 mm PCB width; exact top/bottom offsets not separately measured"
+      },
+      "y_max": {
+        "value": 50,
+        "state": "owner_reported",
+        "notes": "Glass reportedly flush with 50 mm PCB width"
+      }
+    },
+    "derived_header_end_gap_mm": {
+      "value": 10.25,
+      "state": "derived",
+      "calculation": "86 - 75.75",
+      "notes": "Within 0.15 mm of owner's approximate 10.4 mm header-end margin"
+    }
   },
   "sd_card_slot": {
     "reported_width_mm": {
@@ -150,7 +185,6 @@
     }
   ],
   "pending": [
-    "Confirm whether the 6.5 mm FRONT-view LEFT end is the physical non-header end (rear-left) or header end (rear-right). Current rear-view glass X location is deliberately unresolved.",
     "Confirm SD slot sits on rear face and height clearance in Z; measured 8.3 mm overall stack.",
     "Confirm header first pin's approximate 1.9 mm edge reference if exact X coordinate required.",
     "Confirm 28 mm Dupont clearance reference surface/direction.",
