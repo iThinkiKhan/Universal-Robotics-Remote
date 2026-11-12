@@ -58,22 +58,45 @@
     "actuator_travel": "unknown",
     "ribbon_origin": "visible, exact distances and electrical pin identities held in existing harness records",
     "attachment_type": {
-      "value": "Retained by molded wings in original controller housing",
-      "state": "owner_reported",
-      "notes": "Owner: 'in the original controller they are hold on by the wings'. Treat as mechanical engagement/retaining wings; no screws or clips independently confirmed. It is not yet established whether wings are part of shoulder switch assembly or controller shell, or their dimensions."
+      "value": "Retaining wings are molded on the shoulder-switch assembly itself and engage original controller housing.",
+      "state": "owner_confirmed",
+      "notes": "Owner explicitly corrected previous ambiguity: wings are on the assembly, not molded in controller housing. Both shoulder assemblies are mirrored."
     },
     "wing_geometry_mm": {
-      "value": null,
-      "state": "not_measured"
+      "frame": "Front view, round switch buttons facing viewer and ribbon tails down; left/right refer to this view of the representative assembly. Opposite assembly is mirrored.",
+      "left_ear": {
+        "width_mm": {
+          "value": 6,
+          "state": "owner_measured"
+        },
+        "depth_mm": {
+          "value": 2,
+          "state": "owner_measured"
+        },
+        "additional_geometry": "Height/thickness, vertical location, projection origin, attachment orientation and whether dimensions extend outside 37 x 29 mm envelope not separately confirmed."
+      },
+      "right_ear": {
+        "extent": "Runs the full length of the higher/elevated pad on the assembly",
+        "top_offset_below_plastic_top_mm": {
+          "value": 2,
+          "state": "owner_reported",
+          "notes": "Owner says 'is 2mm lower thn the top of the plastic'; treat as vertical placement relative to plastic top, not a measured projection size or tab thickness."
+        },
+        "length_mm": null,
+        "width_mm": null,
+        "depth_mm": null
+      },
+      "note": "These are retaining wings on switch assembly. Do not invent complete 3D wing outlines or enlarge owner-measured 37x29x15 envelope without reference checks."
     },
-    "original_housing_engagement": "held in position by wings per owner; exact engagement surfaces, orientation, and whether these are spring-retaining or simply locating features remain unknown"
+    "original_housing_engagement": "Retaining wings formed on both switch assemblies fit molded features of original shell, per owner; actual mating/clearance details for new shell unmeasured."
   },
   "measurement_orientation": {
     "proposed_view": "With both round button actuators facing camera, assembly oriented like photo 3105, solder tab/ribbon tails pointing downward.",
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Identify whether retaining wings project from the switch assembly or the original controller shell; then measure wing projection and location only if they will be reused in the new enclosure.",
+    "Measure exact right wing length and projecting depth/width if the wing must be reused for enclosure mounting; owner says it follows the entire raised pad and sits 2 mm below plastic top.",
+    "Measure left ear location (height from assembly top) and whether 6 mm dimension is lateral span and 2 mm is front-back projection; verify whether ears are included in 37 x 29 x 15 mm envelope.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
     "Determine how to secure replacement wire tails to plastic housing or a support so solder joints are not load-bearing."
