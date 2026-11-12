@@ -63,7 +63,6 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Locate first round actuator center relative to assembly's left edge; 18.5 mm center spacing is confirmed but absolute X offset not measured.",
     "Confirm whether 37 x 29 x 15 mm dimensions apply to both left and right paired switch assemblies; currently documented for photographed assembly only.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Measure each ribbon lead free length and its exit direction; confirm ribbon conductor count per assembly.",
@@ -81,8 +80,9 @@
       "notes": "Owner clarified round button projects approximately 2 mm OUTWARD above surface of its black plastic housing, measured along front-to-back/Z direction. Not the button's XY center location. Already within reported 15 mm maximum total assembly depth; do not add twice."
     },
     "first_actuator_center_x_from_left_edge_mm": {
-      "value": null,
-      "state": "not_measured"
+      "value": 9.2,
+      "state": "owner_measured",
+      "reference": "Left external edge of 37 mm shoulder-switch assembly to center of left circular button; buttons toward viewer, ribbons down"
     },
     "center_y_from_top_edge_mm": {
       "value": null,
@@ -93,6 +93,16 @@
       "value": 2,
       "state": "owner_approximate_confirmed_reference",
       "reference": "Round actuator face projects out from black plastic housing toward pressing finger"
+    },
+    "second_actuator_center_x_from_left_edge_mm": {
+      "value": 27.7,
+      "state": "derived",
+      "calculation": "9.2 + 18.5"
+    },
+    "second_actuator_center_to_right_edge_mm": {
+      "value": 9.3,
+      "state": "derived",
+      "calculation": "37 - (9.2 + 18.5)"
     }
   }
 }
