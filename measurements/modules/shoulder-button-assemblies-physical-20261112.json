@@ -63,10 +63,38 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
+    "Locate first round actuator center relative to assembly's left edge; 18.5 mm center spacing is confirmed but absolute X offset not measured.",
+    "Clarify meaning of ~2 mm 'button height': top black-plastic edge to button center (in-plane) versus how far the round button protrudes above its housing (depth). Current geometry unassigned.",
     "Confirm whether 37 x 29 x 15 mm dimensions apply to both left and right paired switch assemblies; currently documented for photographed assembly only.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
-    "Measure centers of two button actuators (center-to-center), and note whether any buttons can move/hinge.",
     "Measure each ribbon lead free length and its exit direction; confirm ribbon conductor count per assembly.",
     "Determine mount/retainer method (tabs, clips, screws) and compare opposite shoulder assembly."
-  ]
+  ],
+  "actuators": {
+    "center_to_center_spacing_mm": {
+      "value": 18.5,
+      "state": "owner_measured",
+      "reference": "Between centers of the two round visible shoulder buttons, with round buttons facing observer and ribbons downward"
+    },
+    "reported_button_height_mm": {
+      "value": 2,
+      "state": "owner_approximate_ambiguous",
+      "verbatim": "button height is about 2mm",
+      "notes": "Earlier requested distance from top edge of black plastic assembly to center of either button. A 2 mm center offset appears inconsistent with photo; owner may instead mean button protrusion above plastic. Do NOT place button center Y or assume Z protrusion from this number until confirmed."
+    },
+    "first_actuator_center_x_from_left_edge_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "center_y_from_top_edge_mm": {
+      "value": null,
+      "state": "not_measured",
+      "notes": "2 mm is not assigned here pending clarification"
+    },
+    "protrusion_mm": {
+      "value": null,
+      "state": "not_measured",
+      "notes": "2 mm may describe protrusion; pending clarification"
+    }
+  }
 }
