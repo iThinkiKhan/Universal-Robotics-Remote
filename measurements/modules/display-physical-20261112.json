@@ -105,12 +105,111 @@
     }
   ],
   "pending": [
+    "Confirm header 'top/bottom' means the two ends of 50 mm width and 'side' for 1.9 mm refers to header-side short PCB edge.",
+    "Confirm 4-hole edge-relative geometry on header/non-header ends and which face was viewed, if precise global coordinates needed.",
     "Confirm measuring side/orientation (screen-facing front or PCB rear), and clarify SD left edge/slot width discrepancy.",
     "Locate screen glass along PCB length: board-end to glass near edge, and visible lit area bounds.",
     "Confirm 28 mm Dupont clearance reference surface/direction.",
     "Measure display rear connector/body and solder protrusions relative to PCB rear face.",
-    "Locate any PCB mounting holes, screws, tabs, and critical ribbon bends.",
-    "Confirm SD slot side/height relative to front glass for stacking."
+    "Confirm SD slot side/height relative to front glass for stacking.",
+    "Count header pins, identify pitch and note whether pins/plastic project front or rear."
   ],
-  "verbatim_trailing_fragment": "Owner message ends with isolated '3'; no numeric measurement is inferred from that fragment."
+  "verbatim_trailing_fragment": "Owner message ends with isolated '3'; no numeric measurement is inferred from that fragment.",
+  "mounting_holes": {
+    "count": 4,
+    "diameter_mm": {
+      "value": 3.15,
+      "state": "owner_measured"
+    },
+    "positioning_reference": "Four corners. The owner distinguished the 'header side' (the short PCB end carrying the connector row) and 'non-header side' (opposite short end). Distances stated to the near edge of each hole, NOT the hole center. Left/right interpretation and front/rear view remain unconfirmed; model in edge-relative coordinates first.",
+    "non_header_end": {
+      "edge_to_hole_near_wall_mm": {
+        "value": 1.6,
+        "state": "owner_measured",
+        "notes": "From non-header short-end edge into PCB to nearest hole rim; user described as 'to the top of the hole'"
+      },
+      "long_side_edge_to_hole_near_wall_mm": {
+        "value": 1.5,
+        "state": "owner_measured",
+        "notes": "Both non-header corners, nominally symmetric; user did not give separate left/right values"
+      },
+      "center_inward_from_non_header_end_mm": {
+        "value": 3.175,
+        "state": "derived",
+        "calculation": "1.6 + 3.15/2"
+      },
+      "center_inward_from_each_long_side_mm": {
+        "value": 3.075,
+        "state": "derived",
+        "calculation": "1.5 + 3.15/2"
+      }
+    },
+    "header_end": {
+      "edge_to_hole_near_wall_mm": {
+        "value": 5.4,
+        "state": "owner_measured",
+        "notes": "From header-side short end into PCB; owner says inset to clear header"
+      },
+      "long_side_edge_to_hole_near_wall_mm": {
+        "value": 1.65,
+        "state": "owner_measured",
+        "notes": "Near side of hole; both header-end corners provisionally assumed symmetric"
+      },
+      "center_inward_from_header_end_mm": {
+        "value": 6.975,
+        "state": "derived",
+        "calculation": "5.4 + 3.15/2"
+      },
+      "center_inward_from_each_long_side_mm": {
+        "value": 3.225,
+        "state": "derived",
+        "calculation": "1.65 + 3.15/2"
+      }
+    },
+    "notes": "Hole coordinates can be derived from the rectangle after defining which end is Y=0 and confirming front/rear orientation. Do not drill the enclosure from these derived positions without a fit check."
+  },
+  "header": {
+    "placement": "One header row at a short 50 mm PCB end, inferred from stated header length and margins; user calls this the 'header side'. Orientation (screen face vs PCB rear) and exact electrical pin count remain to be established.",
+    "plastic_body_length_mm": {
+      "value": 35.5,
+      "state": "owner_measured",
+      "notes": "Includes plastic header base; physical length of strip, not pin protrusion or number of pins."
+    },
+    "plastic_body_width_mm": {
+      "value": 2.4,
+      "state": "owner_measured"
+    },
+    "plastic_body_margin_from_one_50mm_side_mm": {
+      "value": 7.1,
+      "state": "owner_measured",
+      "notes": "Owner: starts 7.1 mm from top edge of PCB in the view being used."
+    },
+    "plastic_body_margin_from_opposite_50mm_side_mm": {
+      "value": 7.1,
+      "state": "owner_approximate",
+      "notes": "Owner: 'same with the bottom'. 7.1 + 35.5 + 7.1 = 49.7 mm, consistent with 50 mm width within 0.3 mm."
+    },
+    "first_pin_center_from_top_50mm_side_mm": {
+      "value": 8.37,
+      "state": "owner_measured"
+    },
+    "first_pin_center_from_header_end_mm": {
+      "value": 1.9,
+      "state": "owner_approximate",
+      "notes": "Owner: approx 1.9 mm from 'the side'; inferred as perpendicular offset from header-side short end, but this needs confirming before CAD XY placement."
+    },
+    "pin_count": {
+      "value": null,
+      "state": "not_reported"
+    },
+    "pin_pitch_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "protrusion_from_pcb_face_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "notes": "Keep 35.5 mm body length separate from pin-row center-span; they are not the same measurement."
+  }
 }
