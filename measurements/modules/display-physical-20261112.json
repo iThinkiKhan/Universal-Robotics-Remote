@@ -190,7 +190,7 @@
     "Confirm 28 mm Dupont clearance reference surface/direction.",
     "Measure display rear connector/body and solder protrusions relative to PCB rear face.",
     "Confirm SD slot side/height relative to front glass for stacking.",
-    "Count header pins, identify pitch and note whether pins/plastic project front or rear."
+    "Confirm header pin pitch and Z protrusion of header/Dupont wiring; pin count = 14 confirmed."
   ],
   "verbatim_trailing_fragment": "Owner message ends with isolated '3'; no numeric measurement is inferred from that fragment.",
   "mounting_holes": {
@@ -308,12 +308,14 @@
       "notes": "Owner: 'approx 1.9 from the side'; now likely distance to right/header-end PCB edge X=86 but still approximate. Do not place precise pin X without confirming reference."
     },
     "pin_count": {
-      "value": null,
-      "state": "not_reported"
+      "value": 14,
+      "state": "owner_counted",
+      "notes": "14 physical header pins on touchscreen, confirmed by owner 2026-11-12"
     },
     "pin_pitch_mm": {
       "value": null,
-      "state": "not_measured"
+      "state": "not_measured",
+      "notes": "Standard 2.54 mm pitch is plausible (13 intervals span 33.02 mm), consistent with 35.5 mm header body length and 8.37 mm first pin offset, but remains inferred, not measured."
     },
     "protrusion_from_pcb_face_mm": {
       "value": null,
