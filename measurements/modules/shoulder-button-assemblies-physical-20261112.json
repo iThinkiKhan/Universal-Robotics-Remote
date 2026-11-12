@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "module_ids": [
+    "LSHLDR-BRD",
+    "RSHLDR-BRD"
+  ],
+  "module": "Original gamepad shoulder-button assemblies",
+  "date": "2026-11-12",
+  "status": "photo-observed, mechanical dimensions pending",
+  "source": "Owner supplied two chat images 3105.jpg and 3106.jpg, inspected visually; no caliper dimensions provided yet. These image files are not yet archived in GitHub.",
+  "photo_references": [
+    {
+      "filename": "3105.jpg",
+      "view": "Rear/component side of gamepad with main board and pair of shoulder switch bodies near SW2, with ruler nearby",
+      "notes": "Switch pair and ribbon paths visible; ruler perspective not sufficient for dimension extraction"
+    },
+    {
+      "filename": "3106.jpg",
+      "view": "Joystick daughterboard reverse and partial shoulder switch assembly with ribbons",
+      "notes": "Useful to identify original ribbon routes but not orthographic/scale-certified"
+    }
+  ],
+  "observations": [
+    "First image shows a pair of rectangular black switch housings joined/adjacent along a central taller plastic spine; exact mechanical relationship, whether separate moving components or one bracket, needs inspection.",
+    "Each switch body has an approximately circular visible button area and a narrow green PCB solder tab projecting downward into separate white ribbon leads.",
+    "Green circuit-board tabs are much smaller than the external plastic switch housings; model full switch body and actuator envelope rather than just PCB dimensions.",
+    "Ribbons route from the shoulder assemblies back to the retained main gamepad PCB; existing factory solder connections should be preserved.",
+    "The two shoulder assemblies may be mirror layouts. The photos do not establish identical dimensions or all mounting points.",
+    "Unrelated larger round/oval openings and traces in image 3106 belong to the joystick daughterboard; do not misassign those to the shoulder modules."
+  ],
+  "dimensions_mm": {
+    "paired_switch_assembly_total_width": null,
+    "paired_switch_assembly_total_height_in_plane": null,
+    "maximum_front_back_depth": null,
+    "individual_switch_housing_width": null,
+    "individual_switch_housing_height": null,
+    "individual_switch_housing_depth": null,
+    "switch_button_center_separation": null,
+    "pcb_tab_width_and_length": null,
+    "bare_pcb_thickness": null,
+    "ribbon_free_length_left": null,
+    "ribbon_free_length_right": null
+  },
+  "mounting": {
+    "holes_or_clips": "unknown: investigate molded plastic retention and any fasteners",
+    "actuator_travel": "unknown",
+    "ribbon_origin": "visible, exact distances and electrical pin identities held in existing harness records"
+  },
+  "measurement_orientation": {
+    "proposed_view": "With both round button actuators facing camera, assembly oriented like photo 3105, solder tab/ribbon tails pointing downward.",
+    "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
+  },
+  "pending": [
+    "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
+    "Measure complete outside width across both black switch housings including their shared plastic piece.",
+    "Measure maximum height of the assembled black housings and PCB tab tails in the same view.",
+    "Measure maximum depth/thickness front-to-back including buttons and PCB solder protrusions.",
+    "Measure centers of two button actuators (center-to-center), and note whether any buttons can move/hinge.",
+    "Measure each ribbon lead free length and its exit direction; confirm ribbon conductor count per assembly.",
+    "Determine mount/retainer method (tabs, clips, screws) and compare opposite shoulder assembly."
+  ]
+}
