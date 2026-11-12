@@ -6,8 +6,10 @@
   "source": "Owner-reported manual measurements in chat; instrument not restated for this batch. Do not substitute nominal catalog dimensions.",
   "status": "partial physical survey; several references still to be clarified",
   "coordinate_reference": {
-    "view": "Owner did not explicitly state whether measurements of left/right/bottom refer to screen-facing front view or PCB-rear view. Confirm before applying absolute XY coordinates.",
-    "in_plane": "Width X=side to side, length Y=end to end. Positive axes and origin must be established before CAD placement.",
+    "view": "Confirmed by owner 2026-11-12: looking at BACK of display PCB, with SD card slot and header facing viewer, HEADER ON RIGHT.",
+    "origin": "Bottom-left corner of rectangular PCB in this rear-side view.",
+    "axes": "X right from non-header (left) short edge to header (right) short edge, X range 0..86 mm; Y upward from PCB bottom long edge to top long edge, Y range 0..50 mm; board Z-axis to be aligned in assembly separately.",
+    "dimension_mapping": "PCB 'length' 86 mm runs horizontally as X. PCB 'width' 50 mm runs vertically as Y in this rear view. The screen length 69.25 mm runs along X and screen width 50 mm along Y.",
     "z": "Reported total thicknesses are whole-assembly measurements, not individual protrusion heights above either PCB face."
   },
   "pcb": {
@@ -68,18 +70,33 @@
     "left_edge_from_left_pcb_edge_mm": {
       "value": 26,
       "state": "owner_measured",
-      "notes": "Reference view not specified."
+      "notes": "Rear view confirmed: left non-header short PCB edge at X=0; slot X starts at 26 mm, extends rightward along 86 mm long axis."
     },
     "bottom_edge_from_bottom_pcb_edge_mm": {
       "value": 31.5,
       "state": "owner_measured",
-      "notes": "Reference view not specified."
+      "notes": "Rear view confirmed: bottom long PCB edge at Y=0; slot Y starts at 31.5 mm, extends upward."
     },
-    "protrusion_beyond_pcb_right_edge_mm": {
-      "value": 4.5,
-      "state": "derived_conditional",
-      "calculation": "26 + 28.5 - 50",
-      "notes": "This is only valid if slot width and left-edge measurement use the same axis/reference view. Potential conflicting reading; do not CAD-place until checked."
+    "rear_view_bounds_mm": {
+      "x_min": {
+        "value": 26,
+        "state": "owner_measured"
+      },
+      "x_max": {
+        "value": 54.5,
+        "state": "derived",
+        "calculation": "26 + 28.5"
+      },
+      "y_min": {
+        "value": 31.5,
+        "state": "owner_measured"
+      },
+      "y_max": {
+        "value": 48.1,
+        "state": "derived",
+        "calculation": "31.5 + 16.6"
+      },
+      "board_check": "Fits within PCB X=0..86, Y=0..50. Earlier 4.5 mm overhang calculation mistakenly compared slot X to 50 mm Y extent; corrected."
     }
   },
   "full_assembly": {
@@ -99,15 +116,14 @@
   },
   "checks": [
     {
-      "issue": "SD-card-slot lateral dimension appears outside PCB",
-      "reasoning": "If slot left X=26 mm and slot width=28.5 mm while PCB width=50 mm, right edge is 54.5 mm (4.5 mm outside PCB). Could be real overhang, switched axis, or mistaken reference.",
-      "state": "confirm_from_owner_before_fixing_in_CAD"
+      "issue": "SD-card slot apparent lateral overhang",
+      "state": "resolved_by_orientation",
+      "resolution": "The user confirmed rear view with header on RIGHT: board is 86 mm across X, 50 mm across Y. Slot X=26..54.5 and Y=31.5..48.1. All fit inside PCB."
     }
   ],
   "pending": [
-    "Confirm header 'top/bottom' means the two ends of 50 mm width and 'side' for 1.9 mm refers to header-side short PCB edge.",
-    "Confirm 4-hole edge-relative geometry on header/non-header ends and which face was viewed, if precise global coordinates needed.",
-    "Confirm measuring side/orientation (screen-facing front or PCB rear), and clarify SD left edge/slot width discrepancy.",
+    "Confirm SD slot sits on rear face and height clearance in Z; measured 8.3 mm overall stack.",
+    "Confirm header first pin's approximate 1.9 mm edge reference if exact X coordinate required.",
     "Locate screen glass along PCB length: board-end to glass near edge, and visible lit area bounds.",
     "Confirm 28 mm Dupont clearance reference surface/direction.",
     "Measure display rear connector/body and solder protrusions relative to PCB rear face.",
@@ -121,7 +137,7 @@
       "value": 3.15,
       "state": "owner_measured"
     },
-    "positioning_reference": "Four corners. The owner distinguished the 'header side' (the short PCB end carrying the connector row) and 'non-header side' (opposite short end). Distances stated to the near edge of each hole, NOT the hole center. Left/right interpretation and front/rear view remain unconfirmed; model in edge-relative coordinates first.",
+    "positioning_reference": "Rear view confirmed: header on right (X=86), non-header end on left (X=0), bottom Y=0, top Y=50. Each near-wall measurement remains from physical PCB edge to nearest hole rim, not center.",
     "non_header_end": {
       "edge_to_hole_near_wall_mm": {
         "value": 1.6,
@@ -166,10 +182,40 @@
         "calculation": "1.65 + 3.15/2"
       }
     },
-    "notes": "Hole coordinates can be derived from the rectangle after defining which end is Y=0 and confirming front/rear orientation. Do not drill the enclosure from these derived positions without a fit check."
+    "notes": "Coordinates derived using nominal symmetric corner offsets, after owner confirmed rear view and header on right. Separate near-wall measurements for each left/right/top/bottom hole are not independently reported; retain that qualification for precision fit.",
+    "cad_hole_centers_rear_view_mm": [
+      {
+        "id": "non_header_lower_left",
+        "x": 3.175,
+        "y": 3.075,
+        "state": "derived",
+        "from": "left end 1.6 + r1.575; bottom 1.5 + r1.575"
+      },
+      {
+        "id": "non_header_upper_left",
+        "x": 3.175,
+        "y": 46.925,
+        "state": "derived",
+        "from": "left end 1.6 + r1.575; top 50 - 1.5 - r1.575"
+      },
+      {
+        "id": "header_lower_right",
+        "x": 79.025,
+        "y": 3.225,
+        "state": "derived",
+        "from": "right end 86 - 5.4 - r1.575; bottom 1.65 + r1.575"
+      },
+      {
+        "id": "header_upper_right",
+        "x": 79.025,
+        "y": 46.775,
+        "state": "derived",
+        "from": "right end 86 - 5.4 - r1.575; top 50 - 1.65 - r1.575"
+      }
+    ]
   },
   "header": {
-    "placement": "One header row at a short 50 mm PCB end, inferred from stated header length and margins; user calls this the 'header side'. Orientation (screen face vs PCB rear) and exact electrical pin count remain to be established.",
+    "placement": "Header row along the RIGHT short edge (X near 86) in confirmed rear view, spanning much of the PCB's Y=0..50 mm height.",
     "plastic_body_length_mm": {
       "value": 35.5,
       "state": "owner_measured",
@@ -182,21 +228,22 @@
     "plastic_body_margin_from_one_50mm_side_mm": {
       "value": 7.1,
       "state": "owner_measured",
-      "notes": "Owner: starts 7.1 mm from top edge of PCB in the view being used."
+      "notes": "Reported 7.1 mm from TOP long PCB edge (Y=50), viewed from PCB rear."
     },
     "plastic_body_margin_from_opposite_50mm_side_mm": {
       "value": 7.1,
       "state": "owner_approximate",
-      "notes": "Owner: 'same with the bottom'. 7.1 + 35.5 + 7.1 = 49.7 mm, consistent with 50 mm width within 0.3 mm."
+      "notes": "Reported approximately 7.1 mm from BOTTOM long PCB edge (Y=0). With 35.5 mm body this sums to 49.7 mm, 0.3 mm below reported PCB width; use measured length and margin without forcing exact symmetry."
     },
     "first_pin_center_from_top_50mm_side_mm": {
       "value": 8.37,
-      "state": "owner_measured"
+      "state": "owner_measured",
+      "notes": "Rear view: top long PCB edge Y=50; first header pin center approximately at Y=41.63 mm."
     },
     "first_pin_center_from_header_end_mm": {
       "value": 1.9,
       "state": "owner_approximate",
-      "notes": "Owner: approx 1.9 mm from 'the side'; inferred as perpendicular offset from header-side short end, but this needs confirming before CAD XY placement."
+      "notes": "Owner: 'approx 1.9 from the side'; now likely distance to right/header-end PCB edge X=86 but still approximate. Do not place precise pin X without confirming reference."
     },
     "pin_count": {
       "value": null,
@@ -210,6 +257,19 @@
       "value": null,
       "state": "not_measured"
     },
-    "notes": "Keep 35.5 mm body length separate from pin-row center-span; they are not the same measurement."
+    "notes": "Header body runs vertically on the right edge in rear view; width 2.4 mm across X and length 35.5 mm along Y. Physical pin count/pitch and Z protrusion unmeasured.",
+    "cad_first_pin_center_candidate_rear_view_mm": {
+      "x": {
+        "value": 84.1,
+        "state": "derived_tentative",
+        "calculation": "86 - 1.9",
+        "notes": "Only if 1.9 mm is indeed from the right PCB edge to pin center"
+      },
+      "y": {
+        "value": 41.63,
+        "state": "derived",
+        "calculation": "50 - 8.37"
+      }
+    }
   }
 }
