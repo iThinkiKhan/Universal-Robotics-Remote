@@ -64,7 +64,6 @@
   },
   "pending": [
     "Locate first round actuator center relative to assembly's left edge; 18.5 mm center spacing is confirmed but absolute X offset not measured.",
-    "Clarify meaning of ~2 mm 'button height': top black-plastic edge to button center (in-plane) versus how far the round button protrudes above its housing (depth). Current geometry unassigned.",
     "Confirm whether 37 x 29 x 15 mm dimensions apply to both left and right paired switch assemblies; currently documented for photographed assembly only.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Measure each ribbon lead free length and its exit direction; confirm ribbon conductor count per assembly.",
@@ -78,9 +77,8 @@
     },
     "reported_button_height_mm": {
       "value": 2,
-      "state": "owner_approximate_ambiguous",
-      "verbatim": "button height is about 2mm",
-      "notes": "Earlier requested distance from top edge of black plastic assembly to center of either button. A 2 mm center offset appears inconsistent with photo; owner may instead mean button protrusion above plastic. Do NOT place button center Y or assume Z protrusion from this number until confirmed."
+      "state": "owner_confirmed_protrusion",
+      "notes": "Owner clarified round button projects approximately 2 mm OUTWARD above surface of its black plastic housing, measured along front-to-back/Z direction. Not the button's XY center location. Already within reported 15 mm maximum total assembly depth; do not add twice."
     },
     "first_actuator_center_x_from_left_edge_mm": {
       "value": null,
@@ -89,12 +87,12 @@
     "center_y_from_top_edge_mm": {
       "value": null,
       "state": "not_measured",
-      "notes": "2 mm is not assigned here pending clarification"
+      "notes": "Owner confirmed 2 mm was button protrusion, not center offset."
     },
     "protrusion_mm": {
-      "value": null,
-      "state": "not_measured",
-      "notes": "2 mm may describe protrusion; pending clarification"
+      "value": 2,
+      "state": "owner_approximate_confirmed_reference",
+      "reference": "Round actuator face projects out from black plastic housing toward pressing finger"
     }
   }
 }
