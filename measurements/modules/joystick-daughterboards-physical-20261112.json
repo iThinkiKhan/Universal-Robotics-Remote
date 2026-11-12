@@ -94,7 +94,27 @@
       "value": null,
       "state": "not_measured"
     },
-    "notes": "Numbers 1.19, 2.3 and oblong 3.7x2.5 were understood as three hole sizes, not center positions. No hole center or edge offsets have been measured, and exact meaning will be confirmed against forthcoming photo."
+    "notes": "Numbers 1.19, 2.3 and oblong 3.7x2.5 were understood as three hole sizes, not center positions. No hole center or edge offsets have been measured, and exact meaning will be confirmed against forthcoming photo.",
+    "visual_candidates": [
+      {
+        "id": "upper_right_round",
+        "photo_position": "top-right edge lobe",
+        "shape": "appears round",
+        "reported_size_assignment": "unconfirmed"
+      },
+      {
+        "id": "middle_right_slot",
+        "photo_position": "right side below upper hole",
+        "shape": "appears oval/elongated",
+        "reported_size_assignment": "tentatively 3.7 x 2.5 mm slot; still confirm"
+      },
+      {
+        "id": "lower_left_round",
+        "photo_position": "near bottom-left left step",
+        "shape": "appears round",
+        "reported_size_assignment": "unconfirmed"
+      }
+    ]
   },
   "ribbon_connection": {
     "orientation": "at top of board in owner's described view",
@@ -106,15 +126,35 @@
       "value": null,
       "state": "not_measured"
     },
-    "exit_direction": "up in owner's view; physical bend/termination geometry unknown"
+    "exit_direction": "up in owner's view; physical bend/termination geometry unknown",
+    "visual_conductor_count": {
+      "value": 5,
+      "state": "photo_counted",
+      "notes": "Five distinct soldered ribbon terminations visible; exact pin assignment already documented in original gamepad mapping separately."
+    }
   },
   "pending": [
-    "Review owner's forthcoming photographs; identify viewed face, outline contour, hole types and orientation.",
+    "Map the reported 1.19 mm and 2.3 mm round-hole diameters to upper-right vs lower-left openings.",
+    "Owner photo 3102.jpg shows rear/solder face with ribbon up; not archived to GitHub. Obtain square-on scale image before actual contour tracing.",
     "Locate mounting-hole centers from a named datum and confirm hole sizes.",
     "Locate joystick shaft center relative to PCB datum.",
     "Measure maximum joystick control/shaft/tip and cap movement envelope if it affects front-shell clearance.",
     "Measure ribbon width, available free length, solder exit location and direction.",
     "Compare left and right daughterboards for handed differences and ribbon route.",
     "Measure Z extent above and below bare PCB separately if required for accurate internal assembly."
-  ]
+  ],
+  "photo_reference": {
+    "original_filename": "3102.jpg",
+    "availability": "Uploaded to current chat by owner; NOT archived in GitHub repository; image itself cannot be presumed available to CAD agent from this JSON",
+    "view": "Solder/trace side of one joystick daughterboard faces camera; ribbon exits upward; joystick mechanism is opposite the camera. Board held tilted by hand, so pixel distances are NOT scale-certified.",
+    "visually_observed": [
+      "Five solder terminations in a horizontal row at the narrow top neck, leading to a flat ribbon cable; appears to be five-conductor ribbon (photo observed, not electrically verified).",
+      "Irregular stepped and rounded outline; narrow ribbon tab at top, broader rounded body, asymmetric right-side ear, flatter lower edge and left step. A simple circle or 32.7 x 33.5 rectangle will misrepresent shape.",
+      "Three larger open cutouts visible near upper-right edge, mid-right edge, and lower-left portion of board. Mid-right opening appears elongated/oval relative to others.",
+      "Numerous small solder pads/vias in central area are NOT additional mounting holes; do not include as mount points without confirmation.",
+      "Joystick shaft center on opposite face cannot be located precisely from this photograph."
+    ],
+    "confidence": "Visual orientation and topology only; photo perspective, hand occlusion and missing square-on scale prevent precise contour/hole-center extraction.",
+    "required_for_cad": "Archive original photo if possible; acquire approximately face-on, low-perspective photo with measurement reference for tracing, then spot-check key hole coordinates by caliper."
+  }
 }
