@@ -13,3 +13,7 @@ For MCAD, add measured board outlines, hole centers, thickness, component height
 ## ESP32-S3 physical measurements (2026-11-12)
 
 `modules/esp32-s3-physical-20261112.json` records the owner's S3 N16R8 board dimensions, dual USB connector/antenna/module heights, LED and header measurements, and an explicit 20 mm assembly clearance allowance. It distinguishes reported readings from derived dimensions, approximations and still-missing coordinates. **The USB-end/antenna-end view differs from the blank S3 template sketch; reconcile the datum before placing features in CAD.** The template remains blank by design and is not the live measurement ledger.
+
+## Touchscreen physical measurements (2026-11-12)
+
+`modules/display-physical-20261112.json` records owner-measured PCB (50 x 86 x 1.6 mm), glass size, full thickness with SD slot, SD-slot offsets, and the 28 mm stated Dupont connector clearance. The record deliberately flags a slot-width/offset inconsistency (26 + 28.5 > 50 mm): do **not** position the slot without checking whether it actually overhangs, the dimension orientation, and the viewing side. The screen offset along PCB length and visible active area are still pending. See the JSON for raw references and confidence states.
