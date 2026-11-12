@@ -85,9 +85,9 @@
       "reference": "Left external edge of 37 mm shoulder-switch assembly to center of left circular button; buttons toward viewer, ribbons down"
     },
     "center_y_from_top_edge_mm": {
-      "value": null,
-      "state": "not_measured",
-      "notes": "Owner confirmed 2 mm was button protrusion, not center offset."
+      "value": 7.5,
+      "state": "owner_measured",
+      "reference": "Measured down from top edge of black plastic housing to center of round shoulder actuator with buttons facing observer and ribbons pointing down. Measured at either actuator; assuming both share same height in provisional CAD, subject to verification."
     },
     "protrusion_mm": {
       "value": 2,
@@ -103,6 +103,12 @@
       "value": 9.3,
       "state": "derived",
       "calculation": "37 - (9.2 + 18.5)"
+    },
+    "center_y_from_bottom_of_total_assembly_mm": {
+      "value": 21.5,
+      "state": "derived_provisional",
+      "calculation": "29 - 7.5",
+      "notes": "Only applies if 29 mm assembly total height and black housing top use the same top datum; bottom is lowest PCB tab."
     }
   }
 }
