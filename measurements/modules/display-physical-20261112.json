@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "module_id": "DISP1",
+  "module": "Existing 2.8-inch TFT SPI 240x320 / ILI9341 screen assembly with existing soldered wires and Dupont connectors",
+  "date": "2026-11-12",
+  "source": "Owner-reported manual measurements in chat; instrument not restated for this batch. Do not substitute nominal catalog dimensions.",
+  "status": "partial physical survey; several references still to be clarified",
+  "coordinate_reference": {
+    "view": "Owner did not explicitly state whether measurements of left/right/bottom refer to screen-facing front view or PCB-rear view. Confirm before applying absolute XY coordinates.",
+    "in_plane": "Width X=side to side, length Y=end to end. Positive axes and origin must be established before CAD placement.",
+    "z": "Reported total thicknesses are whole-assembly measurements, not individual protrusion heights above either PCB face."
+  },
+  "pcb": {
+    "width_mm": {
+      "value": 50,
+      "state": "owner_measured"
+    },
+    "length_mm": {
+      "value": 86,
+      "state": "owner_measured"
+    },
+    "thickness_mm": {
+      "value": 1.6,
+      "state": "owner_measured"
+    }
+  },
+  "screen": {
+    "overall_width_mm": {
+      "value": 50,
+      "state": "owner_reported",
+      "notes": "Owner: 'Screen is even with width' of PCB; glass same full width as PCB. Exact glass edge flushness and left/right offsets not independently measured."
+    },
+    "overall_length_mm": {
+      "value": 69.25,
+      "state": "owner_measured"
+    },
+    "front_to_back_thickness_with_pcb_mm": {
+      "value": 5.6,
+      "state": "owner_measured",
+      "notes": "Whole PCB + screen stack as stated by owner, not glass layer thickness alone."
+    },
+    "ends_total_uncovered_pcb_mm": {
+      "value": 16.75,
+      "state": "derived",
+      "calculation": "86 - 69.25",
+      "notes": "Total uncovered PCB length across both ends; distribution along Y not measured."
+    },
+    "glass_offset_from_board_end_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "visible_active_area_mm": {
+      "value": null,
+      "state": "not_measured"
+    }
+  },
+  "sd_card_slot": {
+    "reported_width_mm": {
+      "value": 28.5,
+      "state": "owner_measured",
+      "notes": "In-plane width, not Z height"
+    },
+    "reported_height_in_plane_mm": {
+      "value": 16.6,
+      "state": "owner_measured",
+      "notes": "In-plane vertical extent as described by owner, not thickness"
+    },
+    "left_edge_from_left_pcb_edge_mm": {
+      "value": 26,
+      "state": "owner_measured",
+      "notes": "Reference view not specified."
+    },
+    "bottom_edge_from_bottom_pcb_edge_mm": {
+      "value": 31.5,
+      "state": "owner_measured",
+      "notes": "Reference view not specified."
+    },
+    "protrusion_beyond_pcb_right_edge_mm": {
+      "value": 4.5,
+      "state": "derived_conditional",
+      "calculation": "26 + 28.5 - 50",
+      "notes": "This is only valid if slot width and left-edge measurement use the same axis/reference view. Potential conflicting reading; do not CAD-place until checked."
+    }
+  },
+  "full_assembly": {
+    "total_thickness_including_pcb_screen_sd_slot_mm": {
+      "value": 8.3,
+      "state": "owner_measured",
+      "notes": "Overall front-to-back stack; cannot deduce which side the SD slot protrudes or its sole thickness from this measurement."
+    }
+  },
+  "wiring": {
+    "connection_to_s3": "Owner confirmed earlier that display and microphone connections at the S3 are directly soldered; specific screen-end joints not characterized.",
+    "dupont_wire_clearance_from_top_of_screen_mm": {
+      "value": 28,
+      "state": "owner_design_clearance",
+      "notes": "Owner: 'total clearance needed with current dupont connectors, 28mm from top of screen'. Direction, reference surface and whether total dimension or added allowance need confirmation; do not derive total case thickness."
+    }
+  },
+  "checks": [
+    {
+      "issue": "SD-card-slot lateral dimension appears outside PCB",
+      "reasoning": "If slot left X=26 mm and slot width=28.5 mm while PCB width=50 mm, right edge is 54.5 mm (4.5 mm outside PCB). Could be real overhang, switched axis, or mistaken reference.",
+      "state": "confirm_from_owner_before_fixing_in_CAD"
+    }
+  ],
+  "pending": [
+    "Confirm measuring side/orientation (screen-facing front or PCB rear), and clarify SD left edge/slot width discrepancy.",
+    "Locate screen glass along PCB length: board-end to glass near edge, and visible lit area bounds.",
+    "Confirm 28 mm Dupont clearance reference surface/direction.",
+    "Measure display rear connector/body and solder protrusions relative to PCB rear face.",
+    "Locate any PCB mounting holes, screws, tabs, and critical ribbon bends.",
+    "Confirm SD slot side/height relative to front glass for stacking."
+  ],
+  "verbatim_trailing_fragment": "Owner message ends with isolated '3'; no numeric measurement is inferred from that fragment."
+}
