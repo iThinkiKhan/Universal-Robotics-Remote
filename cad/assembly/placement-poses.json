@@ -1,11 +1,41 @@
 {
-  "r001": {
-    "devkitc": {
-      "cx": 85.0,
-      "cy": 25.0,
-      "rot_deg": 90.0,
-      "flip": false
-    },
-    "note": "Study result, not a decision: the pose of least total straight XY wire length for the 15 button wires and 5 ground returns that end on the DevKitC, with the whole DevKitC inside the gamepad's bounding rectangle (2 mm margin), rotations in 90 degree steps, 1 mm position grid. Total 436.2 mm, longest 59.2 mm. Heights, housings and the other modules are not considered."
-  }
+ "r001": {
+  "devkitc": {
+   "cx": 85.0,
+   "cy": 25.0,
+   "rot_deg": 90.0,
+   "flip": false
+  },
+  "note": "Study result, not a decision: the pose of least total straight XY wire length for the 15 button wires and 5 ground returns that end on the DevKitC, with the whole DevKitC inside the gamepad's bounding rectangle (2 mm margin), rotations in 90 degree steps, 1 mm position grid. Total 436.2 mm, longest 59.2 mm. Heights, housings and the other modules are not considered."
+ },
+ "r002": {
+  "devkitc": {
+   "cx": 85.0,
+   "cy": 25.0,
+   "rot_deg": 90.0,
+   "flip": false
+  },
+  "s3": {
+   "cx": 66.0,
+   "cy": 21.0,
+   "rot_deg": 90.0,
+   "flip": true
+  },
+  "parked": {
+   "note": "Parked reference bodies: placed outside the gamepad outline only so their sizes can be compared. NOT a layout.",
+   "display": {
+    "x": 0.0,
+    "y": -65.0
+   },
+   "battery": {
+    "x": 95.0,
+    "y": -65.0
+   },
+   "mic": {
+    "cx": 110.0,
+    "cy": -20.0
+   }
+  },
+  "note": "Study result, not a decision. DevKitC keeps its r001 pose. The S3 pose is the one of least total straight XY wire length (8 stick wires and the DevKitC-to-S3 UART link) with the whole S3 (PCB and antenna) inside the gamepad's bounding rectangle (2 mm margin), rotations in 90 degree steps, 1 mm grid, and it is allowed to overlap the DevKitC in XY, i.e. the two sit on different layers. With the S3 and DevKitC in one layer no pose fits. Layers and heights are not assigned. Header order of the S3 is assumed (hardware/esp32-s3-header.json)."
+ }
 }

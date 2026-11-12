@@ -6,4 +6,4 @@ Place measured native CAD source here once board outlines, hole centers, joystic
 
 Do not use estimated photo dimensions to claim a fit. No enclosure or printable model has been created in this initial electrical/firmware preparation pass.
 
-`assembly/` holds placement studies (`scripts/cad/build_placement_model.py`, maths in `placement.py`). Revision 1 puts the DevKitC V4 outline, its 38 header pins and straight-line wires to it against the surveyed gamepad board; it is an XY study at Z = 0 and its lengths are lower bounds.
+`assembly/` holds placement studies (`scripts/cad/build_placement_model.py`, maths in `placement.py`). Revision 1 puts the DevKitC V4 outline, its 38 header pins and straight-line wires to it against the surveyed gamepad board; it is an XY study at Z = 0 and its lengths are lower bounds. Revision 2 adds the S3 (28 x 57 mm, owner readings 2026-11-12, header order assumed) with its stick wires and UART link, plus the display, battery and microphone as parked reference bodies; the S3 and DevKitC overlap in XY because they cannot share one layer.
