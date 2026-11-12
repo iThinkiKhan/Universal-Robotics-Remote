@@ -24,7 +24,7 @@
     "First image shows a pair of rectangular black switch housings joined/adjacent along a central taller plastic spine; exact mechanical relationship, whether separate moving components or one bracket, needs inspection.",
     "Each switch body has an approximately circular visible button area and a narrow green PCB solder tab projecting downward into separate white ribbon leads.",
     "Green circuit-board tabs are much smaller than the external plastic switch housings; model full switch body and actuator envelope rather than just PCB dimensions.",
-    "Ribbons route from the shoulder assemblies back to the retained main gamepad PCB; existing factory solder connections should be preserved.",
+    "Original shoulder ribbons are physically deteriorating per owner; do not require their preservation or lengths in the final model. Preserve switch circuitry and map replacement wiring.",
     "The two shoulder assemblies may be mirror layouts. The photos do not establish identical dimensions or all mounting points.",
     "Unrelated larger round/oval openings and traces in image 3106 belong to the joystick daughterboard; do not misassign those to the shoulder modules."
   ],
@@ -65,8 +65,9 @@
   "pending": [
     "Confirm whether 37 x 29 x 15 mm dimensions apply to both left and right paired switch assemblies; currently documented for photographed assembly only.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
-    "Measure each ribbon lead free length and its exit direction; confirm ribbon conductor count per assembly.",
-    "Determine mount/retainer method (tabs, clips, screws) and compare opposite shoulder assembly."
+    "Determine mount/retainer method (tabs, clips, screws) and compare opposite shoulder assembly.",
+    "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
+    "Determine how to secure replacement wire tails to plastic housing or a support so solder joints are not load-bearing."
   ],
   "actuators": {
     "center_to_center_spacing_mm": {
@@ -110,5 +111,11 @@
       "calculation": "29 - 7.5",
       "notes": "Only applies if 29 mm assembly total height and black housing top use the same top datum; bottom is lowest PCB tab."
     }
+  },
+  "ribbon_condition": {
+    "state": "owner_reported_deteriorating",
+    "report": "Existing shoulder-button ribbon wires are already breaking off; their lengths are not relevant as design constraints.",
+    "engineering_implication": "Do not use present ribbon length or physical routing as a requirement for final layout. Design replacement/reterminated connections at the switch/PCB tabs with deliberate strain relief and route new wires to the harness. Keep the actual electrical signal/pad mapping as a separate design responsibility.",
+    "scope": "Shoulder assemblies specifically (current measurement context); do not infer joystick ribbons have failed unless owner confirms."
   }
 }
