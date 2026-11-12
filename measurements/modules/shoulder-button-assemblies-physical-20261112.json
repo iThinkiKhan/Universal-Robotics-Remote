@@ -56,14 +56,24 @@
   "mounting": {
     "holes_or_clips": "unknown: investigate molded plastic retention and any fasteners",
     "actuator_travel": "unknown",
-    "ribbon_origin": "visible, exact distances and electrical pin identities held in existing harness records"
+    "ribbon_origin": "visible, exact distances and electrical pin identities held in existing harness records",
+    "attachment_type": {
+      "value": "Retained by molded wings in original controller housing",
+      "state": "owner_reported",
+      "notes": "Owner: 'in the original controller they are hold on by the wings'. Treat as mechanical engagement/retaining wings; no screws or clips independently confirmed. It is not yet established whether wings are part of shoulder switch assembly or controller shell, or their dimensions."
+    },
+    "wing_geometry_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "original_housing_engagement": "held in position by wings per owner; exact engagement surfaces, orientation, and whether these are spring-retaining or simply locating features remain unknown"
   },
   "measurement_orientation": {
     "proposed_view": "With both round button actuators facing camera, assembly oriented like photo 3105, solder tab/ribbon tails pointing downward.",
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Locate mounting/retention features and plastic tabs on representative shoulder assembly (mirrored variant should be checked for handed fastening features).",
+    "Identify whether retaining wings project from the switch assembly or the original controller shell; then measure wing projection and location only if they will be reused in the new enclosure.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
     "Determine how to secure replacement wire tails to plastic housing or a support so solder joints are not load-bearing."
