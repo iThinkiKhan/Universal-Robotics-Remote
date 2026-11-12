@@ -76,7 +76,7 @@
         "additional_geometry": "Height/thickness, vertical location, projection origin, attachment orientation and whether dimensions extend outside 37 x 29 mm envelope not separately confirmed."
       },
       "right_ear": {
-        "extent": "Runs the full length of the higher/elevated pad on the assembly",
+        "extent": "Full length of the black plastic switch housing; user confirmed, not just part of the raised pad.",
         "top_offset_below_plastic_top_mm": {
           "value": 2,
           "state": "owner_reported",
@@ -84,7 +84,8 @@
         },
         "length_mm": null,
         "width_mm": null,
-        "depth_mm": null
+        "depth_mm": null,
+        "length_reference": "Equal to full length of black plastic housing, which has not been separately measured; do not equate to 29 mm total assembly height (includes green PCB tab)."
       },
       "note": "These are retaining wings on switch assembly. Do not invent complete 3D wing outlines or enlarge owner-measured 37x29x15 envelope without reference checks."
     },
@@ -95,7 +96,7 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Measure exact right wing length and projecting depth/width if the wing must be reused for enclosure mounting; owner says it follows the entire raised pad and sits 2 mm below plastic top.",
+    "Measure black plastic housing's total height along the right wing, excluding green PCB tabs; right retaining wing runs its entire length.",
     "Measure left ear location (height from assembly top) and whether 6 mm dimension is lateral span and 2 mm is front-back projection; verify whether ears are included in 37 x 29 x 15 mm envelope.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
