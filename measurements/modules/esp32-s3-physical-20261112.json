@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "module_id": "MCU1",
-  "module": "Existing ESP32-S3 N16R8 dev board, same board style reportedly used on Gladiator",
+  "module": "ESP32-S3 N16R8 development board (owner's common variant; NOT the board used on Gladiator)",
   "date": "2026-11-12",
   "source": "Owner-reported physical dimensions during chat; measurement instrument not restated for this batch. Do not silently replace unverified values with catalog dimensions.",
   "status": "partial physical survey; no CAD dimension should be treated as verified beyond its stated confidence",
@@ -76,7 +76,23 @@
       "state": "derived",
       "calculation": "4.70 - 1.55"
     },
-    "notes": "Left/right USB x-positions not directly measured; centering cannot be asserted."
+    "notes": "USB left edge now measured on the left connector; right placement inferred from measured widths and gap, not separately caliper-confirmed. USB end overhang = 0 per owner.",
+    "left_usb_left_edge_from_pcb_left_mm": {
+      "value": 3.25,
+      "state": "owner_measured",
+      "reference": "PCB left edge, component-side view with antenna at top and USB end at bottom"
+    },
+    "right_usb_left_edge_from_pcb_left_mm": {
+      "value": 15.25,
+      "state": "derived",
+      "calculation": "3.25 + 9 + 3",
+      "notes": "Assumes reported 9 mm widths and 3 mm spacing in left-right order"
+    },
+    "right_margin_mm": {
+      "value": 3.75,
+      "state": "derived",
+      "calculation": "28 - (3.25 + 9 + 3 + 9)"
+    }
   },
   "esp_module": {
     "width_mm": {
@@ -87,7 +103,7 @@
       "value": 17.2,
       "state": "owner_measured"
     },
-    "relative_position": "Directly below antenna section (owner description); exact X/Y offsets not measured",
+    "relative_position": "Directly below antenna section. Left edge measured 5.75 mm from PCB left; top edge approximately flush with antenna-end bare PCB edge (maybe 0.5 mm).",
     "top_z_from_pcb_underside_mm": {
       "value": 4.7,
       "state": "owner_measured"
@@ -97,7 +113,22 @@
       "state": "derived",
       "calculation": "4.70 - 1.55"
     },
-    "notes": "Module cover and USB were reported as same overall height; do not add PCB thickness again."
+    "notes": "Module cover and USB were reported as same overall height; do not add PCB thickness again.",
+    "left_edge_from_pcb_left_mm": {
+      "value": 5.75,
+      "state": "owner_measured",
+      "reference": "PCB left edge in antenna-top component-side view"
+    },
+    "right_margin_mm": {
+      "value": 6.35,
+      "state": "derived",
+      "calculation": "28 - 5.75 - 15.9"
+    },
+    "top_edge_from_antenna_end_bare_pcb_edge_mm": {
+      "value": 0.5,
+      "state": "owner_approximate",
+      "notes": "Owner: practically flush/indistinguishable from antenna; perhaps 0.5 mm. Approximate and not a precision reading."
+    }
   },
   "gpio_headers": {
     "pins_per_side": {
@@ -162,13 +193,14 @@
     }
   },
   "pending": [
+    "ESP module upper edge from antenna-end bare PCB edge recorded as approx 0.5 mm; verify if critical to enclosure fit",
+    "USB connectors: position along length (Y) from USB-end bare PCB edge, and connector body length; only left X is directly measured",
     "PCB mounting-hole presence, if any, and positions",
-    "USB connector absolute XY locations relative to bare PCB datum",
-    "ESP32 module exact XY/antenna position",
     "LED Y direction/reference to convert reported 13.5 mm to board datum",
     "Header row center X locations / exact pin pitch / first pin-center positions",
     "Installed header/body protrusion and solder/lead projections on underside",
     "Existing screen/microphone wiring exit positions, route and slack",
     "20 mm clearance reference pins and direction in proposed assembly"
-  ]
+  ],
+  "identification_notes": "Owner explicitly corrected earlier claim on 2026-11-12: this S3 board is not the same as the S3 on Gladiator. Do not reuse geometry or pin/header model for Gladiator without separately identifying that board."
 }
