@@ -66,7 +66,9 @@
           "value": 1.19,
           "state": "owner_reported"
         },
-        "kind": "round assumed from diameter notation; confirm via image"
+        "kind": "round",
+        "photo_position": "upper-right",
+        "notes": "Owner explicitly identified the upper-right hole as 1.19 mm, 2026-11-12"
       },
       {
         "id": "hole_unspecified_2",
@@ -74,7 +76,9 @@
           "value": 2.3,
           "state": "owner_reported"
         },
-        "kind": "round assumed from diameter notation; confirm via image"
+        "kind": "round assumed from diameter notation; confirm via image",
+        "photo_position": "lower-left",
+        "notes": "Corresponds to the other round opening by elimination; position not directly confirmed."
       },
       {
         "id": "hole_unspecified_3",
@@ -87,7 +91,9 @@
           "value": 2.5,
           "state": "owner_reported"
         },
-        "orientation": "unknown"
+        "orientation": "unknown",
+        "photo_position": "middle-right",
+        "notes": "Photograph suggests oval slot; exact slot angle and position unmeasured"
       }
     ],
     "centers_mm": {
@@ -99,20 +105,20 @@
       {
         "id": "upper_right_round",
         "photo_position": "top-right edge lobe",
-        "shape": "appears round",
-        "reported_size_assignment": "unconfirmed"
+        "shape": "round",
+        "reported_size_assignment": "1.19 mm diameter confirmed by owner 2026-11-12"
       },
       {
         "id": "middle_right_slot",
         "photo_position": "right side below upper hole",
-        "shape": "appears oval/elongated",
-        "reported_size_assignment": "tentatively 3.7 x 2.5 mm slot; still confirm"
+        "shape": "oblong",
+        "reported_size_assignment": "3.7 x 2.5 mm slot, correlated with owner-reported slot dimensions from photograph; position not measured"
       },
       {
         "id": "lower_left_round",
         "photo_position": "near bottom-left left step",
-        "shape": "appears round",
-        "reported_size_assignment": "unconfirmed"
+        "shape": "round",
+        "reported_size_assignment": "2.3 mm diameter inferred as remaining round hole after owner confirmed upper-right is 1.19 mm; owner has not independently repeated lower-left diameter"
       }
     ]
   },
@@ -134,7 +140,7 @@
     }
   },
   "pending": [
-    "Map the reported 1.19 mm and 2.3 mm round-hole diameters to upper-right vs lower-left openings.",
+    "Confirm remaining lower-left round opening is 2.3 mm by caliper if needed; upper-right 1.19 mm is owner-confirmed.",
     "Owner photo 3102.jpg shows rear/solder face with ribbon up; not archived to GitHub. Obtain square-on scale image before actual contour tracing.",
     "Locate mounting-hole centers from a named datum and confirm hole sizes.",
     "Locate joystick shaft center relative to PCB datum.",
