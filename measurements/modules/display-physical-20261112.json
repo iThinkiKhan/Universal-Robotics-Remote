@@ -49,12 +49,40 @@
     },
     "glass_offset_from_board_end_mm": {
       "value": null,
-      "state": "not_measured"
+      "state": "requires_orientation_confirmation",
+      "notes": "Rear-view X transform remains unassigned: front-left may mirror back-left, and the stated 'from left' and 'from header side' could refer to same physical end if viewed identically across a flip. Do not force 6.5 to rear X without confirmation."
     },
     "visible_active_area_mm": {
       "value": null,
-      "state": "not_measured"
-    }
+      "state": "not_separately_measured",
+      "notes": "Owner intentionally measured screen glass and visible window as a single feature"
+    },
+    "measurement_convention": {
+      "note": "Owner clarified 2026-11-12 that all prior 'screen glass' and 'display window' readings were made as one visible screen footprint. No independently measured active lit-area dimensions exist; do not invent a separate active window or subtract bezel.",
+      "state": "owner_confirmed"
+    },
+    "front_view_left_edge_to_screen_edge_mm": {
+      "value": 6.5,
+      "state": "owner_measured",
+      "reference": "Looking at display FRONT, from the left end of PCB to near edge of glass/display as owner measured"
+    },
+    "from_physical_header_end_to_screen_edge_mm": {
+      "value": 10.4,
+      "state": "owner_approximate",
+      "reference": "From physical header-side PCB end to adjacent glass/display edge, as owner described"
+    },
+    "end_margins_sum_mm": {
+      "value": 16.9,
+      "state": "derived",
+      "calculation": "6.5 + 10.4"
+    },
+    "end_margins_vs_nominal_gap_mm": {
+      "value": 0.15,
+      "state": "derived",
+      "calculation": "6.5 + 10.4 - (86 - 69.25)",
+      "notes": "Discrepancy 0.15mm is acceptable for approximate margins; no measurement overwritten"
+    },
+    "rear_view_cad_position_status": "pending physical-end correspondence; do not invert automatically until clarified"
   },
   "sd_card_slot": {
     "reported_width_mm": {
@@ -122,9 +150,9 @@
     }
   ],
   "pending": [
+    "Confirm whether the 6.5 mm FRONT-view LEFT end is the physical non-header end (rear-left) or header end (rear-right). Current rear-view glass X location is deliberately unresolved.",
     "Confirm SD slot sits on rear face and height clearance in Z; measured 8.3 mm overall stack.",
     "Confirm header first pin's approximate 1.9 mm edge reference if exact X coordinate required.",
-    "Locate screen glass along PCB length: board-end to glass near edge, and visible lit area bounds.",
     "Confirm 28 mm Dupont clearance reference surface/direction.",
     "Measure display rear connector/body and solder protrusions relative to PCB rear face.",
     "Confirm SD slot side/height relative to front glass for stacking.",
