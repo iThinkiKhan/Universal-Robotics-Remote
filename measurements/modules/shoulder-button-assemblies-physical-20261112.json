@@ -29,9 +29,21 @@
     "Unrelated larger round/oval openings and traces in image 3106 belong to the joystick daughterboard; do not misassign those to the shoulder modules."
   ],
   "dimensions_mm": {
-    "paired_switch_assembly_total_width": null,
-    "paired_switch_assembly_total_height_in_plane": null,
-    "maximum_front_back_depth": null,
+    "paired_switch_assembly_total_width": {
+      "value": 37,
+      "state": "owner_measured",
+      "reference": "Across both black switch housings including central plastic, in described button-front/ribbons-down orientation"
+    },
+    "paired_switch_assembly_total_height_in_plane": {
+      "value": 29,
+      "state": "owner_measured",
+      "reference": "Top of black plastic to bottom of lowest green PCB tab, excluding hanging ribbons"
+    },
+    "maximum_front_back_depth": {
+      "value": 15,
+      "state": "owner_measured",
+      "reference": "From front of button actuators to rearmost assembly part, including protruding solder connections"
+    },
     "individual_switch_housing_width": null,
     "individual_switch_housing_height": null,
     "individual_switch_housing_depth": null,
@@ -51,10 +63,8 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
+    "Confirm whether 37 x 29 x 15 mm dimensions apply to both left and right paired switch assemblies; currently documented for photographed assembly only.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
-    "Measure complete outside width across both black switch housings including their shared plastic piece.",
-    "Measure maximum height of the assembled black housings and PCB tab tails in the same view.",
-    "Measure maximum depth/thickness front-to-back including buttons and PCB solder protrusions.",
     "Measure centers of two button actuators (center-to-center), and note whether any buttons can move/hinge.",
     "Measure each ribbon lead free length and its exit direction; confirm ribbon conductor count per assembly.",
     "Determine mount/retainer method (tabs, clips, screws) and compare opposite shoulder assembly."
