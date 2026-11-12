@@ -195,12 +195,27 @@
   "pending": [
     "ESP module upper edge from antenna-end bare PCB edge recorded as approx 0.5 mm; verify if critical to enclosure fit",
     "USB connectors: position along length (Y) from USB-end bare PCB edge, and connector body length; only left X is directly measured",
-    "PCB mounting-hole presence, if any, and positions",
     "LED Y direction/reference to convert reported 13.5 mm to board datum",
     "Header row center X locations / exact pin pitch / first pin-center positions",
     "Installed header/body protrusion and solder/lead projections on underside",
-    "Existing screen/microphone wiring exit positions, route and slack",
-    "20 mm clearance reference pins and direction in proposed assembly"
+    "20 mm clearance reference pins and direction in proposed assembly",
+    "Measure screen/microphone wire routing, solder exit locations and available slack for mounting; connections are directly soldered"
   ],
-  "identification_notes": "Owner explicitly corrected earlier claim on 2026-11-12: this S3 board is not the same as the S3 on Gladiator. Do not reuse geometry or pin/header model for Gladiator without separately identifying that board."
+  "identification_notes": "Owner explicitly corrected earlier claim on 2026-11-12: this S3 board is not the same as the S3 on Gladiator. Do not reuse geometry or pin/header model for Gladiator without separately identifying that board.",
+  "mounting_holes": {
+    "count": 0,
+    "state": "owner_confirmed",
+    "notes": "No PCB mounting holes. Enclosure must support the S3 by its edges/retainer, with clearance for wiring; do not draw screw-through holes."
+  },
+  "existing_wiring": {
+    "display": {
+      "connection": "directly soldered",
+      "state": "owner_confirmed"
+    },
+    "microphone": {
+      "connection": "directly soldered",
+      "state": "owner_confirmed"
+    },
+    "notes": "Owner confirmed existing display and microphone wires attach by solder, not removable connectors. Exact solder locations, wire lengths and exit angles remain unmeasured; no connector mating clearance should be assumed."
+  }
 }
