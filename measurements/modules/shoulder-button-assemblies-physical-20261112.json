@@ -59,8 +59,8 @@
     },
     "bottom_to_highest_black_plastic_piece": {
       "value": 23,
-      "state": "owner_measured",
-      "reference": "Owner: 'the bottom to highest piece is 23'; interpreted as black-plastic housing total vertical range, excluding low PCB tabs, but exact bottom reference needs confirmation."
+      "state": "owner_measured_reference_confirmed",
+      "reference": "From bottom edge of the black plastic housing to the top of the tallest central black plastic section; green PCB tabs explicitly excluded. Owner confirmed 2026-11-13."
     }
   },
   "mounting": {
@@ -110,7 +110,6 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Confirm the 23 mm 'bottom to highest piece' reference is bottom of black housing to top of tall center piece (and not green tab); exact 15 mm wing correspondence is provisional.",
     "Measure left ear location (height from assembly top) and whether 6 mm dimension is lateral span and 2 mm is front-back projection; verify whether ears are included in 37 x 29 x 15 mm envelope.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
