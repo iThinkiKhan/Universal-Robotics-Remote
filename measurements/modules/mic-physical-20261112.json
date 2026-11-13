@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "module_id": "MIC1",
+  "module": "Owner's circular microphone PCB / INMP441 reported in project",
+  "date": "2026-11-12",
+  "source": "Owner-reported physical dimensions in chat; diameter unit explicitly corrected from '14in' to 14 mm. Instrument not restated for this batch.",
+  "status": "partial physical survey; enough for first-pass board envelope with outstanding solder, port, and notch details",
+  "coordinate_reference": {
+    "view": "Viewed face/orientation not stated; 'top' and 'bottom' refer to owner's described alignment with notches at 12 and 6 o'clock. Confirm before finalizing absolute pin numbering.",
+    "provisional_origin": "Circle center at (X=0,Y=0), X right, Y up in owner's described view. This is a modeling convenience, not an owner-established datum.",
+    "z_reference": "26 mm is owner-reported FULL assembly height from highest header to lowest soldered-wire point, not height of an individual pin or clearance on one face."
+  },
+  "pcb": {
+    "shape": "circular with two small notches at top and bottom",
+    "diameter_mm": {
+      "value": 14,
+      "state": "owner_measured_unit_corrected",
+      "notes": "Owner explicitly corrected prior '14in' to 14 mm"
+    },
+    "bare_thickness_mm": {
+      "value": 1.15,
+      "state": "owner_measured"
+    },
+    "mounting_holes": {
+      "state": "not_reported"
+    }
+  },
+  "notches": {
+    "count": 2,
+    "positions": "top and bottom of circle, diametrically opposite according to description",
+    "width_mm": {
+      "value": 2,
+      "state": "owner_measured",
+      "notes": "Width of each notch as owner described"
+    },
+    "inset_depth_mm": {
+      "value": 2,
+      "state": "owner_measured",
+      "notes": "Indent inward from outer circular contour"
+    },
+    "form": "exact notch corner shape/radius unmeasured"
+  },
+  "electrical_headers": {
+    "total_pin_count": {
+      "value": 6,
+      "state": "owner_reported",
+      "notes": "Owner: '6 header pins run horizontally to the notches'"
+    },
+    "rows": {
+      "value": 2,
+      "state": "owner_reported"
+    },
+    "pins_per_row": {
+      "value": 3,
+      "state": "owner_confirmed",
+      "notes": "Owner confirmed two horizontal rows, three pins in each row, 2026-11-12."
+    },
+    "approximate_upper_row_center_below_circle_top_mm": {
+      "value": 3.4,
+      "state": "owner_approximate"
+    },
+    "upper_row_width_mm": {
+      "value": 6.2,
+      "state": "owner_reported",
+      "notes": "Owner described top row as 6.2 mm wide; unclear whether outer pin-to-pin span, complete metal pad span or plastic header width"
+    },
+    "second_row_center_below_first_row_mm": {
+      "value": 7.25,
+      "state": "owner_reported",
+      "notes": "Inter-row vertical separation"
+    },
+    "derived_lower_row_center_below_circle_top_mm": {
+      "value": 10.65,
+      "state": "derived",
+      "calculation": "3.4 + 7.25"
+    },
+    "centered_side_to_side": {
+      "value": true,
+      "state": "owner_reported"
+    },
+    "row_1_center_candidate_mm": {
+      "x": 0,
+      "y": 3.6,
+      "state": "derived_from_provisional_datum",
+      "calculation": "Circle radius 7 - 3.4"
+    },
+    "row_2_center_candidate_mm": {
+      "x": 0,
+      "y": -3.65,
+      "state": "derived_from_provisional_datum",
+      "calculation": "7 - 10.65"
+    },
+    "individual_pin_pitch_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "pin_geometry_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "connection_type": "Existing microphone wiring reported as soldered to S3; exact microphone-end connection arrangement unconfirmed"
+  },
+  "acoustic_port": {
+    "location": "dead center of circular PCB (owner reported)",
+    "center_candidate_mm": {
+      "x": 0,
+      "y": 0,
+      "state": "owner_reported"
+    },
+    "port_diameter_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "port_face": {
+      "state": "not_reported",
+      "notes": "Do not assume the acoustic opening is on the same face as any chip or connectors without verifying"
+    }
+  },
+  "full_assembly": {
+    "height_from_top_of_header_to_lowest_soldered_wires_mm": {
+      "value": 26,
+      "state": "owner_measured",
+      "notes": "Overall high-to-low installed envelope including pin headers and soldered wire ends. Not enough to split Z extent about PCB; keep as overall bounding dimension."
+    }
+  },
+  "pending": [
+    "Confirm measurement view (which side of mic PCB faces up) and electrical pin ordering if needed.",
+    "Measure acoustic sound-hole diameter and which PCB face it opens toward; preserve acoustic clearance in enclosure.",
+    "Determine individual pin pitch and actual solder/header geometry if needed for harness routing.",
+    "Measure protrusion above/below PCB to locate 26 mm assembly Z envelope accurately, not just total height.",
+    "Confirm whether the PCB has any mounting holes (none reported, not assumed).",
+    "Determine lead exit direction and free wire length to S3.",
+    "Clarify what the 6.2 mm row width refers to (pad group width or first-to-last pin centers)."
+  ]
+}

@@ -1,10 +1,32 @@
 {
   "tool": "WireViz 0.4.1 / Graphviz",
   "sha256": {
-    "hardware/signals.json": "7ff4202bcb600d0520df1c742b030e98bf1aae6eefd5dbf9a6a4c3875669690a",
-    "electronics/harnesses.json": "167d848373c6abfd69c0c93abfbd0f4ac7f0ea416cb246fcdae172eebb2a4f0b",
-    "electronics/harnesses/joystick-proposed.yml": "3c2cbc6b910a5ede0c657300d99f1335d8977f8adfcdf4ed435102d63a359247",
-    "electronics/generated/joystick-proposed.png": "efcb0926f4ee00fd5ceb5206daf89ea9e6dc6cd162f785950f5eda8be8c3f151",
-    "electronics/generated/joystick-proposed.svg": "277c3ec46e24a70ad39f3e6a94ab30dd4919473f13363099f765951cb781eb0b"
+    "hardware/signals.json": "f1e11738eeff4e49f3c3aeb7c7fa9b629263dadb913995b0ee8bd777456e54da",
+    "electronics/harnesses.json": "1e0040c56ba297a1cd7841d80edcc717350e0cf1cd0d97a22bd45cdfb89acb74",
+    "electronics/harness-sources-proposed.csv": "d2567419b97696255e0c16e96895563a411cbb1164a1eb7ddf8760893f7607a5",
+    "electronics/harnesses/j1l-proposed.yml": "d21263e92e5d734d23192fdefd6caae8c370e64e89a720b3423496dbac5e9efe",
+    "electronics/generated/j1l-proposed.png": "cbb8c93a572c43339b1a8f4fff8ebdc46eec3aa85790482e0e4ae7af4f495690",
+    "electronics/generated/j1l-proposed.svg": "f25d7af0ec93be61513e622eca6630347e71c94d214623f30bcc92d7f95ad1c8",
+    "electronics/harnesses/j1r-proposed.yml": "9f1675c216d48fa58a3c4a85607f9e7ed34fed2a1419efacc40b5dcf1dad5db6",
+    "electronics/generated/j1r-proposed.png": "fb7ec82d9023c18f4aa6cac8e005f1ae6928d56248cd1bcf3725e0c3fa7b7026",
+    "electronics/generated/j1r-proposed.svg": "5daf6aa27eecbb8c21ab71e9dd01e1a57e69889a8dfd47ed1be54a48ceab0677",
+    "electronics/harnesses/j2c-proposed.yml": "bb02ea36c4e5bcb0f617f85596ff44e14155ce73b15113cf55e1d674f1262bab",
+    "electronics/generated/j2c-proposed.png": "2b0464336a1ec053e1536cdc2d0f6a890616a451d81596a853c1250f4bbce4bf",
+    "electronics/generated/j2c-proposed.svg": "643ee17bac66362a724629133d2193daf1b7ee190712e782b82cf59481a6db6f",
+    "electronics/harnesses/j2d-proposed.yml": "7f5b46e9407f993db7616cac132a114280a4527fff8ce299919c832a9be0af68",
+    "electronics/generated/j2d-proposed.png": "98f9650120445229986b0ea78129b4e0cd3853da3c0672ba8639d281dc4d22c9",
+    "electronics/generated/j2d-proposed.svg": "5daa74ebbe054ff54ceef518b7dbbd7537f5f285e39ddc50f63ba6118b6e920b",
+    "electronics/harnesses/j2f-proposed.yml": "d103a0c072db7a8fc4a8fe606aec62bdba094099f13f323b9122e78ebacd64b4",
+    "electronics/generated/j2f-proposed.png": "ef8c81c2b0bd048cb0952b7bfb8c8d572bb5cdcfd82e577bf55d7fe7b98791c4",
+    "electronics/generated/j2f-proposed.svg": "6d675775d55d500281a5e75fa30680c4baa3ceec031b97f5408c3b6aa036f39d",
+    "electronics/harnesses/j2l-proposed.yml": "187d5cfbb99bedab562404eed27755a53ca7104018fac22afc7f09ec2079a894",
+    "electronics/generated/j2l-proposed.png": "d73a0e28ed88dae6742a06d479177c4ca6e9a52d32799801d9a72ca1fd97fce8",
+    "electronics/generated/j2l-proposed.svg": "c6a7504668a7426cbddc06677eb60b0a439bcc402d4211fecd2494ad537ac1b4",
+    "electronics/harnesses/j2r-proposed.yml": "e67923822bb731deb6e8558ac05fd0e330ab43f4c58d9ba11c76f5ec3ffde7f5",
+    "electronics/generated/j2r-proposed.png": "f0660d75b4c6afb37d964e5002d215de5f75826e890040981a520c0abb4d7745",
+    "electronics/generated/j2r-proposed.svg": "247d7ad4699c938075df37b57b1dcd522f5bfee6fa0f5da1e9ba98b02f69319c",
+    "electronics/harnesses/overview-proposed.yml": "8cac57d15abe1076f643a64e7634f3760938d8300c96b5672fddbce891109ab0",
+    "electronics/generated/overview-proposed.png": "ec1590645fac90c6b449c92b6c89315df285621b2cee773e7888a948cd72b70d",
+    "electronics/generated/overview-proposed.svg": "b38c69cd5f1c5802ff246b4f04959d10ff3527413894488b57372df095ef6266"
   }
 }

@@ -5,15 +5,23 @@
       "id": "MCU1",
       "part": "ESP32-S3 N16R8 development board",
       "state": "observed",
-      "notes": "Revision v0.2, 16MB quad flash, 8MB 3.3V octal PSRAM; exact development board manufacturer/revision unconfirmed",
-      "dimensions_mm": null
+      "notes": "Revision v0.2, 16MB quad flash, 8MB 3.3V octal PSRAM; exact development board manufacturer/revision unconfirmed. Owner readings 2026-11-12 (measurements/modules/esp32-s3-physical-20261112.json): PCB 28 x 57 x 1.55 mm, 6.5 mm antenna overhang (63.5 mm overall), tallest part 4.7 mm above the PCB underside, no mounting holes, 2 x 22 header pins (order assumed from Espressif DevKitC-1, hardware/esp32-s3-header.json). Size shown is the PCB plus antenna footprint and the tallest part.",
+      "dimensions_mm": [
+        28,
+        63.5,
+        4.7
+      ]
     },
     {
       "id": "DISP1",
       "part": "2.8 TFT SPI 240x320 V1.2 / ILI9341",
       "state": "source-confirmed",
-      "notes": "ILI9341 electrically identified in original project; landscape 320x240",
-      "dimensions_mm": null
+      "notes": "ILI9341 electrically identified in original project; landscape 320x240. Owner readings 2026-11-12 (measurements/modules/display-physical-20261112.json): PCB 86 x 50 x 1.6 mm, screen 69.25 x 50 mm, whole stack 8.3 mm including the SD slot, four 3.15 mm holes, 14-pin header.",
+      "dimensions_mm": [
+        86,
+        50,
+        8.3
+      ]
     },
     {
       "id": "TOUCH1",
@@ -26,8 +34,12 @@
       "id": "MIC1",
       "part": "INMP441",
       "state": "user-reported",
-      "notes": "Left I2S channel; no audio retention or speech service in bench firmware",
-      "dimensions_mm": null
+      "notes": "Left I2S channel; no audio retention or speech service in bench firmware. Owner readings 2026-11-12 (measurements/modules/mic-physical-20261112.json): round PCB 14 mm across, 1.15 mm thick, two 2 x 2 mm notches, 2 x 3 header pins, 26 mm from the top of the header to the lowest soldered wire. The size shown is the PCB diameter twice and the 26 mm full height including wires, not a part height.",
+      "dimensions_mm": [
+        14,
+        14,
+        26
+      ]
     },
     {
       "id": "PAD1",
@@ -49,7 +61,7 @@
       "id": "WRM1",
       "part": "ESP32-DevKitC V4 carrying an ESP32-WROOM-32U",
       "state": "owner-reported",
-      "notes": "Button processor adopted 2026-11-11; reads 15 buttons and sends their state to the S3 over UART. Board size and header positions from Espressif's dimensions drawing, not measured on the owner's board. Thickness and heights not given.",
+      "notes": "Button processor adopted 2026-11-11; reads 15 buttons and sends their state to the S3 over UART. Board size and header positions from Espressif's dimensions drawing (hardware/devkitc-v4-header.json), not measured on the owner's board. Thickness and heights not given.",
       "dimensions_mm": [
         27.94,
         48.26,
@@ -94,8 +106,8 @@
     {
       "id": "EXP1",
       "part": "MCP23017 or equivalent",
-      "state": "candidate",
-      "notes": "Not selected or installed; depends on button electrical characterization",
+      "state": "superseded",
+      "notes": "Superseded 2026-11-11: the owner adopted an ESP32-WROOM-32U button processor (WRM1) instead of an I2C expander. Kept as a record.",
       "dimensions_mm": null
     }
   ]

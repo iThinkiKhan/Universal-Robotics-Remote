@@ -1,5 +1,8 @@
 # Engineering decisions
 
+## 2026-11-10 — One bounded observer experiment before a custom harness
+Use the LX-01 model and test plan for a single input-only L-X/ADC1 observer. The dedicated profile is disarmed at boot and starts only by command after the bench preparation gate. The complete gamepad and control link stay disabled. The resistor/capacitor circuit has no powered-off-input protection: use a removable signal break, signal-last connection while both boards are powered, and signal-first removal before power/reset changes. Qualify a permanent protective interface separately before any final harness. Keep actual readings and unmeasured mechanical dimensions explicit; software compilation does not complete the physical test.
+
 ## 2026-11-10 — Measured envelope before board outline
 W/H/T define a rectangular bounding envelope only. Hole A's diameter does not locate its center. Do not cut holes, infer the irregular contour from perspective photographs or claim enclosure fit before the missing measurements are recorded.
 
@@ -19,3 +22,6 @@ Use direct StepUp board import for enclosure work. Native KiCad STEP exports req
 ## 2026-11-13 — Single-pack controller power
 
 The owner approved the MakerFocus 103665 pack, HiLetgo protected-output distribution, existing EGSCST load switch, donor gamepad battery lead and shared XL63020 3.3 V regulator. Charge with the handheld off. Bench sizing and assembly verification follow the [approved design](../electronics/POWER_SYSTEM.md).
+
+## 2026-11-13 - Enclosure: original shell kept, add-on pod (owner)
+The owner chose to keep the gamepad whole in its original shell and to house the display, both ESP boards, battery, charger, regulator, switch and microphone in a printed add-on pod. Signal wiring is left out of the enclosure work while a Bluetooth link is explored. Evidence: owner's reply in chat, 2026-11-13, to the concept `cad/enclosure/pod-r001`. Open: where the pod fixes to the shell and the shell's dimensions there, measured heights of the DevKitC, charger and regulator, the switch body, the direction of the 28 mm Dupont allowance. `pod-r001` remains a concept, not a printable part.

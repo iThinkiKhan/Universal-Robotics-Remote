@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "board": "ESP32-S3 N16R8 development board (owner's board, 44 header pins)",
+  "state": "assumed header order",
+  "sources": [
+    {
+      "name": "Espressif ESP32-S3-DevKitC-1 v1.1 user guide, header tables J1 and J3",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide_v1.1.html",
+      "retrieved": "2026-11-12"
+    },
+    {
+      "name": "Owner's physical readings",
+      "file": "measurements/modules/esp32-s3-physical-20261112.json"
+    }
+  ],
+  "evidence": "The owner's board has 22 pins per side and an N16R8 module, the same count as Espressif's DevKitC-1, but it is not confirmed to be that design. The pin ORDER below is Espressif's and is assumed for the owner's board until one pin per row is traced (for example 5V and 3V3 with a meter). The Espressif page does not say which end pin 1 is on; 3V3 (pos 1) is taken to be at the antenna end and 5V/GND (pos 21/22) at the USB end, as on the DevKitC-1 photographs, and that is also unconfirmed. Octal PSRAM boards cannot use GPIO35, 36, 37 (none is used here).",
+  "frame": {
+    "origin": "bottom-left corner of the PCB rectangle seen from the component side with the antenna at the top and the USB connectors at the bottom (the owner's view); u to the right across the 28 mm width, v up the 57 mm length from the USB-end edge",
+    "j1_row": "left (u small)",
+    "j3_row": "right (u large)"
+  },
+  "geometry": {
+    "pcb_width_mm": 28,
+    "pcb_length_mm": 57,
+    "pcb_thickness_mm": 1.55,
+    "antenna_projection_mm": 6.5,
+    "antenna_width_mm": 18,
+    "antenna_centering": "assumed centred on the ESP module (module centre u = 13.7); the owner has not measured it",
+    "module": {
+      "u_min": 5.75,
+      "width": 15.9,
+      "length": 17.2,
+      "top_edge_from_antenna_end_mm": 0.5,
+      "top_z_from_pcb_underside_mm": 4.7
+    },
+    "usb": {
+      "count": 2,
+      "width": 9,
+      "gap": 3,
+      "left_edge_u": 3.25,
+      "top_z_from_pcb_underside_mm": 4.7,
+      "body_length_mm": null,
+      "note": "body length along the board is not recorded"
+    },
+    "row_centre_spacing_mm": 25.5,
+    "row_spacing_state": "owner approximate (inside edges 25 mm, pin heads 25.5 mm); rows taken as centred on the board",
+    "first_pin_from_usb_end_mm": 2.0,
+    "first_pin_state": "owner approximate; the pin nearest the USB edge is pos 22",
+    "pin_pitch_mm": 2.54,
+    "pin_pitch_state": "hypothesis, not measured (22 pins at 2.54 mm span 53.3 mm, which fits the 57 mm board)",
+    "pcb_mounting_holes": 0
+  },
+  "j1_left": [
+    {
+      "pos": 1,
+      "name": "3V3"
+    },
+    {
+      "pos": 2,
+      "name": "3V3"
+    },
+    {
+      "pos": 3,
+      "name": "RST"
+    },
+    {
+      "pos": 4,
+      "name": "GPIO4",
+      "gpio": 4
+    },
+    {
+      "pos": 5,
+      "name": "GPIO5",
+      "gpio": 5
+    },
+    {
+      "pos": 6,
+      "name": "GPIO6",
+      "gpio": 6
+    },
+    {
+      "pos": 7,
+      "name": "GPIO7",
+      "gpio": 7
+    },
+    {
+      "pos": 8,
+      "name": "GPIO15",
+      "gpio": 15
+    },
+    {
+      "pos": 9,
+      "name": "GPIO16",
+      "gpio": 16
+    },
+    {
+      "pos": 10,
+      "name": "GPIO17",
+      "gpio": 17
+    },
+    {
+      "pos": 11,
+      "name": "GPIO18",
+      "gpio": 18
+    },
+    {
+      "pos": 12,
+      "name": "GPIO8",
+      "gpio": 8
+    },
+    {
+      "pos": 13,
+      "name": "GPIO3",
+      "gpio": 3
+    },
+    {
+      "pos": 14,
+      "name": "GPIO46",
+      "gpio": 46
+    },
+    {
+      "pos": 15,
+      "name": "GPIO9",
+      "gpio": 9
+    },
+    {
+      "pos": 16,
+      "name": "GPIO10",
+      "gpio": 10
+    },
+    {
+      "pos": 17,
+      "name": "GPIO11",
+      "gpio": 11
+    },
+    {
+      "pos": 18,
+      "name": "GPIO12",
+      "gpio": 12
+    },
+    {
+      "pos": 19,
+      "name": "GPIO13",
+      "gpio": 13
+    },
+    {
+      "pos": 20,
+      "name": "GPIO14",
+      "gpio": 14
+    },
+    {
+      "pos": 21,
+      "name": "5V"
+    },
+    {
+      "pos": 22,
+      "name": "GND"
+    }
+  ],
+  "j3_right": [
+    {
+      "pos": 1,
+      "name": "GND"
+    },
+    {
+      "pos": 2,
+      "name": "TX",
+      "gpio": 43
+    },
+    {
+      "pos": 3,
+      "name": "RX",
+      "gpio": 44
+    },
+    {
+      "pos": 4,
+      "name": "GPIO1",
+      "gpio": 1
+    },
+    {
+      "pos": 5,
+      "name": "GPIO2",
+      "gpio": 2
+    },
+    {
+      "pos": 6,
+      "name": "GPIO42",
+      "gpio": 42
+    },
+    {
+      "pos": 7,
+      "name": "GPIO41",
+      "gpio": 41
+    },
+    {
+      "pos": 8,
+      "name": "GPIO40",
+      "gpio": 40
+    },
+    {
+      "pos": 9,
+      "name": "GPIO39",
+      "gpio": 39
+    },
+    {
+      "pos": 10,
+      "name": "GPIO38",
+      "gpio": 38
+    },
+    {
+      "pos": 11,
+      "name": "GPIO37",
+      "gpio": 37
+    },
+    {
+      "pos": 12,
+      "name": "GPIO36",
+      "gpio": 36
+    },
+    {
+      "pos": 13,
+      "name": "GPIO35",
+      "gpio": 35
+    },
+    {
+      "pos": 14,
+      "name": "GPIO0",
+      "gpio": 0
+    },
+    {
+      "pos": 15,
+      "name": "GPIO45",
+      "gpio": 45
+    },
+    {
+      "pos": 16,
+      "name": "GPIO48",
+      "gpio": 48
+    },
+    {
+      "pos": 17,
+      "name": "GPIO47",
+      "gpio": 47
+    },
+    {
+      "pos": 18,
+      "name": "GPIO21",
+      "gpio": 21
+    },
+    {
+      "pos": 19,
+      "name": "GPIO20",
+      "gpio": 20
+    },
+    {
+      "pos": 20,
+      "name": "GPIO19",
+      "gpio": 19
+    },
+    {
+      "pos": 21,
+      "name": "GND"
+    },
+    {
+      "pos": 22,
+      "name": "GND"
+    }
+  ]
+}

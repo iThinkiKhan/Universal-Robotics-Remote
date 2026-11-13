@@ -13,5 +13,7 @@ jobs:
       - run: python tools/check_public_content.py
       - run: python tools/generate_hardware.py --check
       - run: python -m unittest discover -s tests
+      - run: g++ -std=c++11 -Wall -Wextra -Werror -Ifirmware/include tests/cpp/axis_observer_test.cpp -o /tmp/axis-observer-test && /tmp/axis-observer-test
       - run: python -m pip install platformio==6.1.19
       - run: python -m platformio run -d firmware -e bench
+      - run: python -m platformio run -d firmware -e bench-axis-test

@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "module_ids": [
+    "LSHLDR-BRD",
+    "RSHLDR-BRD"
+  ],
+  "module": "Original gamepad shoulder-button assemblies",
+  "date": "2026-11-12",
+  "status": "photo-observed, mechanical dimensions pending",
+  "source": "Owner supplied two chat images 3105.jpg and 3106.jpg, inspected visually; no caliper dimensions provided yet. These image files are not yet archived in GitHub.",
+  "photo_references": [
+    {
+      "filename": "3105.jpg",
+      "view": "Rear/component side of gamepad with main board and pair of shoulder switch bodies near SW2, with ruler nearby",
+      "notes": "Switch pair and ribbon paths visible; ruler perspective not sufficient for dimension extraction"
+    },
+    {
+      "filename": "3106.jpg",
+      "view": "Joystick daughterboard reverse and partial shoulder switch assembly with ribbons",
+      "notes": "Useful to identify original ribbon routes but not orthographic/scale-certified"
+    }
+  ],
+  "observations": [
+    "First image shows a pair of rectangular black switch housings joined/adjacent along a central taller plastic spine; exact mechanical relationship, whether separate moving components or one bracket, needs inspection.",
+    "Each switch body has an approximately circular visible button area and a narrow green PCB solder tab projecting downward into separate white ribbon leads.",
+    "Green circuit-board tabs are much smaller than the external plastic switch housings; model full switch body and actuator envelope rather than just PCB dimensions.",
+    "Original shoulder ribbons are physically deteriorating per owner; do not require their preservation or lengths in the final model. Preserve switch circuitry and map replacement wiring.",
+    "The two shoulder assemblies may be mirror layouts. The photos do not establish identical dimensions or all mounting points.",
+    "Unrelated larger round/oval openings and traces in image 3106 belong to the joystick daughterboard; do not misassign those to the shoulder modules."
+  ],
+  "dimensions_mm": {
+    "paired_switch_assembly_total_width": {
+      "value": 37,
+      "state": "owner_measured",
+      "reference": "Across both black switch housings including central plastic, in described button-front/ribbons-down orientation"
+    },
+    "paired_switch_assembly_total_height_in_plane": {
+      "value": 29,
+      "state": "owner_measured",
+      "reference": "Top of black plastic to bottom of lowest green PCB tab, excluding hanging ribbons"
+    },
+    "maximum_front_back_depth": {
+      "value": 15,
+      "state": "owner_measured",
+      "reference": "From front of button actuators to rearmost assembly part, including protruding solder connections"
+    },
+    "individual_switch_housing_width": null,
+    "individual_switch_housing_height": null,
+    "individual_switch_housing_depth": null,
+    "switch_button_center_separation": null,
+    "pcb_tab_width_and_length": null,
+    "bare_pcb_thickness": null,
+    "ribbon_free_length_left": null,
+    "ribbon_free_length_right": null,
+    "right_button_black_housing_height": {
+      "value": 15,
+      "state": "owner_measured",
+      "reference": "Owner: 'height of the right button is 15' in context of black-plastic-only housing dimensions; exact top/bottom datum not separately supplied."
+    },
+    "bottom_to_highest_black_plastic_piece": {
+      "value": 23,
+      "state": "owner_measured_reference_confirmed",
+      "reference": "From bottom edge of the black plastic housing to the top of the tallest central black plastic section; green PCB tabs explicitly excluded. Owner confirmed 2026-11-13."
+    }
+  },
+  "mounting": {
+    "holes_or_clips": "unknown: investigate molded plastic retention and any fasteners",
+    "actuator_travel": "unknown",
+    "ribbon_origin": "visible, exact distances and electrical pin identities held in existing harness records",
+    "attachment_type": {
+      "value": "Retaining wings are molded on the shoulder-switch assembly itself and engage original controller housing.",
+      "state": "owner_confirmed",
+      "notes": "Owner explicitly corrected previous ambiguity: wings are on the assembly, not molded in controller housing. Both shoulder assemblies are mirrored."
+    },
+    "wing_geometry_mm": {
+      "frame": "Front view, round switch buttons facing viewer and ribbon tails down; left/right refer to this view of the representative assembly. Opposite assembly is mirrored.",
+      "left_ear": {
+        "width_mm": {
+          "value": 6,
+          "state": "owner_measured"
+        },
+        "depth_mm": {
+          "value": 2,
+          "state": "owner_measured"
+        },
+        "additional_geometry": "Height/thickness, vertical location, projection origin, attachment orientation and whether dimensions extend outside 37 x 29 mm envelope not separately confirmed."
+      },
+      "right_ear": {
+        "extent": "Full length of the black plastic switch housing; user confirmed, not just part of the raised pad.",
+        "top_offset_below_plastic_top_mm": {
+          "value": 2,
+          "state": "owner_reported",
+          "notes": "Owner says 'is 2mm lower thn the top of the plastic'; treat as vertical placement relative to plastic top, not a measured projection size or tab thickness."
+        },
+        "length_mm": {
+          "value": 15,
+          "state": "inferred_provisional",
+          "notes": "Assuming wing spans full 15 mm right button black-plastic housing; owner specifically stated full length of black plastic; not a separate direct wing measurement."
+        },
+        "width_mm": null,
+        "depth_mm": null,
+        "length_reference": "Owner measures height of right button housing as 15 mm; because wing extends full length of black plastic on right, 15 mm is a provisional wing-span inference until the wing start/end are confirmed; the taller black plastic piece extends 23 mm from bottom."
+      },
+      "note": "These are retaining wings on switch assembly. Do not invent complete 3D wing outlines or enlarge owner-measured 37x29x15 envelope without reference checks."
+    },
+    "original_housing_engagement": "Retaining wings formed on both switch assemblies fit molded features of original shell, per owner; actual mating/clearance details for new shell unmeasured."
+  },
+  "measurement_orientation": {
+    "proposed_view": "With both round button actuators facing camera, assembly oriented like photo 3105, solder tab/ribbon tails pointing downward.",
+    "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
+  },
+  "pending": [
+    "Measure left ear location (height from assembly top) and whether 6 mm dimension is lateral span and 2 mm is front-back projection; verify whether ears are included in 37 x 29 x 15 mm envelope.",
+    "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
+    "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
+    "Determine how to secure replacement wire tails to plastic housing or a support so solder joints are not load-bearing."
+  ],
+  "actuators": {
+    "center_to_center_spacing_mm": {
+      "value": 18.5,
+      "state": "owner_measured",
+      "reference": "Between centers of the two round visible shoulder buttons, with round buttons facing observer and ribbons downward"
+    },
+    "reported_button_height_mm": {
+      "value": 2,
+      "state": "owner_confirmed_protrusion",
+      "notes": "Owner clarified round button projects approximately 2 mm OUTWARD above surface of its black plastic housing, measured along front-to-back/Z direction. Not the button's XY center location. Already within reported 15 mm maximum total assembly depth; do not add twice."
+    },
+    "first_actuator_center_x_from_left_edge_mm": {
+      "value": 9.2,
+      "state": "owner_measured",
+      "reference": "Left external edge of 37 mm shoulder-switch assembly to center of left circular button; buttons toward viewer, ribbons down"
+    },
+    "center_y_from_top_edge_mm": {
+      "value": 7.5,
+      "state": "owner_measured",
+      "reference": "Measured down from top edge of black plastic housing to center of round shoulder actuator with buttons facing observer and ribbons pointing down. Measured at either actuator; assuming both share same height in provisional CAD, subject to verification."
+    },
+    "protrusion_mm": {
+      "value": 2,
+      "state": "owner_approximate_confirmed_reference",
+      "reference": "Round actuator face projects out from black plastic housing toward pressing finger"
+    },
+    "second_actuator_center_x_from_left_edge_mm": {
+      "value": 27.7,
+      "state": "derived",
+      "calculation": "9.2 + 18.5"
+    },
+    "second_actuator_center_to_right_edge_mm": {
+      "value": 9.3,
+      "state": "derived",
+      "calculation": "37 - (9.2 + 18.5)"
+    },
+    "center_y_from_bottom_of_total_assembly_mm": {
+      "value": 21.5,
+      "state": "derived_provisional",
+      "calculation": "29 - 7.5",
+      "notes": "Only applies if 29 mm assembly total height and black housing top use the same top datum; bottom is lowest PCB tab."
+    }
+  },
+  "ribbon_condition": {
+    "state": "owner_reported_deteriorating",
+    "report": "Existing shoulder-button ribbon wires are already breaking off; their lengths are not relevant as design constraints.",
+    "engineering_implication": "Do not use present ribbon length or physical routing as a requirement for final layout. Design replacement/reterminated connections at the switch/PCB tabs with deliberate strain relief and route new wires to the harness. Keep the actual electrical signal/pad mapping as a separate design responsibility.",
+    "scope": "Shoulder assemblies specifically (current measurement context); do not infer joystick ribbons have failed unless owner confirms."
+  },
+  "comparison": {
+    "owner_report": "Left and right shoulder assemblies share the measured 37 x 29 x 15 mm external envelope and are mirrored versions of one another.",
+    "state": "owner_confirmed_visually",
+    "design_use": "Use one parametric base assembly model mirrored for the other side; the 18.5 mm actuator spacing and 9.2 mm left offset, 7.5 mm top offset and ~2 mm protrusion apply in local mirrored assembly frames; exact switch tab orientation and retention geometry still to be localized."
+  }
+}

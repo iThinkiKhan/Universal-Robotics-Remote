@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "model": "cad/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r003.FCStd",
+  "image": "exports/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r003-TRACED_OUTLINE.png",
+  "nonwhite_preview_samples": 939,
+  "envelope_dimensions_mm": [
+    125.5,
+    62.5,
+    1.15
+  ],
+  "limitation": "Traced (photo-rectified) outline with its stated uncertainty, plus listed holes. Components, connectors and daughterboards remain unmodeled."
+}

@@ -1,0 +1,22 @@
+{
+ "passed": true,
+ "model": "cad/enclosure/pod-r001.FCStd",
+ "state": "concept space claim \u2014 NOT FOR PRINTING",
+ "outside_mm": [
+  116.8,
+  72.8,
+  38.8
+ ],
+ "tub_volume_mm3": 41915.9,
+ "lid_volume_mm3": 20407.3,
+ "modules": 10,
+ "openings": [
+  "WINDOW",
+  "USB_C",
+  "SWITCH",
+  "MIC_PORT",
+  "PAD_LEAD"
+ ],
+ "clashes": [],
+ "freecad": "1.0.0"
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" width="1100" height="760" font-family="Arial, Helvetica, sans-serif">
+<title>INMP441 I2S microphone breakout - measurement sheet</title>
+<rect width="1100" height="760" fill="#ffffff"/>
+<text x="24" y="34" font-size="22" font-weight="bold">INMP441 I2S microphone breakout - what to measure</text>
+<text x="24" y="58" font-size="13">View: Chip side up (the side with the small silver microphone). Pin header edge at the BOTTOM.</text>
+<text x="24" y="76" font-size="13">Datum: Bottom-left corner of the PCB rectangle in that view. X to the right, Y up. Caliper, millimetres. NOT TO SCALE: the sketch only shows where to measure.</text>
+<rect x="40" y="110" width="300" height="520" fill="#e8f1e4" stroke="#222" stroke-width="2"/>
+<circle cx="40" cy="630" r="7" fill="#d32f2f"/>
+<text x="36" y="654" font-size="13" fill="#d32f2f" font-weight="bold">DATUM (0,0)</text>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z" fill="#1565c0"/></marker></defs>
+<line x1="40" y1="680" x2="340" y2="680" stroke="#1565c0" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="194.0" y="675.0" font-size="13" fill="#1565c0" font-weight="bold">M-W</text>
+<line x1="18" y1="630" x2="18" y2="110" stroke="#1565c0" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="22.0" y="365.0" font-size="13" fill="#1565c0" font-weight="bold">M-L</text>
+<rect x="150" y="240" width="80" height="70" fill="#9aa" stroke="#222"/><text x="158" y="230" font-size="12">mic chip</text>
+<circle cx="190" cy="275" r="9" fill="#fff" stroke="#d32f2f" stroke-width="2"/><text x="240" y="278" font-size="12" fill="#d32f2f">sound port (PORT)</text>
+<circle cx="70" cy="608" r="5" fill="#c9a227" stroke="#222"/>
+<circle cx="110" cy="608" r="5" fill="#c9a227" stroke="#222"/>
+<circle cx="150" cy="608" r="5" fill="#c9a227" stroke="#222"/>
+<circle cx="190" cy="608" r="5" fill="#c9a227" stroke="#222"/>
+<circle cx="230" cy="608" r="5" fill="#c9a227" stroke="#222"/>
+<circle cx="270" cy="608" r="5" fill="#c9a227" stroke="#222"/>
+<text x="70" y="590" font-size="12">pin header (HDR)</text>
+<text x="410" y="102" font-size="14" font-weight="bold">Side view (heights)</text>
+<rect x="410" y="170" width="220" height="10" fill="#e8f1e4" stroke="#222"/><text x="640" y="180" font-size="12">PCB = M-T</text>
+<rect x="440" y="130" width="60" height="40" fill="#9aa" stroke="#222"/><text x="505" y="152" font-size="12">tallest part above top</text>
+<rect x="540" y="180" width="50" height="22" fill="#bbb" stroke="#222"/><text x="595" y="202" font-size="12">part / pin below</text>
+<text x="410" y="252" font-size="14" font-weight="bold">Readings (tier 1 first; value goes in module-readings.csv)</text>
+<text x="410" y="274" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-W</tspan><tspan> [T1] PCB width (X extent)</tspan></text>
+<text x="410" y="289.2" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-L</tspan><tspan> [T1] PCB length (Y extent)</tspan></text>
+<text x="410" y="304.4" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-T</tspan><tspan> [T1] PCB thickness</tspan></text>
+<text x="410" y="319.59999999999997" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-CHIP-H</tspan><tspan> [T1] Microphone chip: height above the PCB top</tspan></text>
+<text x="410" y="334.79999999999995" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-PORT-X</tspan><tspan> [T1] Sound port hole: datum edge to its centre</tspan></text>
+<text x="410" y="349.99999999999994" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-PORT-Y</tspan><tspan> [T1] Sound port hole: datum edge to its centre</tspan></text>
+<text x="410" y="365.19999999999993" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-PORT-D</tspan><tspan> [T2] Sound port hole diameter</tspan></text>
+<text x="410" y="380.3999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HDR-X1</tspan><tspan> [T2] Header: X of the first pin centre</tspan></text>
+<text x="410" y="395.5999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HDR-Y</tspan><tspan> [T2] Header: Y of the pin centres</tspan></text>
+<text x="410" y="410.7999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HDR-P</tspan><tspan> [T2] Header pin pitch</tspan></text>
+<text x="410" y="425.9999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HDR-N</tspan><tspan> [T2] Header pin count (a count, not mm)</tspan></text>
+<text x="410" y="441.1999999999999" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HDR-H</tspan><tspan> [T2] Header body height above the surface it sits on</tspan></text>
+<text x="410" y="456.39999999999986" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HDR-PIN</tspan><tspan> [T2] Header pin length sticking out</tspan></text>
+<text x="410" y="471.59999999999985" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HOLE-XNEAR</tspan><tspan> [T3] Mounting hole: datum edge to the hole's near wall</tspan></text>
+<text x="410" y="486.79999999999984" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HOLE-YNEAR</tspan><tspan> [T3] Mounting hole: datum edge to the hole's near wall</tspan></text>
+<text x="410" y="501.99999999999983" font-size="11.5"><tspan font-weight="bold" fill="#1565c0">M-HOLE-D</tspan><tspan> [T3] Mounting hole diameter</tspan></text>
+</svg>

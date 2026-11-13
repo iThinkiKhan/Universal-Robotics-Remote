@@ -1,0 +1,44 @@
+{
+  "file": "cad/harness/gamepad-harness-r001.FCStd",
+  "revision": 1,
+  "state": "proposed_taps_only",
+  "board_survey": "cad/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r005.FCStd",
+  "native_reopened": true,
+  "solid_objects": 108,
+  "expected_solid_objects": 108,
+  "pads_copied": 83,
+  "tap_markers": 24,
+  "wires": 28,
+  "wires_by_connector": {
+    "J1L": 4,
+    "J1R": 4,
+    "J2F": 5,
+    "J2R": 3,
+    "J2D": 5,
+    "J2L": 3,
+    "J2C": 4
+  },
+  "wires_with_unsettled_pad": [
+    "J2C-W02"
+  ],
+  "pads_with_several_wires": {
+    "TP01": [
+      "J1R-W04",
+      "J2F-W05",
+      "J2R-W03"
+    ],
+    "TP03": [
+      "J1L-W04",
+      "J2D-W05",
+      "J2L-W03",
+      "J2C-W04"
+    ]
+  },
+  "not_modelled": [
+    "wires and routes",
+    "connector housings",
+    "S3, display, microphone, button-processor board, battery",
+    "lengths"
+  ],
+  "connection_list_sha256": "d2567419b97696255e0c16e96895563a411cbb1164a1eb7ddf8760893f7607a5"
+}

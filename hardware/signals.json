@@ -2,38 +2,332 @@
   "schema_version": 1,
   "board": "ESP32-S3 N16R8",
   "signals": [
-    {"id":"tft_sck","symbol":"tftSck","gpio":12,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"tft_mosi","symbol":"tftMosi","gpio":11,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"tft_miso","symbol":"tftMiso","gpio":13,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"tft_cs","symbol":"tftCs","gpio":10,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"tft_dc","symbol":"tftDc","gpio":9,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"tft_reset","symbol":"tftReset","gpio":8,"group":"display","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"touch_sck","symbol":"touchSck","gpio":39,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"touch_mosi","symbol":"touchMosi","gpio":40,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"touch_miso","symbol":"touchMiso","gpio":41,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"touch_cs","symbol":"touchCs","gpio":42,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"touch_irq","symbol":"touchIrq","gpio":47,"group":"touch","state":"installed","evidence":"DeskDisplay Board.h and HARDWARE.md"},
-    {"id":"mic_sck","symbol":"micSck","gpio":15,"group":"microphone","state":"installed","evidence":"the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"},
-    {"id":"mic_ws","symbol":"micWs","gpio":16,"group":"microphone","state":"installed","evidence":"the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"},
-    {"id":"mic_sd","symbol":"micSd","gpio":17,"group":"microphone","state":"installed","evidence":"the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"},
-    {"id":"backlight_reserved","symbol":"backlight","gpio":4,"group":"backlight","state":"reserved","evidence":"LED physically wired to 3V3; GPIO4 must remain INPUT"},
-    {"id":"uart_tx","symbol":"uartTx","gpio":43,"group":"console","state":"installed","evidence":"ROM output through CH343 COM15; UART0 default pins"},
-    {"id":"uart_rx","symbol":"uartRx","gpio":44,"group":"console","state":"installed","evidence":"UART0 default pins; receive path to be tested"},
-    {"id":"L-X","symbol":"leftX","gpio":5,"group":"gamepad","state":"proposed","evidence":"Planning only; no voltage measurements or harness installed"},
-    {"id":"L-Y","symbol":"leftY","gpio":6,"group":"gamepad","state":"proposed","evidence":"Planning only; no voltage measurements or harness installed"},
-    {"id":"R-X","symbol":"rightX","gpio":7,"group":"gamepad","state":"proposed","evidence":"Planning only; no voltage measurements or harness installed"},
-    {"id":"R-Y","symbol":"rightY","gpio":2,"group":"gamepad","state":"proposed","evidence":"Planning only; avoids GPIO3 strap"},
-    {"id":"L-3","symbol":"leftClick","gpio":null,"group":"gamepad","state":"proposed","evidence":"Digital interface pending button topology measurements"},
-    {"id":"R-3","symbol":"rightClick","gpio":null,"group":"gamepad","state":"proposed","evidence":"Digital interface pending button topology measurements"},
-    {"id":"expander_sda","symbol":"expanderSda","gpio":18,"group":"expansion","state":"proposed","evidence":"Candidate future I2C; no expander attached or initialized"},
-    {"id":"expander_scl","symbol":"expanderScl","gpio":21,"group":"expansion","state":"proposed","evidence":"Candidate future I2C; no expander attached or initialized"}
+    {
+      "id": "tft_sck",
+      "symbol": "tftSck",
+      "gpio": 12,
+      "group": "display",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "tft_mosi",
+      "symbol": "tftMosi",
+      "gpio": 11,
+      "group": "display",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "tft_miso",
+      "symbol": "tftMiso",
+      "gpio": 13,
+      "group": "display",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "tft_cs",
+      "symbol": "tftCs",
+      "gpio": 10,
+      "group": "display",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "tft_dc",
+      "symbol": "tftDc",
+      "gpio": 9,
+      "group": "display",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "tft_reset",
+      "symbol": "tftReset",
+      "gpio": 8,
+      "group": "display",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "touch_sck",
+      "symbol": "touchSck",
+      "gpio": 39,
+      "group": "touch",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "touch_mosi",
+      "symbol": "touchMosi",
+      "gpio": 40,
+      "group": "touch",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "touch_miso",
+      "symbol": "touchMiso",
+      "gpio": 41,
+      "group": "touch",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "touch_cs",
+      "symbol": "touchCs",
+      "gpio": 42,
+      "group": "touch",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "touch_irq",
+      "symbol": "touchIrq",
+      "gpio": 47,
+      "group": "touch",
+      "state": "installed",
+      "evidence": "DeskDisplay Board.h and HARDWARE.md"
+    },
+    {
+      "id": "mic_sck",
+      "symbol": "micSck",
+      "gpio": 15,
+      "group": "microphone",
+      "state": "installed",
+      "evidence": "the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"
+    },
+    {
+      "id": "mic_ws",
+      "symbol": "micWs",
+      "gpio": 16,
+      "group": "microphone",
+      "state": "installed",
+      "evidence": "the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"
+    },
+    {
+      "id": "mic_sd",
+      "symbol": "micSd",
+      "gpio": 17,
+      "group": "microphone",
+      "state": "installed",
+      "evidence": "the project owner's soldered wiring, recorded in DeskDisplay HARDWARE.md"
+    },
+    {
+      "id": "backlight_reserved",
+      "symbol": "backlight",
+      "gpio": 4,
+      "group": "backlight",
+      "state": "reserved",
+      "evidence": "LED physically wired to 3V3; GPIO4 must remain INPUT"
+    },
+    {
+      "id": "uart_tx",
+      "symbol": "uartTx",
+      "gpio": 43,
+      "group": "console",
+      "state": "installed",
+      "evidence": "ROM output through attached CH343 bridge; UART0 default pins"
+    },
+    {
+      "id": "uart_rx",
+      "symbol": "uartRx",
+      "gpio": 44,
+      "group": "console",
+      "state": "installed",
+      "evidence": "UART0 default pins; receive path to be tested"
+    },
+    {
+      "id": "L-X",
+      "symbol": "leftX",
+      "gpio": 5,
+      "group": "gamepad",
+      "state": "proposed",
+      "evidence": "Owner-reported sweeps in measurements/electrical.csv; proposed mapping only, no installed harness or qualified protective interface"
+    },
+    {
+      "id": "L-Y",
+      "symbol": "leftY",
+      "gpio": 6,
+      "group": "gamepad",
+      "state": "proposed",
+      "evidence": "Owner-reported sweeps in measurements/electrical.csv; proposed mapping only, no installed harness or qualified protective interface"
+    },
+    {
+      "id": "R-X",
+      "symbol": "rightX",
+      "gpio": 7,
+      "group": "gamepad",
+      "state": "proposed",
+      "evidence": "Owner-reported sweeps in measurements/electrical.csv; proposed mapping only, no installed harness or qualified protective interface"
+    },
+    {
+      "id": "R-Y",
+      "symbol": "rightY",
+      "gpio": 2,
+      "group": "gamepad",
+      "state": "proposed",
+      "evidence": "Owner-reported sweeps in measurements/electrical.csv; proposed mapping only, no installed harness or qualified protective interface"
+    },
+    {
+      "id": "L-3",
+      "symbol": "leftClick",
+      "gpio": 21,
+      "group": "gamepad",
+      "state": "proposed",
+      "evidence": "Owner-reported released/pressed readings in measurements/electrical.csv. GPIO chosen on the owner's instruction (2026-11-11): free S3 pin, no strap, USB, console, PSRAM, display, touch or microphone function, and not 38 or 48 (the on-board RGB LED sits on one of them, depending on the board revision). Proposed, movable for wiring convenience; no protective interface decided"
+    },
+    {
+      "id": "R-3",
+      "symbol": "rightClick",
+      "gpio": 1,
+      "group": "gamepad",
+      "state": "proposed",
+      "evidence": "Owner-reported released/pressed readings in measurements/electrical.csv. GPIO chosen on the owner's instruction (2026-11-11): free S3 pin, no strap, USB, console, PSRAM, display, touch or microphone function, and not 38 or 48 (the on-board RGB LED sits on one of them, depending on the board revision). Proposed, movable for wiring convenience; no protective interface decided"
+    },
+    {
+      "id": "button_link_rx",
+      "symbol": "buttonLinkRx",
+      "gpio": 18,
+      "group": "button_link",
+      "state": "proposed",
+      "evidence": "Owner-adopted 2026-11-11: an ESP32-WROOM-32U reads the buttons and sends their state over UART from its GPIO17 to this S3 pin; no link attached or initialized; packet format undecided"
+    }
   ],
   "gamepad_enabled": false,
   "power": {
-    "display_vcc":"S3 3V3 (existing wiring)",
-    "display_led":"S3 3V3 (existing wiring; current limiter unverified)",
-    "mic_vdd":"S3 3V3",
-    "mic_lr":"GND",
-    "gamepad_power":"Unconnected to S3; architecture not measured"
+    "display_vcc": "S3 3V3 (existing wiring)",
+    "display_led": "S3 3V3 (existing wiring; current limiter unverified)",
+    "mic_vdd": "S3 3V3",
+    "mic_lr": "GND",
+    "gamepad_power": "Separate original supply; final common-power and off-state/backfeed design unqualified"
+  },
+  "wroom": {
+    "board": "ESP32-DevKitC V4 carrying an ESP32-WROOM-32U (owner-reported 2026-11-11)",
+    "state": "proposed",
+    "evidence": "Owner adopted the button processor on 2026-11-11 and delegated the pin choice (movable for wiring convenience). Checked on 2026-11-11 against Espressif's DevKitC V4 header tables and the WROOM-32U datasheet v2.8 (hardware/devkitc-v4-header.json): all pins used are on the headers, none is a strapping pin (GPIO0, 2, 5, 12, 15), a flash pin (6 to 11) or a console pin (1, 3), and GPIO16 and 17 are free on this module. GPIO14 is left spare because a pulse at boot is community-reported (not confirmed by Espressif). GPIO16 is left spare as the UART2 receive pin for an optional return link. GPIO34, 35, 36 and 39 are input-only with no internal pull-up, so they carry buttons that the gamepad pulls up itself (about 3.0 V released, above the 0.75 x VDD = 2.5 V input-high level); if the button check (M4) shows a line floating when released, move it to a pin with an internal pull-up. Internal pull-ups stay off until then.",
+    "candidates": [
+      4,
+      13,
+      14,
+      16,
+      18,
+      19,
+      21,
+      22,
+      23,
+      25,
+      26,
+      27,
+      32,
+      33,
+      34,
+      35,
+      36,
+      39
+    ],
+    "input_only": [
+      34,
+      35,
+      36,
+      39
+    ],
+    "uart_tx_gpio": 17,
+    "inputs": [
+      {
+        "signal": "R-UP",
+        "gpio": 36,
+        "connector": "J2F"
+      },
+      {
+        "signal": "R-RIGHT",
+        "gpio": 39,
+        "connector": "J2F"
+      },
+      {
+        "signal": "R-DOWN",
+        "gpio": 34,
+        "connector": "J2F"
+      },
+      {
+        "signal": "R-LEFT",
+        "gpio": 35,
+        "connector": "J2F"
+      },
+      {
+        "signal": "R-1",
+        "gpio": 23,
+        "connector": "J2R"
+      },
+      {
+        "signal": "R-2",
+        "gpio": 22,
+        "connector": "J2R"
+      },
+      {
+        "signal": "L-UP",
+        "gpio": 25,
+        "connector": "J2D"
+      },
+      {
+        "signal": "L-RIGHT",
+        "gpio": 26,
+        "connector": "J2D"
+      },
+      {
+        "signal": "L-DOWN",
+        "gpio": 27,
+        "connector": "J2D"
+      },
+      {
+        "signal": "L-LEFT",
+        "gpio": 13,
+        "connector": "J2D"
+      },
+      {
+        "signal": "L-1",
+        "gpio": 32,
+        "connector": "J2L"
+      },
+      {
+        "signal": "L-2",
+        "gpio": 33,
+        "connector": "J2L"
+      },
+      {
+        "signal": "K-+",
+        "gpio": 21,
+        "connector": "J2C"
+      },
+      {
+        "signal": "K--",
+        "gpio": 19,
+        "connector": "J2C"
+      },
+      {
+        "signal": "H",
+        "gpio": 18,
+        "connector": "J2C"
+      }
+    ],
+    "reserved": [
+      {
+        "signal": "K_POW",
+        "gpio": 4,
+        "connector": "J2C",
+        "note": "POWER key, held: its voltage is unmeasured and may be battery voltage (M8). Nothing is wired to this pin until M8 clears it."
+      }
+    ],
+    "spare": [
+      {
+        "gpio": 14,
+        "note": "pulses at boot; avoid for a wired line"
+      },
+      {
+        "gpio": 16,
+        "note": "UART2 RX, for an optional return link from the S3"
+      }
+    ]
   }
 }

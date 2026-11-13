@@ -46,6 +46,24 @@ class HardwareContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "connector position"):
             hardware.validate(self.registry, self.harnesses)
 
+    def test_connector_over_six_positions_is_rejected(self):
+        harness = self.harnesses["harnesses"][0]
+        for pin in (5, 6, 7):
+            harness["pins"].append({"pin": pin, "signal": "SPARE", "color": None})
+        with self.assertRaisesRegex(ValueError, "6 positions"):
+            hardware.validate(self.registry, self.harnesses)
+
+    def test_button_signal_on_an_s3_connector_is_rejected(self):
+        self.harnesses["harnesses"][0]["pins"][0]["signal"] = "R-UP"
+        with self.assertRaisesRegex(ValueError, "does not go to the WROOM"):
+            hardware.validate(self.registry, self.harnesses)
+
+    def test_s3_signal_on_a_wroom_connector_is_rejected(self):
+        wroom = next(h for h in self.harnesses["harnesses"] if h["goes_to"] == "WROOM-32U")
+        wroom["pins"][0]["signal"] = "L-X"
+        with self.assertRaisesRegex(ValueError, "does not go to the S3"):
+            hardware.validate(self.registry, self.harnesses)
+
     def test_early_gamepad_activation_is_rejected(self):
         self.registry["gamepad_enabled"] = True
         with self.assertRaisesRegex(ValueError, "disabled"):

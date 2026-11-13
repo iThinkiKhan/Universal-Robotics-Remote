@@ -1,0 +1,31 @@
+{
+  "file": "cad/boards/gamepad-gh-wii-u002/gamepad-gh-wii-u002-survey-r003.FCStd",
+  "board_id": "gamepad-gh-wii-u002",
+  "revision": 3,
+  "state": "outline_traced_holes_measured_spot_checks_pending",
+  "photo_references": 10,
+  "solid_objects": 1,
+  "expected_solid_objects": 1,
+  "native_reopened": true,
+  "source_sha256": "317fa526860021e3206a0fcfe1ddaed4b08aa23e89e89d20a832afaacb5195f2",
+  "geometry": "traced_outline",
+  "outline_uncertainty_mm": 0.4,
+  "datum": "Project-owner-selected datum, 2026-11-10: origin at the bottom-left corner of the board's bounding rectangle in the rear (component-side) view with USB at the top, i.e. the battery-connector end of the bottom edge. X runs right, Y runs up toward USB, Z toward the viewer: the rear surface is Z=0 and the substrate extends to Z=-T. Measure X from the left-most board edge and Y from the bottom-most board edge in that view; the origin is the bounding-rectangle corner and may lie off the physical board. The front view (photo 3081) sees this corner at its bottom-right; the motor-lead end of the bottom edge is the far end, near X=W.",
+  "bounding_box_mm": [
+    125.5,
+    62.5,
+    1.15
+  ],
+  "holes_cut": 6,
+  "hole_ids": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "body_volume_mm3": 6086.6421238291705,
+  "expected_volume_mm3": 6086.642123829173,
+  "top_z_mm": 0.0
+}

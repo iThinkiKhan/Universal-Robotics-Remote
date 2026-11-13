@@ -3,9 +3,13 @@ import hashlib
 import json
 import os
 import math
+import sys
 from pathlib import Path
 import FreeCAD as App
 import Part
+
+sys.path.insert(0,str(Path(os.environ.get("ECAD_SURVEY_SCRIPTS",Path(__file__).resolve().parent))))
+import survey_geometry
 
 project=Path(os.environ["ECAD_SURVEY_PROJECT"]).resolve()
 survey_path=project/os.environ["ECAD_SURVEY_RECORD"]
@@ -56,28 +60,118 @@ for index,module in enumerate(survey["separate_modules"],1):
     obj.Label=module["name"]
     obj.addProperty("App::PropertyString","Status");obj.Status=module["state"]
     modules.addObject(obj)
-if all(key in values for key in ("W","H","T")):
+geometry=survey_geometry.resolve(survey)      # raises on anything inconsistent; never defaults
+pads=survey_geometry.load_pads(project/survey["pads_file"]) if survey.get("pads_file") else []
+survey_geometry.validate_pads(pads,geometry)   # on the board, clear of its edge and holes
+def _slot_or_round(hole,height,z):
+    p1,p2,r=hole["p1"],hole["p2"],hole["radius"]
+    shape=Part.makeCylinder(r,height,App.Vector(p1[0],p1[1],z))
+    length=math.dist(p1,p2)
+    if length>0:
+        box=Part.makeBox(length,2*r,height,App.Vector(0,-r,z))
+        box.rotate(App.Vector(0,0,0),App.Vector(0,0,1),math.degrees(math.atan2(p2[1]-p1[1],p2[0]-p1[0])))
+        box.translate(App.Vector(p1[0],p1[1],0))
+        shape=shape.fuse(box).fuse(Part.makeCylinder(r,height,App.Vector(p2[0],p2[1],z)))
+    return shape
+if geometry["outline"]:
+    if "T" not in values: raise ValueError("A measured outline needs a measured thickness T")
+    out=geometry["outline"]
+    edges=[];prev=out["start"]
+    for seg in out["segments"]:
+        if seg[0]=="line":
+            edges.append(Part.LineSegment(App.Vector(prev[0],prev[1],0),App.Vector(seg[1][0],seg[1][1],0)).toShape());prev=seg[1]
+        else:
+            edges.append(Part.Arc(App.Vector(prev[0],prev[1],0),App.Vector(seg[1][0],seg[1][1],0),App.Vector(seg[2][0],seg[2][1],0)).toShape());prev=seg[2]
+    if math.dist(prev,out["start"])>1e-9:
+        edges.append(Part.LineSegment(App.Vector(prev[0],prev[1],0),App.Vector(out["start"][0],out["start"][1],0)).toShape())
+    body=Part.Face(Part.Wire(edges)).extrude(App.Vector(0,0,-values["T"]))
+    for hole in geometry["holes"]:
+        body=body.cut(_slot_or_round(hole,values["T"]+2,-values["T"]-1))
+    board=doc.addObject("Part::Feature","MeasuredBoardBody")
+    traced=out["state"]=="traced"
+    board.Label=(f"TRACED OUTLINE (photo-rectified, +/-{survey['outline']['uncertainty_mm']} mm) AND HOLES — components and connectors unmodeled"
+                 if traced else "MEASURED OUTLINE AND HOLES — components and connectors unmodeled")
+    board.Shape=body
+    for name,value in {"Limitation":survey["model_policy"],"Datum":survey["origin_description"],"OutlineState":out["state"],
+                       "OutlineMethod":survey["outline"].get("method",""),
+                       "FrameNote":"Top surface Z=0, substrate below. X right, Y up from the named datum.",
+                       "HolesCut":", ".join(h["id"] for h in geometry["holes"]) or "none"}.items():
+        board.addProperty("App::PropertyString",name);setattr(board,name,value)
+elif all(key in values for key in ("W","H","T")):
     envelope=doc.addObject("Part::Feature","MeasuredBoundingEnvelope")
-    envelope.Label="MEASURED ENVELOPE ONLY — irregular outline unmodeled"
-    envelope.Shape=Part.makeBox(values["W"],values["H"],values["T"],App.Vector(0,0,-values["T"]))
+    body=Part.makeBox(values["W"],values["H"],values["T"],App.Vector(0,0,-values["T"]))
+    for hole in geometry["holes"]:
+        body=body.cut(_slot_or_round(hole,values["T"]+2,-values["T"]-1))
+    envelope.Label=("MEASURED ENVELOPE WITH HOLES — rectangle only; board contour, chamfer and notches NOT modeled"
+                    if geometry["holes"] else "MEASURED ENVELOPE ONLY — irregular outline unmodeled")
+    envelope.Shape=body
+    envelope.addProperty("App::PropertyString","HolesCut");envelope.HolesCut=", ".join(h["id"] for h in geometry["holes"]) or "none"
     envelope.addProperty("App::PropertyString","Limitation");envelope.Limitation=survey["model_policy"]
-    envelope.addProperty("App::PropertyString","FrameNote");envelope.FrameNote="Envelope frame only: top Z=0, X/Y at rectangle corner. Physical board datum and irregular outline remain unassigned."
+    envelope.addProperty("App::PropertyString","FrameNote")
+    envelope.FrameNote=("Envelope frame only: surface facing the datum view at Z=0, substrate below, X/Y at the rectangle corner. Irregular outline remains unmodeled. Datum: "
+                        +(survey.get("origin_description") or "unassigned"))
+def _pad_solid(p):
+    h=survey_geometry.PAD_HEIGHT_MM                # raised above the rear surface (Z=0); never intersects the board body
+    if p["shape"]=="round":
+        return Part.makeCylinder(p["w"]/2,h,App.Vector(p["x"],p["y"],0))
+    if p["shape"]=="rect":
+        return Part.makeBox(p["w"],p["l"],h,App.Vector(p["x"]-p["w"]/2,p["y"]-p["l"]/2,0))
+    r=p["w"]/2; half=(p["l"]-p["w"])/2             # oval: a capsule running along Y
+    solid=Part.makeCylinder(r,h,App.Vector(p["x"],p["y"]-half,0)).fuse(Part.makeCylinder(r,h,App.Vector(p["x"],p["y"]+half,0)))
+    return solid.fuse(Part.makeBox(p["w"],2*half,h,App.Vector(p["x"]-r,p["y"]-half,0)))
+if pads:
+    pad_group=doc.addObject("App::DocumentObjectGroup","TestPads")
+    pad_group.Label=f"TEST PADS ({len(pads)}) — traced, see the pads file for method and confidence"
+    for p in pads:
+        obj=doc.addObject("Part::Feature","Pad_"+p["id"])
+        obj.Label=p["id"]+" "+(p["label"] or "(unlabeled)")
+        obj.Shape=_pad_solid(p)
+        for name,value in {"PadId":p["id"],"PadLabel":p["label"],"PadGroup":p["group"],"LabelConfidence":p["confidence"],
+                           "State":p["state"],"UncertaintyMM":str(p["uncertainty_mm"]),"PadsFile":survey["pads_file"]}.items():
+            obj.addProperty("App::PropertyString",name);setattr(obj,name,value)
+        pad_group.addObject(obj)
 doc.recompute();doc.saveAs(str(output));App.closeDocument(doc.Name)
 check=App.openDocument(str(output))
-shape_count=sum(1 for obj in check.Objects if hasattr(obj,"Shape") and not obj.Shape.isNull() and obj.Shape.Solids)
+shape_count=sum(1 for obj in check.Objects if obj.TypeId=="Part::Feature" and not obj.Shape.isNull() and obj.Shape.Solids)   # parts only: a group container reports its members' combined shape
 report={"file":output.relative_to(project).as_posix(),"board_id":survey["board_id"],"revision":survey["revision"],
         "state":survey["state"],"photo_references":len(manifest["photos"]),"solid_objects":shape_count,
-        "expected_solid_objects":int(all(key in values for key in ("W","H","T"))),
+        "expected_solid_objects":int(all(key in values for key in ("W","H","T")))+len(pads),"pads":len(pads),
         "native_reopened":True,"source_sha256":hashlib.sha256(survey_path.read_bytes()).hexdigest()}
-if shape_count:
+if geometry["outline"] and shape_count:
+    shape=check.getObject("MeasuredBoardBody").Shape
+    bounds=shape.BoundBox
+    expected=geometry["volume_mm3"]
+    report.update({"geometry":"traced_outline" if out["state"]=="traced" else "measured_outline",
+                   "outline_uncertainty_mm":survey["outline"].get("uncertainty_mm"),"datum":survey["origin_description"],
+                   "bounding_box_mm":[bounds.XLength,bounds.YLength,bounds.ZLength],
+                   "holes_cut":len(geometry["holes"]),"hole_ids":[h["id"] for h in geometry["holes"]],
+                   "body_volume_mm3":shape.Volume,"expected_volume_mm3":expected,"top_z_mm":bounds.ZMax})
+    if not shape.isValid() or len(shape.Solids)!=1: raise RuntimeError("Saved board body is not one valid solid")
+    if abs(shape.Volume-expected)>0.01*expected: raise RuntimeError("Saved body volume disagrees with the recorded measurements")
+    if abs(bounds.ZLength-values["T"])>1e-6: raise RuntimeError("Saved body thickness does not match T")
+elif shape_count:
     shape=check.getObject("MeasuredBoundingEnvelope").Shape
     bounds=shape.BoundBox
     report["envelope_dimensions_mm"]=[bounds.XLength,bounds.YLength,bounds.ZLength]
     report["envelope_volume_mm3"]=shape.Volume
     report["top_z_mm"]=bounds.ZMax
-    report["holes_cut"]=0
+    report["holes_cut"]=len(geometry["holes"])
+    if geometry["holes"]:
+        report.update({"geometry":"envelope_with_holes","datum":survey["origin_description"],
+                       "hole_ids":[h["id"] for h in geometry["holes"]],
+                       "expected_volume_mm3":geometry["volume_mm3"]})
+        if abs(shape.Volume-geometry["volume_mm3"])>0.01*geometry["volume_mm3"] or len(shape.Solids)!=1:
+            raise RuntimeError("Saved envelope-with-holes volume disagrees with the recorded measurements")
     if not shape.isValid() or any(abs(a-b)>1e-6 for a,b in zip(report["envelope_dimensions_mm"],[values["W"],values["H"],values["T"]])):
         raise RuntimeError("Saved envelope does not match recorded measurements")
+for p in pads:                                    # every pad must survive the save/reopen, be a valid solid, and sit where the table says
+    obj=check.getObject("Pad_"+p["id"])
+    if obj is None or obj.Shape.isNull() or not obj.Shape.isValid() or len(obj.Shape.Solids)!=1:
+        raise RuntimeError("Pad "+p["id"]+" did not survive saving as one valid solid")
+    c=obj.Shape.BoundBox
+    if abs((c.XMin+c.XMax)/2-p["x"])>1e-6 or abs((c.YMin+c.YMax)/2-p["y"])>1e-6 or abs(c.XLength-p["w"])>1e-6 or abs(c.YLength-p["l"])>1e-6:
+        raise RuntimeError("Pad "+p["id"]+" is not at the recorded position and size")
+if pads: report["pad_ids"]=[p["id"] for p in pads]
 App.closeDocument(check.Name)
 if shape_count!=report["expected_solid_objects"]: raise RuntimeError("Unexpected geometry in survey")
 (output.parent/(output.stem+"-validation.json")).write_text(json.dumps(report,indent=2)+"\n")

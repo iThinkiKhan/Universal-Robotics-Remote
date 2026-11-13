@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "module_ids": [
+    "LSTICK-BRD",
+    "RSTICK-BRD"
+  ],
+  "module": "Original gamepad left and right joystick daughterboards",
+  "date": "2026-11-12",
+  "source": "Owner-reported hand measurements; reference photo forthcoming, not yet reviewed",
+  "status": "provisional geometry pending reference photograph and outline/mounting-hole localization",
+  "comparison": {
+    "statement": "Owner says both joystick daughterboards appear the same",
+    "state": "owner_visual_assessment_not_dimensional_proof",
+    "use_for_cad": "Model one provisional common daughterboard shape, re-check second before final fit or fabrication"
+  },
+  "measurement_orientation": {
+    "owner_words": "With ribbon connection as up and joystick facing away",
+    "reference": "Keep ribbon edge at top of view and joystick facing away from viewer; physical PCB face and handedness to be established from photograph",
+    "datum_state": "undefined; avoid absolute XY hole centers until photo is received and a datum is agreed"
+  },
+  "board": {
+    "outline": "Irregular, not a rectangle. Maximal bounding dimensions only until photo-based trace",
+    "maximum_width_mm": {
+      "value": 32.7,
+      "state": "owner_measured"
+    },
+    "maximum_height_mm": {
+      "value": 33.5,
+      "state": "owner_measured"
+    },
+    "bare_pcb_thickness_mm": {
+      "value": 0.9,
+      "state": "owner_measured"
+    },
+    "approximate_joystick_center_disc_diameter_mm": {
+      "value": 30,
+      "state": "owner_estimate",
+      "notes": "Owner: 'joystick is roughly in the center of a 30mm circle'; interpreted as approximate reference circle, NOT measured PCB outline or joystick-body diameter"
+    }
+  },
+  "joystick": {
+    "approximate_location": "roughly central to a 30 mm circle, not yet located by x/y measurements",
+    "highest_bottom_pin_to_top_joystick_mm": {
+      "value": 31,
+      "state": "owner_measured",
+      "notes": "Reference surfaces: highest projecting pin on PCB bottom to top of joystick. This is a total assembly stack dimension, not distance from PCB underside or shaft travel."
+    },
+    "shaft_center_x_y_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "travel_envelope_mm": {
+      "value": null,
+      "state": "not_measured"
+    }
+  },
+  "mounting_holes": {
+    "count": {
+      "value": 3,
+      "state": "owner_reported"
+    },
+    "reported_openings": [
+      {
+        "id": "hole_unspecified_1",
+        "diameter_mm": {
+          "value": 1.19,
+          "state": "owner_reported"
+        },
+        "kind": "round",
+        "photo_position": "upper-right",
+        "notes": "Owner explicitly identified the upper-right hole as 1.19 mm, 2026-11-12"
+      },
+      {
+        "id": "hole_unspecified_2",
+        "diameter_mm": {
+          "value": 2.3,
+          "state": "owner_reported"
+        },
+        "kind": "round assumed from diameter notation; confirm via image",
+        "photo_position": "lower-left",
+        "notes": "Corresponds to the other round opening by elimination; position not directly confirmed."
+      },
+      {
+        "id": "hole_unspecified_3",
+        "kind": "oblong_slot",
+        "overall_length_mm": {
+          "value": 3.7,
+          "state": "owner_reported"
+        },
+        "overall_width_mm": {
+          "value": 2.5,
+          "state": "owner_reported"
+        },
+        "orientation": "unknown",
+        "photo_position": "middle-right",
+        "notes": "Photograph suggests oval slot; exact slot angle and position unmeasured"
+      }
+    ],
+    "centers_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "notes": "Numbers 1.19, 2.3 and oblong 3.7x2.5 were understood as three hole sizes, not center positions. No hole center or edge offsets have been measured, and exact meaning will be confirmed against forthcoming photo.",
+    "visual_candidates": [
+      {
+        "id": "upper_right_round",
+        "photo_position": "top-right edge lobe",
+        "shape": "round",
+        "reported_size_assignment": "1.19 mm diameter confirmed by owner 2026-11-12"
+      },
+      {
+        "id": "middle_right_slot",
+        "photo_position": "right side below upper hole",
+        "shape": "oblong",
+        "reported_size_assignment": "3.7 x 2.5 mm slot, correlated with owner-reported slot dimensions from photograph; position not measured"
+      },
+      {
+        "id": "lower_left_round",
+        "photo_position": "near bottom-left left step",
+        "shape": "round",
+        "reported_size_assignment": "2.3 mm diameter inferred as remaining round hole after owner confirmed upper-right is 1.19 mm; owner has not independently repeated lower-left diameter"
+      }
+    ]
+  },
+  "ribbon_connection": {
+    "orientation": "at top of board in owner's described view",
+    "width_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "free_length_mm": {
+      "value": null,
+      "state": "not_measured"
+    },
+    "exit_direction": "up in owner's view; physical bend/termination geometry unknown",
+    "visual_conductor_count": {
+      "value": 5,
+      "state": "photo_counted",
+      "notes": "Five distinct soldered ribbon terminations visible; exact pin assignment already documented in original gamepad mapping separately."
+    }
+  },
+  "pending": [
+    "Confirm remaining lower-left round opening is 2.3 mm by caliper if needed; upper-right 1.19 mm is owner-confirmed.",
+    "Owner photo 3102.jpg shows rear/solder face with ribbon up; not archived to GitHub. Obtain square-on scale image before actual contour tracing.",
+    "Locate mounting-hole centers from a named datum and confirm hole sizes.",
+    "Locate joystick shaft center relative to PCB datum.",
+    "Measure maximum joystick control/shaft/tip and cap movement envelope if it affects front-shell clearance.",
+    "Measure ribbon width, available free length, solder exit location and direction.",
+    "Compare left and right daughterboards for handed differences and ribbon route.",
+    "Measure Z extent above and below bare PCB separately if required for accurate internal assembly."
+  ],
+  "photo_reference": {
+    "original_filename": "3102.jpg",
+    "availability": "Uploaded to current chat by owner; NOT archived in GitHub repository; image itself cannot be presumed available to CAD agent from this JSON",
+    "view": "Solder/trace side of one joystick daughterboard faces camera; ribbon exits upward; joystick mechanism is opposite the camera. Board held tilted by hand, so pixel distances are NOT scale-certified.",
+    "visually_observed": [
+      "Five solder terminations in a horizontal row at the narrow top neck, leading to a flat ribbon cable; appears to be five-conductor ribbon (photo observed, not electrically verified).",
+      "Irregular stepped and rounded outline; narrow ribbon tab at top, broader rounded body, asymmetric right-side ear, flatter lower edge and left step. A simple circle or 32.7 x 33.5 rectangle will misrepresent shape.",
+      "Three larger open cutouts visible near upper-right edge, mid-right edge, and lower-left portion of board. Mid-right opening appears elongated/oval relative to others.",
+      "Numerous small solder pads/vias in central area are NOT additional mounting holes; do not include as mount points without confirmation.",
+      "Joystick shaft center on opposite face cannot be located precisely from this photograph."
+    ],
+    "confidence": "Visual orientation and topology only; photo perspective, hand occlusion and missing square-on scale prevent precise contour/hole-center extraction.",
+    "required_for_cad": "Archive original photo if possible; acquire approximately face-on, low-perspective photo with measurement reference for tracing, then spot-check key hole coordinates by caliper."
+  }
+}

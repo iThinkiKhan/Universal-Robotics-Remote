@@ -1,0 +1,59 @@
+{
+  "file": "cad/assembly/placement-r002.FCStd",
+  "revision": 2,
+  "state": "proposed_xy_study",
+  "native_reopened": true,
+  "pose": {
+    "cx": 85.0,
+    "cy": 25.0,
+    "rot_deg": 90.0,
+    "flip": false
+  },
+  "devkitc_pins": 38,
+  "wires": 20,
+  "wire_objects": 30,
+  "total_length_xy_mm": 436.23,
+  "longest_xy_mm": 59.18,
+  "by_connector_xy_mm": {
+    "J2F": 177.96,
+    "J2R": 109.8,
+    "J2D": 45.11,
+    "J2L": 64.07,
+    "J2C": 39.29
+  },
+  "devkitc_area_mm2": 1348.384,
+  "not_modelled": [
+    "layers and Z placement",
+    "WROOM-32U module and DevKitC components",
+    "connector housings",
+    "routing and service loops",
+    "enclosure",
+    "display, battery and microphone placement (parked bodies only)",
+    "S3 USB connector bodies, headers and underside parts"
+  ],
+  "lengths_are": "straight-line XY lower bounds, not cut lengths",
+  "s3_pose": {
+    "cx": 66.0,
+    "cy": 21.0,
+    "rot_deg": 90.0,
+    "flip": true
+  },
+  "s3_wires": 9,
+  "s3_total_xy_mm": 286.2,
+  "s3_longest_xy_mm": 62.64,
+  "s3_by_wire_xy_mm": {
+    "J1L-W01": 62.39,
+    "J1L-W02": 62.64,
+    "J1L-W03": 23.82,
+    "J1L-W04": 0.4,
+    "J1R-W01": 35.13,
+    "J1R-W02": 22.11,
+    "J1R-W03": 21.99,
+    "J1R-W04": 34.4,
+    "LINK-TX": 23.32
+  },
+  "s3_overlaps_devkitc_in_xy": true,
+  "s3_inside_gamepad_bbox_margin_2mm": true,
+  "display_pcb_volume_mm3": 6830.1,
+  "mic_pcb_volume_mm3": 167.9
+}

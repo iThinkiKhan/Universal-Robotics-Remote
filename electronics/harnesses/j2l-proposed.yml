@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "title": "J2L PROPOSED Left shoulder buttons harness to the WROOM-32U \u2014 NOT FOR ASSEMBLY",
+    "revision": "planning-3"
+  },
+  "connectors": {
+    "PADS": {
+      "type": "GH-Wii U002 test pads",
+      "subtype": "J2L",
+      "pins": [
+        "TP72",
+        "TP71",
+        "TP03"
+      ],
+      "pinlabels": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "notes": "Free round test pads on the rear side / solder tails / labels read from the silkscreen"
+    },
+    "J2L": {
+      "type": "JST XH housing",
+      "subtype": "3-position, 2.5 mm pitch",
+      "pins": [
+        1,
+        2,
+        3
+      ],
+      "pinlabels": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "notes": "PROPOSED / owner stock, part numbers TBD / pin 1 and mating view not finalized"
+    },
+    "DEVKITC": {
+      "type": "ESP32-DevKitC V4 (WROOM-32U)",
+      "pins": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "pinlabels": [
+        "GPIO32",
+        "GPIO33",
+        "GND"
+      ],
+      "notes": "Header positions not recorded / PROPOSED pins, nothing wired"
+    }
+  },
+  "cables": {
+    "W-J2L": {
+      "type": "Solder tails",
+      "wirecount": 3,
+      "wirelabels": [
+        "J2L-W01",
+        "J2L-W02",
+        "J2L-W03"
+      ],
+      "notes": "Colors, gauge and length TBD / no power rail"
+    },
+    "B-J2L": {
+      "type": "Board-side link",
+      "wirecount": 3,
+      "wirelabels": [
+        "L-1",
+        "L-2",
+        "GND"
+      ],
+      "notes": "Mating header and wiring undecided"
+    }
+  },
+  "connections": [
+    [
+      {
+        "PADS": [
+          "TP72",
+          "TP71",
+          "TP03"
+        ]
+      },
+      {
+        "W-J2L": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "J2L": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    [
+      {
+        "J2L": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "B-J2L": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "DEVKITC": [
+          "L-1",
+          "L-2",
+          "GND"
+        ]
+      }
+    ]
+  ]
+}

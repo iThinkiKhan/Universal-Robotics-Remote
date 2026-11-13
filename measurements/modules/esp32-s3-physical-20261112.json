@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "module_id": "MCU1",
+  "module": "ESP32-S3 N16R8 development board (owner's common variant; NOT the board used on Gladiator)",
+  "date": "2026-11-12",
+  "source": "Owner-reported physical dimensions during chat; measurement instrument not restated for this batch. Do not silently replace unverified values with catalog dimensions.",
+  "status": "partial physical survey; no CAD dimension should be treated as verified beyond its stated confidence",
+  "coordinate_reference": {
+    "described_view": "Component side facing viewer, antenna at top, USB connectors at bottom (opposite orientation from earlier template's USB-at-top sheet)",
+    "edge_reference": "All lengths exclude connector overhang unless noted; exact CAD coordinate origin and handedness must be reconciled with the repo's measurement template",
+    "z_reference": "PCB underside = z 0; PCB top = z 1.55 mm; tallest USB/module top = z 4.70 mm. Excludes unmeasured underside joints, pins, and soldered leads."
+  },
+  "pcb": {
+    "width_mm": {
+      "value": 28,
+      "state": "owner_measured"
+    },
+    "length_mm": {
+      "value": 57,
+      "state": "owner_measured",
+      "notes": "Bare board, excluding antenna projection"
+    },
+    "thickness_mm": {
+      "value": 1.55,
+      "state": "owner_measured"
+    }
+  },
+  "antenna": {
+    "overall_length_including_antenna_mm": {
+      "value": 63.5,
+      "state": "owner_measured"
+    },
+    "projection_past_bare_pcb_mm": {
+      "value": 6.5,
+      "state": "derived",
+      "calculation": "63.5 - 57"
+    },
+    "width_mm": {
+      "value": 18,
+      "state": "owner_measured"
+    },
+    "notes": "Width of the antenna overhang; precise attachment geometry/centering still unmeasured."
+  },
+  "usbs": {
+    "count": 2,
+    "widths_mm": [
+      {
+        "value": 9,
+        "state": "owner_measured"
+      },
+      {
+        "value": 9,
+        "state": "owner_measured"
+      }
+    ],
+    "gap_between_mm": {
+      "value": 3,
+      "state": "owner_measured"
+    },
+    "combined_span_mm": {
+      "value": 21,
+      "state": "owner_reported",
+      "notes": "Agrees with 9 + 3 + 9"
+    },
+    "overhang_past_usb_end_of_pcb_mm": {
+      "value": 0,
+      "state": "owner_reported",
+      "notes": "Neither USB connector overhangs the PCB"
+    },
+    "top_z_from_pcb_underside_mm": {
+      "value": 4.7,
+      "state": "owner_measured"
+    },
+    "top_above_pcb_surface_mm": {
+      "value": 3.15,
+      "state": "derived",
+      "calculation": "4.70 - 1.55"
+    },
+    "notes": "USB left edge now measured on the left connector; right placement inferred from measured widths and gap, not separately caliper-confirmed. USB end overhang = 0 per owner.",
+    "left_usb_left_edge_from_pcb_left_mm": {
+      "value": 3.25,
+      "state": "owner_measured",
+      "reference": "PCB left edge, component-side view with antenna at top and USB end at bottom"
+    },
+    "right_usb_left_edge_from_pcb_left_mm": {
+      "value": 15.25,
+      "state": "derived",
+      "calculation": "3.25 + 9 + 3",
+      "notes": "Assumes reported 9 mm widths and 3 mm spacing in left-right order"
+    },
+    "right_margin_mm": {
+      "value": 3.75,
+      "state": "derived",
+      "calculation": "28 - (3.25 + 9 + 3 + 9)"
+    }
+  },
+  "esp_module": {
+    "width_mm": {
+      "value": 15.9,
+      "state": "owner_measured"
+    },
+    "length_mm": {
+      "value": 17.2,
+      "state": "owner_measured"
+    },
+    "relative_position": "Directly below antenna section. Left edge measured 5.75 mm from PCB left; top edge approximately flush with antenna-end bare PCB edge (maybe 0.5 mm).",
+    "top_z_from_pcb_underside_mm": {
+      "value": 4.7,
+      "state": "owner_measured"
+    },
+    "top_above_pcb_surface_mm": {
+      "value": 3.15,
+      "state": "derived",
+      "calculation": "4.70 - 1.55"
+    },
+    "notes": "Module cover and USB were reported as same overall height; do not add PCB thickness again.",
+    "left_edge_from_pcb_left_mm": {
+      "value": 5.75,
+      "state": "owner_measured",
+      "reference": "PCB left edge in antenna-top component-side view"
+    },
+    "right_margin_mm": {
+      "value": 6.35,
+      "state": "derived",
+      "calculation": "28 - 5.75 - 15.9"
+    },
+    "top_edge_from_antenna_end_bare_pcb_edge_mm": {
+      "value": 0.5,
+      "state": "owner_approximate",
+      "notes": "Owner: practically flush/indistinguishable from antenna; perhaps 0.5 mm. Approximate and not a precision reading."
+    }
+  },
+  "gpio_headers": {
+    "pins_per_side": {
+      "value": 22,
+      "state": "owner_counted"
+    },
+    "side_count": 2,
+    "count_total": {
+      "value": 44,
+      "state": "derived",
+      "calculation": "22 x 2"
+    },
+    "row_gap_inside_edges_mm": {
+      "value": 25,
+      "state": "owner_approximate",
+      "notes": "Between inner edges of pins, not center spacing"
+    },
+    "pin_heads_row_spacing_mm": {
+      "value": 25.5,
+      "state": "owner_approximate",
+      "notes": "Owner: 'pin heads are 25.5, as far as I can tell'; interpreted as approximate row spacing but reference not unequivocally center-to-center"
+    },
+    "header_position": "Practically flush with the PCB side edges (owner estimate)",
+    "closest_pin_head_from_usb_end_mm": {
+      "value": 2,
+      "state": "owner_approximate",
+      "notes": "Owner: 'pin head is 2mm from the lower, usb edge'; not confirmed to be pin center"
+    },
+    "pin_pitch_mm": {
+      "value": null,
+      "state": "not_measured",
+      "notes": "2.54 mm is a hypothesis, not a measurement"
+    },
+    "installed_header_height_above_below_pcb_mm": {
+      "value": null,
+      "state": "not_measured"
+    }
+  },
+  "led": {
+    "dimensions_mm": {
+      "width": 4.9,
+      "length": 4.9,
+      "state": "owner_corrected",
+      "notes": "Owner corrected an earlier 4.9 x 49 typo; square"
+    },
+    "left_edge_from_pcb_left_mm": {
+      "value": 6.7,
+      "state": "owner_measured"
+    },
+    "reported_top_to_top_usb_offset_mm": {
+      "value": 13.5,
+      "state": "owner_measured",
+      "reference": "Top edge of LED relative to top edge of left USB connector; direction/coordinate interpretation not independently verified"
+    },
+    "notes": "LED x/y location must not be converted to the CAD datum without confirming which side/view is meant."
+  },
+  "clearance_requirement": {
+    "clearance_between_top_of_esp_module_and_bottom_of_pins_mm": {
+      "value": 20,
+      "state": "owner_design_allowance",
+      "notes": "Owner estimated minimum around 19 mm and deliberately selected 20 mm. This is reserved space, not a physical measured part. The exact pins referred to are not yet identified."
+    }
+  },
+  "pending": [
+    "ESP module upper edge from antenna-end bare PCB edge recorded as approx 0.5 mm; verify if critical to enclosure fit",
+    "USB connectors: position along length (Y) from USB-end bare PCB edge, and connector body length; only left X is directly measured",
+    "LED Y direction/reference to convert reported 13.5 mm to board datum",
+    "Header row center X locations / exact pin pitch / first pin-center positions",
+    "Installed header/body protrusion and solder/lead projections on underside",
+    "20 mm clearance reference pins and direction in proposed assembly",
+    "Measure screen/microphone wire routing, solder exit locations and available slack for mounting; connections are directly soldered"
+  ],
+  "identification_notes": "Owner explicitly corrected earlier claim on 2026-11-12: this S3 board is not the same as the S3 on Gladiator. Do not reuse geometry or pin/header model for Gladiator without separately identifying that board.",
+  "mounting_holes": {
+    "count": 0,
+    "state": "owner_confirmed",
+    "notes": "No PCB mounting holes. Enclosure must support the S3 by its edges/retainer, with clearance for wiring; do not draw screw-through holes."
+  },
+  "existing_wiring": {
+    "display": {
+      "connection": "directly soldered",
+      "state": "owner_confirmed"
+    },
+    "microphone": {
+      "connection": "directly soldered",
+      "state": "owner_confirmed"
+    },
+    "notes": "Owner confirmed existing display and microphone wires attach by solder, not removable connectors. Exact solder locations, wire lengths and exit angles remain unmeasured; no connector mating clearance should be assumed."
+  }
+}

@@ -1,0 +1,28 @@
+wire_id,harness,pin,signal,from_pad,to_contact,state,continuity_ohm,adjacent_short_check,insulation_ok,pull_test,tester,date,notes
+J1L-W01,J1L,1,L-X,TP31,J1L pin 1 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1L-W02,J1L,2,L-Y,TP32,J1L pin 2 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1L-W03,J1L,3,L-3,TP30,J1L pin 3 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1L-W04,J1L,4,GND (J1L),TP03,J1L pin 4 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.
+J1R-W01,J1R,1,R-X,TP11,J1R pin 1 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1R-W02,J1R,2,R-Y,TP10,J1R pin 2 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1R-W03,J1R,3,R-3,TP12,J1R pin 3 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J1R-W04,J1R,4,GND (J1R),TP01,J1R pin 4 (S3 side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.
+J2F-W01,J2F,1,R-UP,TP19,J2F pin 1 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2F-W02,J2F,2,R-RIGHT,TP20,J2F pin 2 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2F-W03,J2F,3,R-DOWN,TP22,J2F pin 3 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2F-W04,J2F,4,R-LEFT,TP21,J2F pin 4 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2F-W05,J2F,5,GND (J2F),TP01,J2F pin 5 (button-processor side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.
+J2R-W01,J2R,1,R-1,TP58,J2R pin 1 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2R-W02,J2R,2,R-2,TP59,J2R pin 2 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2R-W03,J2R,3,GND (J2R),TP01,J2R pin 3 (button-processor side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.
+J2D-W01,J2D,1,L-UP,TP26,J2D pin 1 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2D-W02,J2D,2,L-RIGHT,TP25,J2D pin 2 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2D-W03,J2D,3,L-DOWN,TP27,J2D pin 3 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2D-W04,J2D,4,L-LEFT,TP24,J2D pin 4 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2D-W05,J2D,5,GND (J2D),TP03,J2D pin 5 (button-processor side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.
+J2L-W01,J2L,1,L-1,TP72,J2L pin 1 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2L-W02,J2L,2,L-2,TP71,J2L pin 2 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2L-W03,J2L,3,GND (J2L),TP03,J2L pin 3 (button-processor side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.
+J2C-W01,J2C,1,K-+,TP73,J2C pin 1 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2C-W03,J2C,3,H,TP68,J2C pin 3 (WROOM-32U side),proposed,,,,,,,Blank until built. Test with every source disconnected. Adjacent-pad check: no continuity to the nearest neighbouring pad.
+J2C-W04,J2C,4,GND (J2C),TP03,J2C pin 4 (button-processor side),proposed,,,,,,,Blank until built. Test with every source disconnected. Ground return: also check continuity to the other ground returns.

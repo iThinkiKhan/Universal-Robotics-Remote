@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "board": "ESP32-DevKitC V4 with ESP32-WROOM-32U",
+  "state": "source-confirmed",
+  "sources": [
+    {
+      "what": "Header pin tables J2 and J3",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html",
+      "read": "2026-11-11"
+    },
+    {
+      "what": "Module pin definitions, strapping pins, DC characteristics, module size",
+      "url": "https://documentation.espressif.com/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf",
+      "read": "2026-11-11",
+      "document": "ESP32-WROOM-32D & ESP32-WROOM-32U Datasheet v2.8"
+    },
+    {
+      "what": "Input-only pins and missing pull resistors",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/gpio.html",
+      "read": "2026-11-11"
+    },
+    {
+      "what": "Board dimensions (drawing, not yet read)",
+      "url": "https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_dimensions.pdf",
+      "also": [
+        "https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_dimensions.dxf",
+        "https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_sch.pdf"
+      ]
+    }
+  ],
+  "j2_left": [
+    {
+      "pos": 1,
+      "name": "3V3"
+    },
+    {
+      "pos": 2,
+      "name": "EN"
+    },
+    {
+      "pos": 3,
+      "name": "VP",
+      "gpio": 36
+    },
+    {
+      "pos": 4,
+      "name": "VN",
+      "gpio": 39
+    },
+    {
+      "pos": 5,
+      "name": "IO34",
+      "gpio": 34
+    },
+    {
+      "pos": 6,
+      "name": "IO35",
+      "gpio": 35
+    },
+    {
+      "pos": 7,
+      "name": "IO32",
+      "gpio": 32
+    },
+    {
+      "pos": 8,
+      "name": "IO33",
+      "gpio": 33
+    },
+    {
+      "pos": 9,
+      "name": "IO25",
+      "gpio": 25
+    },
+    {
+      "pos": 10,
+      "name": "IO26",
+      "gpio": 26
+    },
+    {
+      "pos": 11,
+      "name": "IO27",
+      "gpio": 27
+    },
+    {
+      "pos": 12,
+      "name": "IO14",
+      "gpio": 14
+    },
+    {
+      "pos": 13,
+      "name": "IO12",
+      "gpio": 12
+    },
+    {
+      "pos": 14,
+      "name": "GND"
+    },
+    {
+      "pos": 15,
+      "name": "IO13",
+      "gpio": 13
+    },
+    {
+      "pos": 16,
+      "name": "D2",
+      "gpio": 9
+    },
+    {
+      "pos": 17,
+      "name": "D3",
+      "gpio": 10
+    },
+    {
+      "pos": 18,
+      "name": "CMD",
+      "gpio": 11
+    },
+    {
+      "pos": 19,
+      "name": "5V"
+    }
+  ],
+  "j3_right": [
+    {
+      "pos": 1,
+      "name": "GND"
+    },
+    {
+      "pos": 2,
+      "name": "IO23",
+      "gpio": 23
+    },
+    {
+      "pos": 3,
+      "name": "IO22",
+      "gpio": 22
+    },
+    {
+      "pos": 4,
+      "name": "TX",
+      "gpio": 1
+    },
+    {
+      "pos": 5,
+      "name": "RX",
+      "gpio": 3
+    },
+    {
+      "pos": 6,
+      "name": "IO21",
+      "gpio": 21
+    },
+    {
+      "pos": 7,
+      "name": "GND"
+    },
+    {
+      "pos": 8,
+      "name": "IO19",
+      "gpio": 19
+    },
+    {
+      "pos": 9,
+      "name": "IO18",
+      "gpio": 18
+    },
+    {
+      "pos": 10,
+      "name": "IO5",
+      "gpio": 5
+    },
+    {
+      "pos": 11,
+      "name": "IO17",
+      "gpio": 17
+    },
+    {
+      "pos": 12,
+      "name": "IO16",
+      "gpio": 16
+    },
+    {
+      "pos": 13,
+      "name": "IO4",
+      "gpio": 4
+    },
+    {
+      "pos": 14,
+      "name": "IO0",
+      "gpio": 0
+    },
+    {
+      "pos": 15,
+      "name": "IO2",
+      "gpio": 2
+    },
+    {
+      "pos": 16,
+      "name": "IO15",
+      "gpio": 15
+    },
+    {
+      "pos": 17,
+      "name": "D1",
+      "gpio": 8
+    },
+    {
+      "pos": 18,
+      "name": "D0",
+      "gpio": 7
+    },
+    {
+      "pos": 19,
+      "name": "CLK",
+      "gpio": 6
+    }
+  ],
+  "header_notes": [
+    "Position order is the order the Espressif page lists, top (antenna end) to bottom (USB end) in the dimensions drawing, which matches. Board pitch and size are in 'geometry'.",
+    "GPIO6 to 11 are the module's SPI flash and must not be used. GPIO16 and 17 are free on boards with a WROOM module (reserved on WROVER boards)."
+  ],
+  "module": {
+    "size_mm": [
+      18.0,
+      19.2,
+      3.2
+    ],
+    "flash_mb": 4,
+    "operating_v": [
+      3.0,
+      3.6
+    ],
+    "strapping_gpios": [
+      0,
+      2,
+      5,
+      12,
+      15
+    ],
+    "flash_gpios": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "input_only_gpios": [
+      34,
+      35,
+      36,
+      39
+    ],
+    "input_only_note": "No software-enabled pull-up or pull-down on GPIO34 to 39.",
+    "vih_min_fraction_of_vdd": 0.75,
+    "vil_max_fraction_of_vdd": 0.25,
+    "input_abs_max_v_above_vdd": 0.3
+  },
+  "not_in_the_documents": [
+    "GPIO14 pulsing at boot (community-reported, not confirmed by Espressif)"
+  ],
+  "geometry": {
+    "source": "https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_dimensions.pdf",
+    "read": "2026-11-12",
+    "state": "source-confirmed",
+    "unit": "mm",
+    "width_mm": 27.94,
+    "length_mm": 48.26,
+    "row_spacing_mm": 25.4,
+    "pitch_mm": 2.54,
+    "frame": "Origin at the USB-end bottom-left corner seen from the component side; X toward the J3 row, Y toward the antenna end. J2 is the left row (pos 1 at the antenna end), J3 the right row.",
+    "usb_end": "The end with the 5V and CLK pins (pos 19), the EN and Boot buttons and the micro-USB connector; the antenna and 3V3/GND (pos 1) are at the other end.",
+    "notes": [
+      "Pin centres are placed symmetrically: (27.94 - 25.40) / 2 = 1.27 mm from each side edge and (48.26 - 18 x 2.54) / 2 = 1.27 mm from each end; the drawing prints 1.30 and 1.29 for these.",
+      "The drawing shows a module with a PCB antenna overhanging the board by 6.04 mm and the module 18.00 mm wide. A WROOM-32U (18 x 19.2 x 3.2 mm, U.FL connector) has no PCB antenna; its position on the board is not taken from this drawing.",
+      "No mounting holes are drawn. Board thickness, component heights, header pin length and USB connector height are not given and are not recorded."
+    ]
+  }
+}
