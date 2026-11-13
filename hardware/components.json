@@ -46,6 +46,52 @@
       "dimensions_mm": null
     },
     {
+      "id": "WRM1",
+      "part": "ESP32-DevKitC V4 carrying an ESP32-WROOM-32U",
+      "state": "owner-reported",
+      "notes": "Button processor adopted 2026-11-11; reads 15 buttons and sends their state to the S3 over UART. Board size and header positions from Espressif's dimensions drawing, not measured on the owner's board. Thickness and heights not given.",
+      "dimensions_mm": [
+        27.94,
+        48.26,
+        null
+      ]
+    },
+    {
+      "id": "BAT2",
+      "part": "MakerFocus 103665 battery pack",
+      "state": "owner-reported",
+      "notes": "Owner confirmed 2026-11-12 that this is the controller's battery and that its size is recorded in another of his enclosure projects: 65 x 36 x 10 mm, recorded there as a plain box (nominal, not measured from a pack in hand). Owner reports 3.7 V nominal and 3000 mAh. Mating contact positions remain unverified. Separate from BAT1, the gamepad's original pack.",
+      "dimensions_mm": [
+        65,
+        36,
+        10
+      ]
+    },
+    {
+      "id": "REG1",
+      "part": "EC Buying XL63020-3.3 buck-boost module, ASIN B0D8T3J8QZ",
+      "state": "owner-reported-purchased",
+      "notes": "Purchased for the single-pack power branch, owner report 2026-11-13. Seller claims TPS63020-based conversion, 1.8-5.5 V input, selectable output and 1.3 A at 3.3 V with 3.7 V input. Actual chip, 3V3 selection, output voltage, peak capacity and thermal performance unverified. Selected independent regulator for both ESP boards; see electronics/POWER_SYSTEM.md and electronics/power/verification-20261113.md.",
+      "dimensions_mm": null,
+      "source_url": "https://www.amazon.com/dp/B0D8T3J8QZ"
+    },
+    {
+      "id": "CHG1",
+      "part": "HiLetgo TP4056 USB-C charger/protection module, ASIN B07PKND8KG",
+      "state": "owner-reported",
+      "notes": "Owner reconfirmed product link 2026-11-13. Seller advertises nominal 4.2 V single-cell charging at up to 1 A. Exact board revision, charge setting and protection topology remain unverified. Off-only charging selected; approximately 500 mA is the proposed charge target, not a measured or factory-confirmed setting.",
+      "dimensions_mm": null,
+      "source_url": "https://www.amazon.com/HiLetgo-Lithium-Charging-Protection-Functions/dp/B07PKND8KG"
+    },
+    {
+      "id": "SW1",
+      "part": "EGSCST SPDT slide-switch assortment, ASIN B0FNK8B1YV",
+      "state": "owner-reported",
+      "notes": "Owner supplied product link 2026-11-13 after confirming three terminals, then explicitly chose to retain his switches already in use until failure. Approved panel switch for protected-output load switching. Bench sizing will characterize current and contact drop. Seller advertises SPDT, two positions and 0.5 A at DC 50 V; assortment includes multiple SS12 variants. Listed current rating is below the proposed 1.2 A pack-current budget; actual current, voltage drop, temperature and contact mapping remain unverified. See electronics/POWER_SYSTEM.md.",
+      "dimensions_mm": null,
+      "source_url": "https://www.amazon.com/EGSCST-Switches-Position-Miniature-Vertical/dp/B0FNK8B1YV"
+    },
+    {
       "id": "EXP1",
       "part": "MCP23017 or equivalent",
       "state": "candidate",

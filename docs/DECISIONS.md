@@ -15,3 +15,7 @@ Use direct StepUp board import for enclosure work. Native KiCad STEP exports req
 - Reserve GPIO18/21 for possible future I2C and GPIO43/44 for UART0; do not activate new interfaces by assumption.
 - Proposed J1 is an observer signal bundle with four axes, two stick clicks, ground and spare. It carries no power rail. Connector family, mating orientation, numbering, wire specification and electrical compatibility remain unresolved.
 - Add actuator transport only after failsafe, arming, freshness, link-loss and deadman requirements are tested.
+
+## 2026-11-13 — Single-pack controller power
+
+The owner approved the MakerFocus 103665 pack, HiLetgo protected-output distribution, existing EGSCST load switch, donor gamepad battery lead and shared XL63020 3.3 V regulator. Charge with the handheld off. Bench sizing and assembly verification follow the [approved design](../electronics/POWER_SYSTEM.md).
