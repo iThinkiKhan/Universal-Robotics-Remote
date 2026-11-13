@@ -32,3 +32,6 @@ The project owner constructed a DIY logic analyzer, reporting no communication o
 
 ## 2026-11-10 — Module measurement sheets
 Added a reading template and a guide sheet each for the S3 board, display module and microphone breakout. No dimensions were assumed; the models follow once the readings are taken. The battery and enclosure are not yet defined.
+
+## 2026-11-13 — Enclosure pod concept
+Owner chose to keep the original shell and add a printed pod. First space-claim model `cad/enclosure/pod-r001` built and checked (no collisions; several heights assumed). Reading sheet `measurements/templates/pod-readings.csv` lists what the next revision needs.
