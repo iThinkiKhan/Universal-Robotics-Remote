@@ -1,0 +1,17 @@
+id,check,conditions,acceptance_or_required_record,reading,unit,instrument,date,evidence,status
+PW01,pack identity and polarity,all supplies disconnected,record exact pack and protection plus plug latch view,,,,,,pending
+PW02,switch contact mapping,all supplies disconnected,identify common and ON throw; other throw unused; record DC contact rating,,,,,,pending
+PW03,regulator unloaded,bench input 3.7 V; boards disconnected,3V3 selected; near 3.3 V before attaching loads,,V,,,,pending
+PW04,regulator full-pack test,bench input 4.2 V; dummy loads and intended wires,proposed header target 3.135 to 3.465 V; record output current,,V,,,,pending
+PW05,regulator nominal-pack test,bench input 3.7 V; dummy loads and intended wires,proposed header target 3.135 to 3.465 V; record output current,,V,,,,pending
+PW06,regulator low-input test,bench input 3.2 V; dummy loads and intended wires,proposed header target 3.135 to 3.465 V; record output current,,V,,,,pending
+PW07,total current,rated temporary path; simultaneous startup and maximum intended load,record peak and steady input current versus switch and protected-output and pack ratings,,A,,,,pending
+PW08,transient rail envelope,scope at each ESP header during simultaneous startup and load steps,proposed 3.135 to 3.465 V; no brownout or reset,,V,,,,pending
+PW09,donor lead polarity and function,compare to original plug with latch view recorded,confirm signed polarity and resolve any additional contact,,,,,,pending
+PW10,distribution voltage drop,measured load within component ratings,record drop across protected output and rated switch path and each branch including returns,,V,,,,pending
+PW11,switch and USB state table,begin with dummy loads; gamepad and ESP USB absent,verify RUN on battery and OFF with or without charge USB; record rail decay; USB with RUN is excluded from normal use,,,,,,pending
+PW12,off residual current,OFF and charger USB absent,record against desired standby time,,A,,,,pending
+PW13,charge constant current,OFF; actual pack; HiLetgo USB only,verify intended approximately 0.5 A setting; record battery voltage,,A,,,,pending
+PW14,charge constant voltage and termination,OFF; actual pack; HiLetgo USB only,nominal 4.20 V; confirm pack tolerance; taper and C10 termination,,V,,,,pending
+PW15,thermal operation,intended maximum load and charging tested separately,record ambient and regulator charger pack temperatures versus documented limits,,degC,,,,pending
+PW16,gamepad sleep wake,battery only; ESP signal leads disconnected,record VCC and axis response plus power key recovery before and after timeout,,,,,,pending

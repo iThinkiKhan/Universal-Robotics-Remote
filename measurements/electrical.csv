@@ -1,9 +1,10 @@
 id,component,quantity,condition,reference,value,unit,uncertainty,instrument,date,evidence,status
-V01,PAD1,VCC,original battery gamepad on USB disconnected,GND,,V,,,,,pending
+V01,PAD1,VCC,original battery only; gamepad active,,3.0,V,,,2026-11-12,owner power handoff 2026-11-12,owner-reported
 V02,PAD1,VCC,original battery gamepad off USB disconnected,GND,,V,,,,,pending
-V03,PAD1,+5V,original battery only,GND,,V,,,,,pending
+V03,PAD1,+5V,original battery only; gamepad active and idle,,0,V,,,2026-11-12,owner power handoff 2026-11-12,owner-reported
 V04,PAD1,+5V,original battery and USB charging connected; after LED timeout,GND,5.00,V,,digital multimeter model unknown,2026-11-10,owner bench report 2026-11-10,owner-reported
-V05,BAT1,B+,original battery charger disconnected,GND,,V,,,,,pending
+V05,BAT1,original pack voltage,original 3.7 V LiPo; load state unspecified,,4.0,V,,,2026-11-12,owner power handoff 2026-11-12,owner-reported
+V06,PAD1,VCC state,original battery only; after pairing LEDs stop,,shuts off,qualitative,,,2026-11-12,owner power handoff 2026-11-12,owner-reported
 AX01,PAD1,L-X,battery-only and USB disconnected; minimum after LED pairing timeout,GND,0,V,,digital multimeter model unknown,2026-11-10,owner bench report 2026-11-10,owner-reported
 AX02,PAD1,L-X,battery-only and USB disconnected; center after LED pairing timeout,GND,1.5,V,,digital multimeter model unknown,2026-11-10,owner bench report 2026-11-10,owner-reported
 AX03,PAD1,L-X,battery-only and USB disconnected; maximum after LED pairing timeout,GND,3.0,V,,digital multimeter model unknown,2026-11-10,owner bench report 2026-11-10,owner-reported

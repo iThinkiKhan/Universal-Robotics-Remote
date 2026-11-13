@@ -58,4 +58,4 @@ Inventory signals and determine direct switch vs scanned matrix first; connector
 
 ### J3 — Power (unresolved)
 
-Physically distinct keyed connector; no pinout until battery, regulation, charging and backfeed design are measured.
+Approved power distribution uses the original gamepad donor plug plus two removable 3V3 branches. See electronics/power/netlist.md. Physical pin numbering, viewing directions and lengths await measurement.
