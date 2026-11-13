@@ -1,18 +1,51 @@
 # WROOM Bluetooth input test
 
-Standalone diagnostic for an original ESP32-WROOM-32U on a DevKitC V4. It tests
-whether the intact GH-Wii U002 pairs and reports usable sticks and buttons.
-Compatibility with this particular third-party board is not established yet.
+Standalone test for an original ESP32-WROOM-32U on a DevKitC V4. It checks whether the
+intact GH-Wii U002 gamepad pairs with the WROOM and streams usable sticks and buttons
+over Bluetooth Classic. The result below applies to **one bench unit**; other units of
+this third-party board have not been tested.
 
-Bluepad32 lists Wii U Pro controllers and compatible clones as supported, using
-Bluetooth BR/EDR (Classic). The original ESP32 supports that protocol; the S3
-does not. If this test succeeds, the proposed architecture is:
+If this approach is adopted, the proposed architecture is:
 
 `original gamepad -> Bluetooth -> WROOM -> UART -> S3 display application`
 
-That could replace the proposed stick/button taps while keeping the original
-gamepad processor active. This experiment does not change the signal registry or
-approve a replacement harness, power circuit, UART protocol or actuator path.
+That could replace the proposed stick/button taps while keeping the original gamepad
+processor active. This test does not change the signal registry or approve a replacement
+harness, power circuit, UART protocol or actuator path.
+
+## Result on the bench unit (observed, one unit, 2026-11-13)
+
+The WROOM pairs with the gamepad and receives a continuous input stream of about 110
+reports per second. The link ran for more than 80 seconds on the gamepad's own battery
+with no dropout (a short trial, not a range, latency or failsafe qualification).
+
+What this clone needs, none of which Bluepad32 does by itself:
+
+- **Limited inquiry (LIAC).** The gamepad answers inquiry only in this mode while in SYNC.
+- **Name and SDP queries skipped.** They time out, so the Wii decoder is selected by an
+  address-scoped profile (`w<address>`) instead of by remote identity.
+- **The library's setup is replaced.** The clone answers the extension identity read with
+  a 12-byte report trimmed to its real size; Bluepad32 rejects anything shorter than 22
+  bytes. The firmware holds that reply back and does the setup itself: player-1 LED, then
+  data reporting mode `0x3d`.
+- **Only mode `0x3d` works.** Every other data reporting mode tried (`0x30`, `0x31`,
+  `0x34`, with and without the continuous flag, and a zero-padded request) was
+  acknowledged once and the gamepad then stopped responding at the radio level. With no
+  reporting request at all it answers status polls but sends no input, consistent with a
+  Wii U Pro Controller reporting through its extension.
+- **The device is declared ready by the firmware.** Bluepad32 deletes a device that has
+  not reached "ready" about 13 to 17 seconds after discovery, so the firmware calls the
+  library's ready function once setup completes.
+
+The reported identity is **assumed**: the profile selects the Wii parser by assuming a
+Wii U Pro Controller (VID `057e` / PID `0330`). The clone returned only the extension ID
+`0000A4200120` and never answered the name or SDP queries.
+
+Decoding follows the public Wii U Pro format and is **not yet verified**: four 12-bit
+little-endian axes and three button bytes. Axis values are raw counts (about 2047 at rest)
+and uncalibrated. Button bytes read `ff,ff,cf` with nothing pressed. Button-to-bit mapping
+has not been measured: on this bench unit the left stick and left shoulder buttons are
+disconnected and the front buttons are bare PCB.
 
 ## Build
 
@@ -20,50 +53,43 @@ approve a replacement harness, power circuit, UART protocol or actuator path.
 pio run -d firmware/wroom-bluetooth -e wroom-bluetooth
 ```
 
-The environment pins Espressif32 7.0.1, esptool 4.9.0, and the official Arduino + Bluepad32 4.1.0
-release archive (SHA-256
-`2b4916baba6c8d4e40b0330e12dd6a21ca7b95540337e6c2d2713831ccf3c394`).
-The target is `esp32dev`, with a large application partition. Use only the original
-ESP32 WROOM, not the S3 bench board. Preserve and verify a full flash backup before
-uploading replacement firmware; keep backups and raw identity logs private.
-If automatic download-mode entry fails, hold BOOT, tap EN/RESET, then release
-BOOT. Connect without another reset (`--before no_reset`) for the read/upload.
+The environment pins Espressif32 7.0.1, esptool 4.9.0, and the official Arduino + Bluepad32
+4.1.0 release archive (SHA-256
+`2b4916baba6c8d4e40b0330e12dd6a21ca7b95540337e6c2d2713831ccf3c394`). The target is
+`esp32dev`, with a large application partition. Use only the original ESP32 WROOM, not
+the S3 bench board. Preserve and verify a full flash backup before uploading replacement
+firmware; keep backups and raw identity logs private. If automatic download-mode entry
+fails, hold BOOT, tap EN/RESET, then release BOOT. Connect without another reset
+(`--before no_reset`) for the read and upload.
 
 ## Physical test
 
-Use the WROOM's USB connection and its attached external antenna. Keep GPIO
-headers disconnected. Power the gamepad with its existing battery arrangement.
-This test requires no electrical connection to the gamepad or S3.
+Use the WROOM's USB connection and its attached external antenna. Keep GPIO headers
+disconnected. This test requires no electrical connection to the gamepad or S3, and the
+gamepad may run from its own battery or its USB charge path.
 
-After a verified backup and upload, monitor the WROOM console at 115200 baud.
-Wait for `READY`, then press the gamepad's original SYNC switch. Confirm its
-pairing indication. Record discovery, connection, model and whether input reports
-arrive; a connection alone does not prove a working decoder.
+1. Monitor the WROOM console at 115200 baud and wait for `READY`.
+2. Enter the gamepad's address, supplied privately at runtime, as `w<address>` followed by
+   a newline. Do not put device identities in source or logs that are committed.
+3. Send `l` to select limited inquiry, then put the gamepad into SYNC mode (original SYNC
+   switch, indicator flashing).
+4. The console should print `SETUP read_reply`, `SETUP player_led=1`,
+   `SETUP report_mode=3d`, `SETUP mark_ready=1`, then `INPUT` lines.
 
-Move each stick separately, then exercise the D-pad, face buttons, shoulders,
-stick clicks, Plus, Minus and Home. The console prints all four axes, digital
-bitmasks, trigger values, battery field, update count and link age. Record physical
-button labels against returned bit positions rather than assuming Nintendo labels
-match Bluepad32's normalized A/B/X/Y names. POWER may turn off the controller
-instead of producing an input report. Battery zero means unknown in this API.
+`INPUT` lines are printed only when a button byte changes or an axis moves by more than
+two counts (at most 20 per second): `INPUT n= ms= lx= ly= rx= ry= b=xx,xx,xx`. A
+`STREAM_STALE` line means no report arrived for a second. Record physical button labels
+against returned bit positions rather than assuming Nintendo labels. The application
+initializes no gamepad GPIOs, secondary UART or Wi-Fi, and its only output to the gamepad
+is the player LED and data-mode requests above.
 
-Confirm continued operation beyond the previously observed unpaired shutdown,
-then power the controller off and verify a `DISCONNECTED` event. Reconnect and
-repeat a few inputs. Measure report intervals and reconnect behavior separately
-before designing a receiver timeout. A short trial is not a range, latency or
-failsafe qualification.
+Console commands: `?` status, `d` Bluetooth stack state, `l` limited inquiry (LIAC
+`0x9e8b00`), `g` general inquiry (GIAC `0x9e8b33`), `s` restart scanning, `f` forget
+pairing keys, `w<address>` arm the profile for one device until reset. Inquiry selection
+and the profile are temporary and reset with the board.
 
-The application prints input diagnostics only. It initializes no gamepad GPIOs,
-secondary UART or Wi-Fi, and sends no application rumble or LED commands. Bluepad32
-still performs the controller-protocol setup required for a connection. Pairing
-keys persist across resets; console `f` explicitly forgets them, `?` prints status,
-`d` reports Bluetooth stack/scanning/allowlist state, and `s` requests a fresh scan.
-Discovery names and connection/authentication events are logged before a controller
-is fully ready, so a failed attempt can distinguish discovery from HID setup.
-BLE advertisement counts and scan-command results check reception and inquiry
-independently of a recognized gamepad. `i` suspends normal scanning and requests a
-one-shot Classic inquiry lasting approximately 10 seconds; use `s` afterward to
-resume normal controller discovery. Repeat an inquiry only after it completes.
+The gamepad often needs a power-cycle (unplug and replug, or battery out and in) between
+attempts: after a dropped link it can keep answering inquiries while refusing connections.
 
 ## Sources
 
@@ -71,3 +97,4 @@ resume normal controller discovery. Repeat an inquiry only after it completes.
 - [Bluepad32 Arduino platform instructions](https://bluepad32.readthedocs.io/en/latest/plat_arduino/)
 - [Official core release](https://github.com/ricardoquesada/esp32-arduino-lib-builder/releases/tag/4.1.0)
 - [Espressif Bluetooth overview](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/bluetooth/)
+- [xwiimote Wii-family pairing observations](https://github.com/xwiimote/xwiimote/blob/master/doc/DEV_REMOTE)
