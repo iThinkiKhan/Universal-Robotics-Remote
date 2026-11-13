@@ -51,7 +51,17 @@
     "pcb_tab_width_and_length": null,
     "bare_pcb_thickness": null,
     "ribbon_free_length_left": null,
-    "ribbon_free_length_right": null
+    "ribbon_free_length_right": null,
+    "right_button_black_housing_height": {
+      "value": 15,
+      "state": "owner_measured",
+      "reference": "Owner: 'height of the right button is 15' in context of black-plastic-only housing dimensions; exact top/bottom datum not separately supplied."
+    },
+    "bottom_to_highest_black_plastic_piece": {
+      "value": 23,
+      "state": "owner_measured",
+      "reference": "Owner: 'the bottom to highest piece is 23'; interpreted as black-plastic housing total vertical range, excluding low PCB tabs, but exact bottom reference needs confirmation."
+    }
   },
   "mounting": {
     "holes_or_clips": "unknown: investigate molded plastic retention and any fasteners",
@@ -82,10 +92,14 @@
           "state": "owner_reported",
           "notes": "Owner says 'is 2mm lower thn the top of the plastic'; treat as vertical placement relative to plastic top, not a measured projection size or tab thickness."
         },
-        "length_mm": null,
+        "length_mm": {
+          "value": 15,
+          "state": "inferred_provisional",
+          "notes": "Assuming wing spans full 15 mm right button black-plastic housing; owner specifically stated full length of black plastic; not a separate direct wing measurement."
+        },
         "width_mm": null,
         "depth_mm": null,
-        "length_reference": "Equal to full length of black plastic housing, which has not been separately measured; do not equate to 29 mm total assembly height (includes green PCB tab)."
+        "length_reference": "Owner measures height of right button housing as 15 mm; because wing extends full length of black plastic on right, 15 mm is a provisional wing-span inference until the wing start/end are confirmed; the taller black plastic piece extends 23 mm from bottom."
       },
       "note": "These are retaining wings on switch assembly. Do not invent complete 3D wing outlines or enlarge owner-measured 37x29x15 envelope without reference checks."
     },
@@ -96,7 +110,7 @@
     "notes": "Owner should confirm whether this is a left or right shoulder assembly and measure the other separately if mirror not identical."
   },
   "pending": [
-    "Measure black plastic housing's total height along the right wing, excluding green PCB tabs; right retaining wing runs its entire length.",
+    "Confirm the 23 mm 'bottom to highest piece' reference is bottom of black housing to top of tall center piece (and not green tab); exact 15 mm wing correspondence is provisional.",
     "Measure left ear location (height from assembly top) and whether 6 mm dimension is lateral span and 2 mm is front-back projection; verify whether ears are included in 37 x 29 x 15 mm envelope.",
     "Identify photographed pair as left or right shoulder assembly based on mainboard SW1/SW2 and user confirmation.",
     "Locate shoulder switch solder tabs, land/pad positions and available solderable area for replacement wiring; existing ribbons deteriorating.",
