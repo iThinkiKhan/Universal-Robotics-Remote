@@ -46,6 +46,6 @@
       {"pin":3,"signal":"H","color":null},
       {"pin":4,"signal":"GND","color":null}
     ],"notes":"Candidate numbering only. A fifth position is reserved in the connection list for POWER (K_POW); it is not in this registry until its voltage is measured (M8). K-- pad is unsettled between TP69 and TP70."},
-    {"id":"J3","purpose":"Power","state":"unresolved","goes_to":null,"connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Physically distinct keyed connector; no pinout until the power circuit is decided and measured."}
+    {"id":"J3","purpose":"Power","state":"unresolved","goes_to":null,"connector":null,"view":null,"pin1_reference":null,"length_mm":null,"pins":[],"notes":"Approved power distribution uses the original gamepad donor plug plus two removable 3V3 branches. See electronics/power/netlist.md. Physical pin numbering, viewing directions and lengths await measurement."}
   ]
 }

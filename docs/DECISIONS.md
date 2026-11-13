@@ -19,5 +19,9 @@ Use direct StepUp board import for enclosure work. Native KiCad STEP exports req
 - Proposed J1 is an observer signal bundle with four axes, two stick clicks, ground and spare. It carries no power rail. Connector family, mating orientation, numbering, wire specification and electrical compatibility remain unresolved.
 - Add actuator transport only after failsafe, arming, freshness, link-loss and deadman requirements are tested.
 
+## 2026-11-13 — Single-pack controller power
+
+The owner approved the MakerFocus 103665 pack, HiLetgo protected-output distribution, existing EGSCST load switch, donor gamepad battery lead and shared XL63020 3.3 V regulator. Charge with the handheld off. Bench sizing and assembly verification follow the [approved design](../electronics/POWER_SYSTEM.md).
+
 ## 2026-11-13 - Enclosure: original shell kept, add-on pod (owner)
 The owner chose to keep the gamepad whole in its original shell and to house the display, both ESP boards, battery, charger, regulator, switch and microphone in a printed add-on pod. Signal wiring is left out of the enclosure work while a Bluetooth link is explored. Evidence: owner's reply in chat, 2026-11-13, to the concept `cad/enclosure/pod-r001`. Open: where the pod fixes to the shell and the shell's dimensions there, measured heights of the DevKitC, charger and regulator, the switch body, the direction of the 28 mm Dupont allowance. `pod-r001` remains a concept, not a printable part.

@@ -142,4 +142,4 @@ Candidate numbering only. A fifth position is reserved in the connection list fo
 
 ### J3 — Power (unresolved)
 
-Physically distinct keyed connector; no pinout until the power circuit is decided and measured.
+Approved power distribution uses the original gamepad donor plug plus two removable 3V3 branches. See electronics/power/netlist.md. Physical pin numbering, viewing directions and lengths await measurement.
