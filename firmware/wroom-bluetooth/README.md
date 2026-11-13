@@ -20,12 +20,14 @@ approve a replacement harness, power circuit, UART protocol or actuator path.
 pio run -d firmware/wroom-bluetooth -e wroom-bluetooth
 ```
 
-The environment pins Espressif32 7.0.1 and the official Arduino + Bluepad32 4.1.0
+The environment pins Espressif32 7.0.1, esptool 4.9.0, and the official Arduino + Bluepad32 4.1.0
 release archive (SHA-256
 `2b4916baba6c8d4e40b0330e12dd6a21ca7b95540337e6c2d2713831ccf3c394`).
 The target is `esp32dev`, with a large application partition. Use only the original
 ESP32 WROOM, not the S3 bench board. Preserve and verify a full flash backup before
 uploading replacement firmware; keep backups and raw identity logs private.
+If automatic download-mode entry fails, hold BOOT, tap EN/RESET, then release
+BOOT. Connect without another reset (`--before no_reset`) for the read/upload.
 
 ## Physical test
 
@@ -54,7 +56,14 @@ failsafe qualification.
 The application prints input diagnostics only. It initializes no gamepad GPIOs,
 secondary UART or Wi-Fi, and sends no application rumble or LED commands. Bluepad32
 still performs the controller-protocol setup required for a connection. Pairing
-keys persist across resets; console `f` explicitly forgets them, `?` prints status.
+keys persist across resets; console `f` explicitly forgets them, `?` prints status,
+`d` reports Bluetooth stack/scanning/allowlist state, and `s` requests a fresh scan.
+Discovery names and connection/authentication events are logged before a controller
+is fully ready, so a failed attempt can distinguish discovery from HID setup.
+BLE advertisement counts and scan-command results check reception and inquiry
+independently of a recognized gamepad. `i` suspends normal scanning and requests a
+one-shot Classic inquiry lasting approximately 10 seconds; use `s` afterward to
+resume normal controller discovery. Repeat an inquiry only after it completes.
 
 ## Sources
 
